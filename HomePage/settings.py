@@ -384,13 +384,14 @@ MULTI_CAPTCHA_ADMIN = {
     'engine': 'simple-captcha',
 }
 # 验证码图片大小
-CAPTCHA_IMAGE_SIZE = (78, 35)
+CAPTCHA_IMAGE_SIZE = (200, 100)
 # 字符个数
 CAPTCHA_LENGTH = 4
 # 超时
 CAPTCHA_TIMEOUT = 1
-
-
+#设置验证码图片中字体大小
+CAPTCHA_FONT_SIZE = 50
+CAPTCHA_NOISE_FUNCTIONS = ('captcha.helpers.noise_null','captcha.helpers.noise_null',)  #是否添加干扰点和干扰线，当值为'captcha.helpers.noise_null'时，表示不添加干扰
 # 联系我们的邮箱设置
 PRODUCT_MANAGER_EMAIL = 'sihaowei@56yhz.com'
 PERSONNEL_MANAGER_EMAIL = 'ting.yan@56yhz.com'
