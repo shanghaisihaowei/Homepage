@@ -1,0 +1,125 @@
+// Quasar SCSS (& Sass) Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass/SCSS variables found in Quasar's source Sass/SCSS files.
+
+// Check documentation for full list of Quasar variables
+
+// Your own variables (that are declared here) and Quasar's own
+// ones will be available out of the box in your .vue/.scss/.sass files
+
+// It's highly recommended to change the default colors
+// to match your app's branding.
+// Tip: Use the "Theme Builder" on Quasar's documentation website.
+
+$primary   : #1976D2;
+$secondary : #26A69A;
+$accent    : #9C27B0;
+
+$dark      : #1D1D1D;
+
+$positive  : #21BA45;
+$negative  : #C10015;
+$info      : #31CCEC;
+$warning   : #F2C037;
+
+
+
+//更改h字体
+.markdown
+    h1{
+        font-size: 2em !important;
+        line-height: 1.34em !important;
+        font-weight: bold !important;
+    }
+.markdown h2{
+        font-size: 1.5em !important;
+        line-height: 1.66em !important;
+        font-weight: bold !important;
+    }
+.markdown h3{
+        font-size: 1.17em !important;
+        line-height: 2em !important;
+        font-weight: bold !important;
+    }
+.markdown  h4{
+        font-size: 1em !important;
+        line-height: 2.66em !important;
+        font-weight: bold !important;
+    }
+.markdown  h5{
+        font-size: 0.83em !important;
+        line-height: 3.34em !important;
+        font-weight: bold !important;
+    }
+.markdown h6{
+        font-size: 0.67em !important;
+        line-height: em !important;
+        font-weight: bold !important;
+    }
+.markdown img{
+    max-width: 100%
+}
+//更改支付方式处q-btn的外边框颜色
+.pay_code
+    .q-btn--outline:before{
+        border: 1px solid #E3E3E3
+    }
+//更改币种选择处q-select显示的文本的颜色
+.payment_method
+    span{
+        color: #116FEC!important;
+    }
+//消除scrollArea带来的width的增加    
+.plugins_view_container
+    .absolute{
+        width: 100%;
+    }
+//设置分页btn的文字大小
+.q_pagination
+    .q-btn{
+        font-size: 18px;
+    }
+ //更改时间轴的样式   
+.timeline_subtitle
+    .q-timeline__subtitle{
+        font-size: 20px;
+        font-family: 'D';
+        font-weight: 400;
+        opacity: 1;
+        width: 230px!important;
+    }
+.timeline_subtitle
+    .q-timeline__title{
+        font-size: 20px !important;
+        font-weight: 400 !important;
+    }  
+.input_textarea
+    //更改textarea输入框的最低高度  
+    .q-field__control{
+        min-height: 200px !important;
+    }
+    // 更改markdown预览框的高度
+.input_textarea 
+    .q-field__marginal{
+        height: auto !important;
+        width: 50%;
+        background-color: white;
+    }    
+    //清除textarea的内边距
+.input_textarea 
+    .q-field__control{
+        padding: 0 0 0 15px !important;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+    }
+    //清除append插槽的左边距
+.input_textarea 
+    .q-field__append{
+        padding-left: 0 !important;
+    }
+.myAccount
+    .q-field__control{
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;  
+    }

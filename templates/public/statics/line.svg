@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="184px" height="1px" viewBox="0 0 184 1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <defs>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50.0014768%" id="linearGradient-1">
+            <stop stop-color="#116FEC" offset="0%"></stop>
+            <stop stop-color="#D8D8D8" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="个人中心-实名认证" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="实名认证" transform="translate(-910.000000, -231.000000)" fill="url(#linearGradient-1)">
+            <rect id="矩形" x="910" y="231" width="184" height="1"></rect>
+        </g>
+    </g>
+</svg>

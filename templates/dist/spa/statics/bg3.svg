@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" height="100%" viewBox="0 0 1920 774" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 3</title>
+    <g id="首页-网页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页" transform="translate(0.000000, -1649.000000)">
+            <g id="编组-3" transform="translate(0.000000, 1649.000000)">
+                <polygon id="矩形备份-2" fill="#FFFFFF" transform="translate(960.000000, 387.000000) scale(-1, -1) translate(-960.000000, -387.000000) " points="0 0 1920 0 1920 774 0 774"></polygon>
+                <path d="M0,0 L1920,0 L1920,508.696401 C1920,560.428436 1880.54416,603.620622 1829.02315,608.288483 L109.023153,764.122382 C54.0199647,769.105732 5.39126796,728.556641 0.407918399,673.553453 C0.136111606,670.553415 -2.80528059e-14,667.542627 0,664.5303 L0,0 L0,0 Z" id="矩形备份-2" fill="#F6F6F8" transform="translate(960.000000, 387.000000) scale(-1, -1) translate(-960.000000, -387.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880px" height="1221px" viewBox="0 0 880 1221" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 2</title>
+    <g id="-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="提现-提现说明" transform="translate(-680.000000, -412.000000)">
+            <g id="编组-2" transform="translate(680.000000, 412.000000)">
+                <text id="目前提现的方式有两种：银行账户和支付宝账" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="30" y="122">目前提现的方式有两种：银行账户和支付宝账户，提交提现申请前必须有提现账户，需要您完整并准确的输入您的账户信</tspan>
+                    <tspan x="30" y="147">息，否则将会打款失败，您可以在提现账户管理界面新增/编辑您的账户信息；</tspan>
+                </text>
+                <rect id="矩形备份-4" fill="#E6E6E6" x="0" y="78" width="880" height="1"></rect>
+                <rect id="矩形备份-3" fill="#FFFFFF" x="0" y="0" width="880" height="1221" rx="4"></rect>
+                <text id="提现方式" font-family="SourceHanSansCN-Medium, Source Han Sans CN" font-size="18" font-weight="400" fill="#333333">
+                    <tspan x="30" y="46">提现方式</tspan>
+                </text>
+                <text id="一、支付宝账户" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="18" font-weight="normal" fill="#333333">
+                    <tspan x="30" y="189">一、支付宝账户</tspan>
+                </text>
+                <text id="1、提现规则：-a、提现前必须完成实名认" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="66" y="228">1、提现规则：</tspan>
+                    <tspan x="66" y="253">a、提现前必须完成实名认证；</tspan>
+                    <tspan x="66" y="278">b、必须保证实名认证是本人，且支付宝账号必须和实名认证的用户信息绑定，否则将会打款失败；</tspan>
+                    <tspan x="66" y="303">c、用户发起提现申请后15个工作日我们将进行结算打款处理（如遇节假日顺延）；</tspan>
+                </text>
+                <text id="二、PayPal账户" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="18" font-weight="normal" fill="#333333">
+                    <tspan x="30" y="351">二、PayPal账户</tspan>
+                </text>
+                <text id="三、扣税" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="18" font-weight="normal" fill="#333333">
+                    <tspan x="30" y="488">三、扣税</tspan>
+                </text>
+                <text id="1、提现规则：-a、提现前必须完成实名认" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="66" y="390">1、提现规则：</tspan>
+                    <tspan x="66" y="415">a、提现前必须完成实名认证；</tspan>
+                    <tspan x="66" y="440">b、用户发起提现申请后15个工作日我们将进行结算打款处理（如遇节假日顺延）；</tspan>
+                </text>
+                <text id="平台将按照国家相关规定，对收益进行代扣代" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="66" y="533">平台将按照国家相关规定，对收益进行代扣代缴个人所得税，具体结算金额请以实际到账的金额为准，提现800以下（包</tspan>
+                    <tspan x="66" y="558">含800）不征税，800以上按照下方的个税计算公式进行征税：</tspan>
+                </text>
+                <text id="1.按照提现金额计算应纳税额所得额（见下" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="66" y="597">1.按照提现金额计算应纳税额所得额（见下图）</tspan>
+                </text>
+                <text id="2.按照计算后的应纳税所得额判断以下区间" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="66" y="802">2.按照计算后的应纳税所得额判断以下区间计算个税（见下图）</tspan>
+                </text>
+                <rect id="矩形" stroke="#979797" fill="#FFFFFF" x="66.5" y="624.5" width="747" height="134"></rect>
+                <rect id="矩形备份-26" fill="#E6E6E6" x="0" y="142" width="880" height="1"></rect>
+                <rect id="矩形备份-18" stroke="#979797" fill="#FFFFFF" x="66.5" y="829.5" width="747" height="182"></rect>
+                <rect id="矩形" stroke="#979797" fill="#FFFFFF" x="66.5" y="663.5" width="199" height="95"></rect>
+                <rect id="矩形备份-19" stroke="#979797" fill="#FFFFFF" x="66.5" y="868.5" width="199" height="143"></rect>
+                <text id="2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="168" y="741">2</tspan>
+                </text>
+                <text id="2备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="168" y="946">2</tspan>
+                </text>
+                <text id="3" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="168" y="994">3</tspan>
+                </text>
+                <rect id="矩形备份-16" stroke="#979797" fill="#FFFFFF" x="66.5" y="624.5" width="199" height="39"></rect>
+                <rect id="矩形备份-20" stroke="#979797" fill="#FFFFFF" x="66.5" y="829.5" width="199" height="39"></rect>
+                <rect id="矩形备份-15" stroke="#979797" fill="#FFFFFF" x="265.5" y="663.5" width="227" height="95"></rect>
+                <rect id="矩形备份-21" stroke="#979797" fill="#FFFFFF" x="265.5" y="868.5" width="227" height="143"></rect>
+                <rect id="矩形备份-17" stroke="#979797" fill="#FFFFFF" x="265.5" y="624.5" width="227" height="39"></rect>
+                <rect id="矩形备份-22" stroke="#979797" fill="#FFFFFF" x="265.5" y="829.5" width="227" height="39"></rect>
+                <rect id="矩形" stroke="#979797" x="66.5" y="711.5" width="747" height="1"></rect>
+                <rect id="矩形备份-23" stroke="#979797" x="66.5" y="916.5" width="747" height="1"></rect>
+                <rect id="矩形备份-25" stroke="#979797" x="66.5" y="964.5" width="747" height="1"></rect>
+                <rect id="矩形" stroke="#979797" fill="#FFFFFF" x="492.5" y="624.5" width="321" height="39"></rect>
+                <rect id="矩形备份-24" stroke="#979797" fill="#FFFFFF" x="492.5" y="829.5" width="321" height="39"></rect>
+                <text id="步骤" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="158" y="649">步骤</tspan>
+                </text>
+                <text id="步骤备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="158" y="854">步骤</tspan>
+                </text>
+                <text id="条件" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="364" y="649">条件</tspan>
+                </text>
+                <text id="条件备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="364" y="854">条件</tspan>
+                </text>
+                <text id="计算公式" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="622" y="649">计算公式</tspan>
+                </text>
+                <text id="计算公式备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="622" y="854">计算公式</tspan>
+                </text>
+                <text id="1" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="168" y="692">1</tspan>
+                </text>
+                <text id="1备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="168" y="897">1</tspan>
+                </text>
+                <text id="提现金额&lt;=4000" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="324" y="692">提现金额&lt;=4000</tspan>
+                </text>
+                <text id="应税所得额&lt;=20000" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="287" y="897">应税所得额&lt;=20000</tspan>
+                </text>
+                <text id="提现金额&gt;4000" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="324" y="741">提现金额&gt;4000</tspan>
+                </text>
+                <text id="20000&lt;应税所得额&lt;=50000" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="287" y="946">20000&lt;应税所得额&lt;=50000</tspan>
+                </text>
+                <text id="应税所得额&gt;50000" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="287" y="994">应税所得额&gt;50000</tspan>
+                </text>
+                <text id="应税所得额=提现金额-800" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="551" y="692">应税所得额=提现金额-800</tspan>
+                </text>
+                <text id="应扣税=应税所得额*20%" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="551" y="897">应扣税=应税所得额*20%</tspan>
+                </text>
+                <text id="应扣税=应税所得额*30%-2000" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="551" y="946">应扣税=应税所得额*30%-2000</tspan>
+                </text>
+                <text id="应扣税=应税所得额*40%-7000" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="551" y="994">应扣税=应税所得额*40%-7000</tspan>
+                </text>
+                <text id="应税所得额=提现金额*(1-20%)" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="551" y="741">应税所得额=提现金额*(1-20%)</tspan>
+                </text>
+                <text id="例如：" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="18" font-weight="normal" fill="#333333">
+                    <tspan x="66" y="1058">例如：</tspan>
+                </text>
+                <text id="3.-提现金额为900元，计算个税=（9" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="18" font-weight="normal" fill="#333333">
+                    <tspan x="66" y="1100">3. 提现金额为900元，计算个税=（900-800）20%</tspan>
+                    <tspan x="66" y="1128">4. 提现金额为5000元，计算个税=（5000（1-20%））20%</tspan>
+                    <tspan x="66" y="1156">5. 提现金额为30000元，计算个税=（30000（1-20%））*30%-2000</tspan>
+                </text>
+                <text id="目前提现的方式有两种：支付宝账户和Pay" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                    <tspan x="30" y="85">目前提现的方式有两种：支付宝账户和PayPal账户，提交提现申请前必须有提现账户，需要您完整并准确的输入您的账户信息，</tspan>
+                    <tspan x="30" y="110">否则将会打款失败，您可以在提现账户管理界面新增/编辑您的账户信息；</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

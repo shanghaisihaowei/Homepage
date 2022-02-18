@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880px" height="1615px" viewBox="0 0 880 1615" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 4</title>
+    <g id="-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-4">
+            <text id="一、-Alipay-account备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="18" font-weight="normal" fill="#333333">
+                <tspan x="30" y="515">一、 Alipay account</tspan>
+            </text>
+            <text id="1.-Withdrawal-rules:备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="66" y="554">1. Withdrawal rules:</tspan>
+                <tspan x="66" y="579">a. Real-name authentication must be completed before withdrawal;</tspan>
+                <tspan x="66" y="604">b. It must be ensured that the real-name authentication is the person, and the Alipay account must be bound with </tspan>
+                <tspan x="66" y="629">the user information of the real-name authentication, otherwise the payment will fail;</tspan>
+                <tspan x="66" y="654">c. We will process settlement and payment within 15 working days after the user initiates the withdrawal </tspan>
+                <tspan x="66" y="679">application (if it is postponed in case of holidays);</tspan>
+            </text>
+            <text id="二、PayPal-account备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="18" font-weight="normal" fill="#333333">
+                <tspan x="30" y="721">二、PayPal account</tspan>
+            </text>
+            <text id="三、VAT/TAX：备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="18" font-weight="normal" fill="#333333">
+                <tspan x="30" y="877">三、VAT/TAX：</tspan>
+            </text>
+            <text id="1.-Withdrawal-rules:备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="66" y="760">1. Withdrawal rules:</tspan>
+                <tspan x="66" y="785">a. Real-name authentication must be completed before withdrawal;</tspan>
+                <tspan x="66" y="810">b. We will process settlement and payment within 15 working days after the user initiates the withdrawal </tspan>
+                <tspan x="66" y="835">application (if it is postponed in case of holidays);</tspan>
+            </text>
+            <text id="The-platform-will-wi备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="66" y="922">The platform will withhold and pay personal income tax on the income in accordance with relevant national </tspan>
+                <tspan x="66" y="947">regulations. The specific settlement amount is subject to the actual amount received. Withdrawals below 8</tspan>
+                <tspan x="66" y="972">00 (including 800) are not subject to tax, and above 800 are subject to the following individual tax calculation </tspan>
+                <tspan x="66" y="997">formula To tax:</tspan>
+            </text>
+            <text id="1.-Calculate-the-tax备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="66" y="1036">1. Calculate the taxable income according to the withdrawal amount (see the figure below)</tspan>
+            </text>
+            <text id="2.-According-to-the备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="66" y="1241">2. According to the calculated taxable income, determine the following range to calculate the personal </tspan>
+                <tspan x="66" y="1266">tax (see the figure below)</tspan>
+            </text>
+            <rect id="矩形备份-27" fill="#E6E6E6" x="0" y="468" width="880" height="1"></rect>
+            <text id="例如：备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="18" font-weight="normal" fill="#333333">
+                <tspan x="66" y="1522">例如：</tspan>
+            </text>
+            <text id="3.-The-withdrawal-am备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="66" y="1561">3. The withdrawal amount is 900 yuan, and the calculation of personal tax = (900-800) 20%</tspan>
+                <tspan x="66" y="1586">4. The withdrawal amount is 5,000 yuan, and the calculation of personal tax = (5,000 (1-20%)) 20%</tspan>
+                <tspan x="66" y="1611">5. The withdrawal amount is 30,000 yuan, and the tax calculation = (30,000 (1-20%))*30%-2000</tspan>
+            </text>
+            <text id="1.-Real-name-authent备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="30" y="92">1. Real-name authentication is required before withdrawal can be made;</tspan>
+                <tspan x="30" y="117">2. The account income can only be withdrawn if the income exceeds 800 yuan;</tspan>
+                <tspan x="30" y="142">3. If the current month’s cumulative withdrawal amount is 100 yuan &lt;= the current month’s cumulative withdrawal </tspan>
+                <tspan x="30" y="167">amount &lt;= 800 yuan, no tax deduction is required; if the current month’s cumulative withdrawal amount is &gt;800 yuan, </tspan>
+                <tspan x="30" y="192">the corresponding individual tax will be deducted according to the national statutory tax;</tspan>
+                <tspan x="30" y="217">4. After withdrawing cash, you can file personal income tax declaration by yourself. Failure to declare personal income </tspan>
+                <tspan x="30" y="242">tax will bear legal consequences.</tspan>
+            </text>
+            <rect id="矩形备份-16" fill="#E6E6E6" x="0" y="48" width="880" height="1"></rect>
+            <text id="Withdrawal-Instructi备份" font-family="SourceHanSansCN-Medium, Source Han Sans CN" font-size="18" font-weight="400" fill="#333333">
+                <tspan x="30" y="16">Withdrawal Instructions</tspan>
+            </text>
+            <text id="Withdrawal-method：备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="18" font-weight="normal" fill="#333333">
+                <tspan x="30" y="332">Withdrawal method：</tspan>
+            </text>
+            <text id="The-platform-will-wi备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="30" y="367">The platform will withhold and pay personal income tax on the income in accordance with relevant national </tspan>
+                <tspan x="30" y="392">regulations. The specific settlement amount is subject to the actual amount received. Withdrawals below 800 </tspan>
+                <tspan x="30" y="417">(including 800) are not subject to tax, and above 800 are subject to the following individual tax calculation formula </tspan>
+                <tspan x="30" y="442">To tax:</tspan>
+            </text>
+            <rect id="矩形备份-61" stroke="#979797" fill="#FFFFFF" x="67.5" y="1062.5" width="746" height="134"></rect>
+            <rect id="矩形备份-62" stroke="#979797" fill="#FFFFFF" x="66.5" y="1101.5" width="112" height="95"></rect>
+            <text id="2备份-6" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="117" y="1179">2</tspan>
+            </text>
+            <rect id="矩形备份-63" stroke="#979797" fill="#FFFFFF" x="66.5" y="1062.5" width="112" height="39"></rect>
+            <rect id="矩形备份-64" stroke="#979797" fill="#FFFFFF" x="178.5" y="1101.5" width="261" height="95"></rect>
+            <rect id="矩形备份-65" stroke="#979797" fill="#FFFFFF" x="178.5" y="1062.5" width="261" height="39"></rect>
+            <rect id="矩形备份-66" stroke="#979797" x="67.5" y="1149.5" width="746" height="1"></rect>
+            <rect id="矩形备份-67" stroke="#979797" fill="#FFFFFF" x="439.888393" y="1062.5" width="373.611607" height="39"></rect>
+            <text id="step备份-3" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="106" y="1087">step</tspan>
+            </text>
+            <text id="condition备份-3" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="271" y="1087">condition</tspan>
+            </text>
+            <text id="Calculation-formula备份-3" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="548" y="1087">Calculation formula</tspan>
+            </text>
+            <text id="1备份-6" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="117" y="1130">1</tspan>
+            </text>
+            <text id="Withdrawal-Amount-&lt;=备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="214" y="1130">Withdrawal Amount &lt;= 4000</tspan>
+            </text>
+            <text id="Withdrawal-Amount-&gt;备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="214" y="1179">Withdrawal Amount  &gt; 4000</tspan>
+            </text>
+            <text id="taxable-income=Withd备份-3" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="471" y="1130">taxable income=Withdrawal Amount-800</tspan>
+            </text>
+            <text id="taxable-income=Withd备份-4" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="471" y="1179">taxable income=Withdrawal Amount*(1-20%)</tspan>
+            </text>
+            <rect id="矩形备份-68" stroke="#979797" fill="#FFFFFF" x="67.5" y="1292.5" width="746" height="183"></rect>
+            <rect id="矩形备份-69" stroke="#979797" fill="#FFFFFF" x="66.5" y="1331.5" width="112" height="144"></rect>
+            <rect id="矩形备份-70" stroke="#979797" fill="#FFFFFF" x="66.5" y="1292.5" width="112" height="39"></rect>
+            <rect id="矩形备份-71" stroke="#979797" fill="#FFFFFF" x="178.5" y="1331.5" width="280" height="144"></rect>
+            <rect id="矩形备份-72" stroke="#979797" fill="#FFFFFF" x="178.5" y="1292.5" width="280" height="39"></rect>
+            <rect id="矩形备份-73" stroke="#979797" x="67.5" y="1379.5" width="746" height="1"></rect>
+            <rect id="矩形备份-74" stroke="#979797" x="67.5" y="1427.5" width="746" height="1"></rect>
+            <rect id="矩形备份-75" stroke="#979797" fill="#FFFFFF" x="458.5" y="1292.5" width="355" height="39"></rect>
+            <text id="2备份-7" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="117" y="1409">2</tspan>
+            </text>
+            <text id="3备份-4" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="117" y="1457">3</tspan>
+            </text>
+            <text id="step备份-4" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="106" y="1317">step</tspan>
+            </text>
+            <text id="condition备份-4" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="268" y="1317">condition</tspan>
+            </text>
+            <text id="Calculation-formula备份-4" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="542" y="1317">Calculation formula</tspan>
+            </text>
+            <text id="1备份-7" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="117" y="1360">1</tspan>
+            </text>
+            <text id="taxable-income-&lt;=-20备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="214" y="1360">taxable income &lt;= 20000</tspan>
+            </text>
+            <text id="20000&lt;-taxable-incom备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="214" y="1409">20000&lt; taxable income &lt;=50000</tspan>
+            </text>
+            <text id="taxable-income-&gt;5000备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="214" y="1457">taxable income &gt;50000</tspan>
+            </text>
+            <text id="VAT/TAX:=taxable-inc备份-4" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="504" y="1360">VAT/TAX:=taxable income *20%</tspan>
+            </text>
+            <text id="VAT/TAX:=taxable-inc备份-5" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="504" y="1409">VAT/TAX:=taxable income *30%-2000</tspan>
+            </text>
+            <text id="VAT/TAX:=taxable-inc备份-6" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="504" y="1457">VAT/TAX:=taxable income *40%-7000</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

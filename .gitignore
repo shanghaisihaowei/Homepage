@@ -1,0 +1,9 @@
+.idea/
+__pycache__/
+*.bak
+*.dir
+*.dat
+db.sqlite3
+*.pyc
+*.pb
+delete.py

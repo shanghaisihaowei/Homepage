@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="577px" height="680px" viewBox="0 0 577 680" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 2</title>
+    <g id="-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-2" transform="translate(0.258621, 0.000000)">
+            <text id="扣税备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="18" font-weight="normal" fill="#333333">
+                <tspan x="-0.25862069" y="16">扣税</tspan>
+            </text>
+            <text id="平台将按照国家相关规定，对收益进行代扣代备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal">
+                <tspan x="-0.25862069" y="51" fill="#333333">平台将按照国家相关规定，对收益进行代扣代缴个人所得税，具体结算金额请以实际</tspan>
+                <tspan x="-0.25862069" y="75" fill="#333333">到账的金额为准，提现</tspan>
+                <tspan x="139.741379" y="75" fill="#B81414">800以下（包含800）不征税</tspan>
+                <tspan x="312.361379" y="75" fill="#333333">，800以上按照下方的个税计算公</tspan>
+                <tspan x="-0.25862069" y="99" fill="#333333">式进行征税：</tspan>
+            </text>
+            <text id="1.按照提现金额计算应纳税额所得额（见下备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="-0.25862069" y="137">1.按照提现金额计算应纳税额所得额（见下图）</tspan>
+            </text>
+            <rect id="矩形备份-31" stroke="#979797" fill="#FFFFFF" x="1.24137931" y="163.5" width="575" height="134"></rect>
+            <rect id="矩形备份-32" stroke="#979797" fill="#FFFFFF" x="1.24137931" y="366.5" width="575" height="183"></rect>
+            <rect id="矩形备份-33" stroke="#979797" fill="#FFFFFF" x="0.24137931" y="202.5" width="112" height="95"></rect>
+            <rect id="矩形备份-34" stroke="#979797" fill="#FFFFFF" x="0.24137931" y="405.5" width="112" height="144"></rect>
+            <text id="2备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="50.7413793" y="280">2</tspan>
+            </text>
+            <rect id="矩形备份-35" stroke="#979797" fill="#FFFFFF" x="0.24137931" y="163.5" width="112" height="39"></rect>
+            <rect id="矩形备份-36" stroke="#979797" fill="#FFFFFF" x="0.24137931" y="366.5" width="112" height="39"></rect>
+            <rect id="矩形备份-37" stroke="#979797" fill="#FFFFFF" x="112.241379" y="202.5" width="164" height="95"></rect>
+            <rect id="矩形备份-38" stroke="#979797" fill="#FFFFFF" x="112.241379" y="405.5" width="211" height="144"></rect>
+            <rect id="矩形备份-39" stroke="#979797" fill="#FFFFFF" x="112.241379" y="163.5" width="164" height="39"></rect>
+            <rect id="矩形备份-40" stroke="#979797" fill="#FFFFFF" x="112.241379" y="366.5" width="211" height="39"></rect>
+            <rect id="矩形备份-41" stroke="#979797" x="1.24137931" y="250.5" width="575" height="1"></rect>
+            <rect id="矩形备份-42" stroke="#979797" x="1.24137931" y="453.5" width="575" height="1"></rect>
+            <rect id="矩形备份-43" stroke="#979797" x="1.24137931" y="501.5" width="575" height="1"></rect>
+            <rect id="矩形备份-44" stroke="#979797" fill="#FFFFFF" x="277.241379" y="163.5" width="299" height="39"></rect>
+            <rect id="矩形备份-45" stroke="#979797" fill="#FFFFFF" x="323.241379" y="366.5" width="253" height="39"></rect>
+            <text id="步骤备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="39.7413793" y="188">步骤</tspan>
+            </text>
+            <text id="条件备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="181.741379" y="188">条件</tspan>
+            </text>
+            <text id="计算公式备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="390.741379" y="188">计算公式</tspan>
+            </text>
+            <text id="1备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="50.7413793" y="231">1</tspan>
+            </text>
+            <text id="提现金额&lt;=4000备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="137.741379" y="231">提现金额&lt;=4000</tspan>
+            </text>
+            <text id="提现金额&gt;4000备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="137.741379" y="280">提现金额&gt;4000</tspan>
+            </text>
+            <text id="应税所得额=提现金额-800备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="321.741379" y="231">应税所得额=提现金额-800</tspan>
+            </text>
+            <text id="应税所得额=提现金额*(1-20%)备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="321.741379" y="280">应税所得额=提现金额*(1-20%)</tspan>
+            </text>
+            <text id="2.按照计算后的应纳税所得额判断以下区间备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="-0.25862069" y="340">2.按照计算后的应纳税所得额判断以下区间计算个税（见下图）</tspan>
+            </text>
+            <text id="2备份-3" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="50.7413793" y="483">2</tspan>
+            </text>
+            <text id="3备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="50.7413793" y="531">3</tspan>
+            </text>
+            <text id="步骤备份-3" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="39.7413793" y="391">步骤</tspan>
+            </text>
+            <text id="条件备份-3" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="202.741379" y="391">条件</tspan>
+            </text>
+            <text id="计算公式备份-3" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="408.741379" y="391">计算公式</tspan>
+            </text>
+            <text id="1备份-3" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="15" font-weight="normal" fill="#333333">
+                <tspan x="50.7413793" y="434">1</tspan>
+            </text>
+            <text id="应税所得额&lt;=20000" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="123.741379" y="434">应税所得额&lt;=20000</tspan>
+            </text>
+            <text id="20000&lt;应税所得额&lt;=50000备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="123.741379" y="483">20000&lt;应税所得额&lt;=50000</tspan>
+            </text>
+            <text id="应税所得额&gt;50000备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="123.741379" y="531">应税所得额&gt;50000</tspan>
+            </text>
+            <text id="应扣税=应税所得额*20%备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="342.741379" y="434">应扣税=应税所得额*20%</tspan>
+            </text>
+            <text id="应扣税=应税所得额*30%-2000备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="342.741379" y="483">应扣税=应税所得额*30%-2000</tspan>
+            </text>
+            <text id="应扣税=应税所得额*40%-7000备份-2" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="14" font-weight="normal" fill="#333333">
+                <tspan x="342.741379" y="531">应扣税=应税所得额*40%-7000</tspan>
+            </text>
+            <text id="例如：备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="18" font-weight="normal" fill="#333333">
+                <tspan x="-0.25862069" y="590">例如：</tspan>
+            </text>
+            <text id="3.-提现金额为900元，计算个税=（9备份" font-family="SourceHanSansCN-Regular, Source Han Sans CN" font-size="16" font-weight="normal" fill="#333333">
+                <tspan x="-0.25862069" y="626">3. 提现金额为900元，计算个税=（900-800）20%</tspan>
+                <tspan x="-0.25862069" y="652">4. 提现金额为5000元，计算个税=（5000（1-20%））20%</tspan>
+                <tspan x="-0.25862069" y="678">5. 提现金额为30000元，计算个税=（30000（1-20%））*30%-2000</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

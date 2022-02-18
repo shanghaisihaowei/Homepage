@@ -1,0 +1,36 @@
+.bgi {
+  background-image: url('/statics/background.svg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%!important;
+  margin-top: -50px;
+}
+//@font-face {
+//  font-family: SourceHanSans;
+//  src: url(../components/SourceHanSansSC-VF.woff);
+//}
+//@font-face {
+//  font-family: D;
+//  src: url(../components/D-DIN.woff);
+//}
+
+
+// 声明一个应用它的类
+// .my-font {
+// }
+// .my-font-D {
+// }
+
+//统一设置底部边界的样式
+.bottom_border{
+    border-bottom: 1px solid #dcdcdc
+}
+//统一设置顶部边界的样式
+
+.top_border{
+    border-top: 1px solid #dcdcdc
+}
+//设置圆角为圆形
+.radius_circle{
+    border-radius: 50%;
+}
+
