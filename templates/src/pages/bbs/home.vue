@@ -1852,7 +1852,10 @@ export default defineComponent({
       if (_this.$q.cookies.get('lang') === 'ja') {
         _this.$q.cookies.set('lang','en-US')
         location.reload()
-      }else{}
+      }else if (_this.$q.cookies.get('lang') === 'zh-hant'){
+        _this.$q.cookies.set('lang','zh-hans')
+        location.reload()
+      } else {}
     } else {}
   },
   watch: {
