@@ -6,7 +6,7 @@ export default {
     success: 'Action was successful',
     index: {
         title: 'GreaterWMS',
-        osc: 'Open Source Community',
+        osc: 'OSC',
         login: 'Login',
         register: 'Register',
         forget: 'Forgot Password?',
