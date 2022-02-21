@@ -1370,7 +1370,15 @@ export default defineComponent({
       var _this = this;
       get("/user/api/v1/get_email/?email=" + e)
         .then((res) => {
-          if (res.code !== 200) {
+          if (res.detail) {
+            if (res.detail === 'The email number is invalid') {
+              _this.$q.notify({
+                message: _this.$t("notice.email_invalid"),
+                icon: "close",
+                color: "negative",
+              });
+            }
+          }else if (res.msg === '邮箱已注册'){
             _this.$q.notify({
               message: _this.$t("community.emailable"),
               icon: "close",
