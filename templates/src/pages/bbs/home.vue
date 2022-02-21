@@ -1848,6 +1848,12 @@ export default defineComponent({
     } else {
       _this.$store.dispatch("bbsChange/loginChange", false);
     }
+    if (_this.$q.cookies.has('lang')){
+      if (_this.$q.cookies.get('lang') === 'ja') {
+        _this.$q.cookies.set('lang','en-US')
+        location.reload()
+      }else{}
+    } else {}
   },
   watch: {
     lang(lang) {
