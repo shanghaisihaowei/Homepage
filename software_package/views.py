@@ -92,6 +92,7 @@ class SoftwareReleaseAddView(ModelViewSet):
             if file_type not in ['zip']:
                 raise APIException({"detail": "文件类型必须是zip"})
         data = self.request.data
+        user_obj = models.UserInfo.objects.filter(id=request.user.pk).first()
         if data.get('name') is None:
             raise APIException({"detail": "插件名不能为空"})
 
@@ -108,6 +109,7 @@ class SoftwareReleaseAddView(ModelViewSet):
                 'direction_for_use': data.get('direction_for_use'),
                 'affiliation':data.get('affiliation'),
                 'direction_markdown_text':data.get('direction_markdown_text'),
+                'soft_label':user_obj.user_type,
             }
 
             serializer = self.get_serializer(data=data_dic)
@@ -150,7 +152,7 @@ class SoftwareReleaseAddView(ModelViewSet):
                     'currency': data.get('currency'),
                     'affiliation':data.get('affiliation'),
                     'direction_markdown_text':data.get('direction_markdown_text'),
-
+                    'soft_label':user_obj.user_type,
                 }
                 serializer = self.get_serializer(data=data_dic)
                 serializer.is_valid(raise_exception=True)
@@ -191,6 +193,7 @@ class SoftwareReleaseAddView(ModelViewSet):
                     'currency': data.get('currency'),
                     'affiliation':data.get('affiliation'),
                     'direction_markdown_text':data.get('direction_markdown_text'),
+                    'soft_label': user_obj.user_type,
                 }
                 serializer = self.get_serializer(data=data_dic)
                 serializer.is_valid(raise_exception=True)

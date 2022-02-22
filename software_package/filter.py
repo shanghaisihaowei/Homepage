@@ -20,5 +20,6 @@ class SoftwareFilter(FilterSet):
             "affiliation": ['exact', 'iexact'],
             "earnings": ['exact', 'iexact', 'contains', 'icontains', 'gt', 'gte', 'lt', 'lte', 'range'],
             "create_time": ['year', 'month', 'day', 'week_day', 'gt', 'gte', 'lt', 'lte', 'range'],
-            "updata_time": ['year', 'month', 'day', 'week_day', 'gt', 'gte', 'lt', 'lte', 'range']
+            "updata_time": ['year', 'month', 'day', 'week_day', 'gt', 'gte', 'lt', 'lte', 'range'],
+            "soft_label": ['exact', 'iexact'],
         }

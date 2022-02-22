@@ -66,6 +66,7 @@ class Software(BaseModel):
     comment_count = models.PositiveIntegerField(verbose_name='评论数', default=0)
     # version_type = models.CharField(max_length=32,verbose_name='发布的版本类型',null=True,blank=True)
     direction_markdown_text = models.TextField(verbose_name='插件使用说明副本',null=True,blank=True)
+    soft_label = models.SmallIntegerField(null=True,blank=True,verbose_name='软件官方标识')
     class Meta:
         db_table = 'homepage_software'
         verbose_name = '插件表'
