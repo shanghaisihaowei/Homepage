@@ -234,14 +234,16 @@ class SoftwareReleaseAddView(ModelViewSet):
                 raise APIException({"detail": "文件类型必须是zip"})
 
         updata_dic = {
-            'source_code_file': files
+            'source_code_file': files,
+            'direction_for_use':request.data.get('direction_for_use'),
+            'direction_markdown_text':request.data.get('direction_markdown_text')
         }
         serializer = self.get_serializer(instance, data=updata_dic, partial=partial)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         data = request.data
         soft_obj = models.Software.objects.filter(pk=serializer.data['id']).first()
-        models.Versions.objects.create(version=data['version'], plugin_instructions=data['plugin_instructions'],
+        models.Versions.objects.create(version=data['version'], plugin_instructions=data['plugin_instructions'],plugin_markdown_text=data['plugin_markdown_text'],
                                        software=soft_obj)
         return Response(serializer.data)
 from rest_framework_simplejwt.tokens import Token
