@@ -226,6 +226,8 @@ export default {
   },
   mounted() {
     this.getdetailedinfo()
+    this.$store.dispatch("bbsChange/mobileLogo", 'statics/DV_logo_w.svg');
+    this.$store.dispatch("bbsChange/titletype", 'DVAdmin');
   }
 }
 </script>

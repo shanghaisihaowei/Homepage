@@ -18,6 +18,7 @@ export default function () {
         to_login: '',
         link: 'GreaterWMS',
         logo: 'img:statics/logo_black.svg',
+        mobileLogo: 'statics/logo.svg',
         titletype: 'GreaterWMS'
     }
 }

@@ -227,6 +227,8 @@ export default {
   },
   mounted() {
     this.getdetailedinfo()
+    this.$store.dispatch("bbsChange/mobileLogo", 'statics/logo.svg');
+    this.$store.dispatch("bbsChange/titletype", 'GreaterWMS');
   }
 }
 </script>
