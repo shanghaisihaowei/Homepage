@@ -26,15 +26,15 @@
     <!--                文章列表-->
     <q-card v-for="(item, index) in allArtInfos" :key="index" square class="col-12 my-card shadow-0"
             style="border-bottom: 1px #dcdcdc solid;padding: 0">
+      <div @click.stop="
+                this.$router.push({
+                  path: `/community/mobile/GreaterWMSDetail/${item.id}`
+                });setid(item.id)
+              ">
       <q-card-section>
         <div class="my-font card_tol Wrap_two">
           <a
             style="cursor: pointer"
-            @click.stop="
-                this.$router.push({
-                  path: `/community/GreaterWMSDetail/${item.id}`
-                });setid(item.id)
-              "
             class="my-font card_tol Wrap_two"
           >
             {{ item.title }}
@@ -52,6 +52,7 @@
 
         <q-card-section v-html="item.intro" class="article_text my-font"></q-card-section>
       </q-card-section>
+      </div>
 
       <q-card-actions style="margin-top: -10px">
         <div

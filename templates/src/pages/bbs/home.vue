@@ -1850,6 +1850,11 @@ export default defineComponent({
   },
   mounted() {
     var _this = this;
+    if (_this.$q.platform.is.mobile) {
+      this.$router.push({name: 'community_mobile'})
+    } else {
+      this.$router.push({name: 'community'})
+    }
     if (_this.$q.cookies.has("token")) {
       _this.getuserinfo();
       _this.$store.dispatch("bbsChange/loginChange", true);
