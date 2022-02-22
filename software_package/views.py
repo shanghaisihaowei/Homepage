@@ -235,8 +235,6 @@ class SoftwareReleaseAddView(ModelViewSet):
 
         updata_dic = {
             'source_code_file': files,
-            'direction_for_use':request.data.get('direction_for_use'),
-            'direction_markdown_text':request.data.get('direction_markdown_text')
         }
         serializer = self.get_serializer(instance, data=updata_dic, partial=partial)
         serializer.is_valid(raise_exception=True)

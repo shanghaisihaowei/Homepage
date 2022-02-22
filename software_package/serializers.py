@@ -209,12 +209,21 @@ class MyPublishPluginsDetailModelSerializer(serializers.ModelSerializer):
     """
     tab = serializers.SerializerMethodField()
     versions = serializers.SerializerMethodField()
+    # source_code_file = serializers.SerializerMethodField()
     class Meta:
         model = models.Software
         fields = ['tab','versions','affiliation','currency','name','brief','source_code_file','direction_for_use','rnb','dollar','check','release_form','direction_markdown_text']
     def get_tab(self,obj):
         tab_queyset = models.Tab.objects.filter(software = obj).values('tab_name')
         return tab_queyset
+    # def get_source_code_file(self,obj):
+    #     '''
+    #     http://127.0.0.1:8000/media/upload/2022/02/22/dist_Du5CFnc.zip
+    #     upload/2022/02/22/dist_Du5CFnc.zip
+    #     '''
+    #     source_code_file=obj.source_code_file
+    #     if source_code_file.split('/',4)
+
 
     def get_versions(self,obj):
         versions_list = []
