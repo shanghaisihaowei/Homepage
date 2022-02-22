@@ -86,6 +86,9 @@
         <markdown-aditor
           :placeholder="placeholder_update"
           @getMarkdownHtml="getMarkdownHtml"
+          @getMarkdownText="getMarkdownText"
+          :needUploadImg="false"
+          :idIndex="0"
         ></markdown-aditor>
       </q-card-section>
       <q-card-section>
@@ -128,6 +131,7 @@ export default {
       timelineList: "",
       file: "",
       versionsType: "",
+      markdownText: "",
       versionsOptions: [
         this.$t("community.e_shop_view.official_version"),
         this.$t("community.e_shop_view.beta_version"),
@@ -156,13 +160,18 @@ export default {
     getPluginDetail() {
       get("software/api/v1/softwaregetret/" + this.pluginId + "/").then(
         (res) => {
-          this.pluginName = res.name;
-          this.timelineList = res.versions;
+          if (res.code !== 998) {
+            this.pluginName = res.name;
+            this.timelineList = res.versions;
+          }
         }
       );
     },
     getMarkdownHtml(val) {
       this.updateNotes = val;
+    },
+    getMarkdownText(val) {
+      this.markdownText = val;
     },
     getUploadFile(file) {
       this.file = file;
@@ -173,6 +182,7 @@ export default {
       formData.append("version", `V${this.pluginVersions}`);
       formData.append("plugin_instructions", this.updateNotes);
       formData.append("version_type", this.versionsType);
+      formData.append("plugin_markdown_text", this.markdownText);
       return formData;
     },
     submitUpdate() {

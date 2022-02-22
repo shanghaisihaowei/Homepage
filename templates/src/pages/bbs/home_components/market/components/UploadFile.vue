@@ -37,10 +37,23 @@
 </template>
 <script>
 export default {
+  props: {
+    fileName: "",
+  },
   data() {
     return {
       upload_fileName: "",
     };
+  },
+  watch: {
+    fileName: {
+      handler(val) {
+        if (val) {
+          this.upload_fileName = val;
+        }
+      },
+      immediate: true,
+    },
   },
   methods: {
     uploadFile(e) {

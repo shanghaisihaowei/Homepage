@@ -79,8 +79,7 @@ export default {
     placeholder: "",
     needUploadImg: "",
     idIndex: "",
-    type: "",
-    article: "",
+    markdownText: "",
   },
   data() {
     return {
@@ -92,9 +91,6 @@ export default {
   },
   computed: {
     markedValue() {
-      if (this.value === "") {
-        this.$emit("getMarkdownHtml", marked(this.value));
-      }
       return marked(this.value);
     },
   },
@@ -102,7 +98,18 @@ export default {
     value(val) {
       if (val) {
         this.hidePlaceholder();
+      } else {
+        this.$emit("getMarkdownHtml", marked(this.value));
       }
+    },
+    markdownText: {
+      handler(val) {
+        if (val) {
+          this.value = val;
+          this.$emit("getMarkdownHtml", marked(this.value));
+        }
+      },
+      immediate: true,
     },
   },
   methods: {
@@ -126,9 +133,7 @@ export default {
         this.showPholder = true;
       }
       this.$emit("getMarkdownHtml", marked(this.value));
-      if (this.type === "article") {
-        this.$emit("getMarkdownText", this.value);
-      }
+      this.$emit("getMarkdownText", this.value);
     },
     uploadImg(e) {
       let formData = new FormData();
@@ -138,11 +143,6 @@ export default {
         this.$refs.img.value = "";
       });
     },
-  },
-  created() {
-    if (this.article) {
-      this.value = this.article;
-    }
   },
 };
 </script>

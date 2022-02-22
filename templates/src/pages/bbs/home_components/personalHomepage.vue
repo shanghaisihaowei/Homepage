@@ -234,8 +234,7 @@
                   @getMarkdownText="getMarkdownText"
                   :needUploadImg="true"
                   :idIndex="1"
-                  type="article"
-                  :article="markdown_text"
+                  :markdownText="markdown_text"
                 ></markdown-aditor>
               </div>
               <!--          确认修改-->

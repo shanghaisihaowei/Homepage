@@ -148,7 +148,9 @@
         <markdown-aditor
           :placeholder="placeholder_update"
           @getMarkdownHtml="getMarkdownHtml('updateNotes', $event)"
+          @getMarkdownText="getMarkdownText('updateMarkdown', $event)"
           :needUploadImg="false"
+          :markdownText="updateMarkdown"
           :idIndex="0"
         ></markdown-aditor>
       </q-card-section>
@@ -160,12 +162,17 @@
         <markdown-aditor
           :placeholder="placeholder_use"
           @getMarkdownHtml="getMarkdownHtml('useNotes', $event)"
+          @getMarkdownText="getMarkdownText('useMarkdown', $event)"
+          :markdownText="useMarkdown"
           :needUploadImg="true"
           :idIndex="1"
         ></markdown-aditor>
       </q-card-section>
       <q-card-section>
-        <upload-file @getUploadFile="getUploadFile"></upload-file>
+        <upload-file
+          @getUploadFile="getUploadFile"
+          :fileName="this.pluginId === 'newPlugin' ? '' : this.fileName"
+        ></upload-file>
       </q-card-section>
       <q-card-section>
         <div class="text-h6 q-mb-sm">
@@ -242,7 +249,7 @@
 </template>
 <script>
 import { defineComponent } from "vue";
-import { getauth,upload } from "boot/axios.js";
+import { getauth, uploadpost, uploadput } from "boot/axios.js";
 import UploadFile from "./components/UploadFile.vue";
 import MarkdownAditor from "./components/MarkdownAditor.vue";
 
@@ -291,9 +298,14 @@ export default defineComponent({
       error_des: false,
       errorMessage_des: this.$t("community.e_shop_view.maxlength_100_des"),
       file: "",
+      fileName: "",
       pluginId: "",
       error_amount: false,
       amountError: this.$t("community.myAccount_view.money_tip"),
+      updateMarkdown: "",
+      useMarkdown: "",
+      submit: "",
+      submitUrl: "",
     };
   },
   computed: {
@@ -323,6 +335,11 @@ export default defineComponent({
               this.isFilled = false;
               break;
             }
+          } else if (
+            item == "source_code_file" &&
+            this.pluginId !== "newPlugin"
+          ) {
+            this.isFilled = true;
           } else {
             this.isFilled = false;
             break;
@@ -386,6 +403,8 @@ export default defineComponent({
     showPlaceholder(val, placeholder) {
       if (!this[val]) {
         this[placeholder] = true;
+      } else {
+        this.pluginTag = this.pluginTag.replace(/，/g, ",");
       }
     },
     //发布插件
@@ -398,10 +417,9 @@ export default defineComponent({
         let formData = this.setUploadFormData();
         let tip = this.$t("community.myAccount_view.release_success");
         this.$router.push("/community/myReleasedPlugins");
-        upload("software/api/v1/add/", formData)
+        this.submit(this.submitUrl, formData)
           .then((res) => {
-            console.log(res.data.code)
-            if(res.data.code !== 998){
+            if (res.data.code !== 998) {
               this.$nextTick(() => {
                 this.$q.notify({
                   message: tip,
@@ -422,6 +440,9 @@ export default defineComponent({
     },
     //获取markdown输入的文字
     getMarkdownHtml(key, val) {
+      this[key] = val;
+    },
+    getMarkdownText(key, val) {
       this[key] = val;
     },
     //设置上传的formData对象
@@ -448,18 +469,24 @@ export default defineComponent({
         formData.append("dollar", this.money);
       }
       formData.append("currency", currency);
+      formData.append("direction_markdown_text", this.useMarkdown);
+      formData.append("plugin_markdown_text", this.updateMarkdown);
       return formData;
     },
-
+    //编辑插件时获取插件信息
     getMyPluginInfo() {
       getauth(`software/api/v1/my_soft/${this.pluginId}/`).then((res) => {
-        this.pluginBelonging = res.affiliation == 0 ? "GreateWMS" : "DVAdmin";
+        this.fileName = res.source_code_file;
+        this.pluginBelonging =
+          res.affiliation == 0
+            ? this.$t("community.greaterwms")
+            : this.$t("community.dvadmin");
         this.pluginName = res.name;
         this.pluginDes = res.brief;
         this.pluginVersions = res.versions[0].version;
         this.versionsType = res.versions[0].version_type;
-        this.updateNotes = res.versions[0].plugin_instructions;
-        this.useNotes = res.direction_for_use;
+        this.updateMarkdown = res.versions[0].plugin_markdown_text;
+        this.useMarkdown = res.direction_markdown_text;
         this.radio_button = res.release_form == 0 ? "free" : "pay";
         if (res.release_form == 1) {
           this.paymentMethod = res.currency == 0 ? "￥" : "$";
@@ -469,16 +496,28 @@ export default defineComponent({
             this.money = res.rnb;
           }
         }
-        res.tab.forEach((element) => {
-          this.pluginTag = this.pluginTag + element.tab_name + ",";
+        res.tab.forEach((element, index) => {
+          let separator;
+          if (index === res.tab.length - 1) {
+            separator = "";
+          } else {
+            separator = ",";
+          }
+          this.pluginTag = this.pluginTag + element.tab_name + separator;
         });
       });
     },
   },
   created() {
+    document.body.scrollTop = 0;
     this.pluginId = this.$route.params.id;
     if (this.pluginId != "newPlugin") {
       this.getMyPluginInfo();
+      this.submit = uploadput;
+      this.submitUrl = `software/api/v1/my_soft/${this.pluginId}/`;
+    } else {
+      this.submit = uploadpost;
+      this.submitUrl = "software/api/v1/add/";
     }
   },
 });
