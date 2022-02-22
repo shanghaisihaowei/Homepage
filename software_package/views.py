@@ -241,7 +241,7 @@ class SoftwareReleaseAddView(ModelViewSet):
         serializer.save()
         data = request.data
         soft_obj = models.Software.objects.filter(pk=serializer.data['id']).first()
-        models.Versions.objects.create(version=data['version'], plugin_instructions=data['plugin_instructions'],plugin_markdown_text=data['plugin_markdown_text'],
+        models.Versions.objects.create(version=data['version'],version_type=data.get('version_type'), plugin_instructions=data['plugin_instructions'],plugin_markdown_text=data['plugin_markdown_text'],
                                        software=soft_obj)
         return Response(serializer.data)
 from rest_framework_simplejwt.tokens import Token
