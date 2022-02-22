@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div style="padding-bottom: 50px">
+    <q-input v-model="pagelocation" style="display:none"/>
     <!--    搜索框-->
     <q-card class="row q-pa-md my-card shadow-0" style="padding-bottom: 0">
       <div class="col-12">
@@ -32,10 +33,10 @@
                 });setid(item.id)
               ">
       <q-card-section>
-        <div class="my-font card_tol Wrap_two">
+        <div class=" card_tol Wrap_two">
           <a
             style="cursor: pointer"
-            class="my-font card_tol Wrap_two"
+            class="card_tol Wrap_two"
           >
             {{ item.title }}
           </a>
@@ -50,13 +51,13 @@
               height: 110px;border-radius: 4px;"/>
         </q-card-section>
 
-        <q-card-section v-html="item.intro" class="article_text my-font"></q-card-section>
+        <q-card-section v-html="item.intro" class="article_text "></q-card-section>
       </q-card-section>
       </div>
 
       <q-card-actions style="margin-top: -10px">
         <div
-          class="my-font flex flex-center"
+          class=" flex flex-center"
           style="
               font-size: 14px;
               font-weight: 400;
@@ -73,7 +74,7 @@
             </span>
         </div>
         <div
-          class="my-font flex flex-center"
+          class=" flex flex-center"
           style="
               font-size: 14px;
               font-weight: 400;
@@ -103,7 +104,6 @@
 import {defineComponent} from 'vue';
 import {get, getauth} from "boot/axios";
 import {throttle, createMetaMixin} from 'quasar'
-import jwtDecode from "jwt-decode";
 
 export default defineComponent({
   data() {
@@ -241,12 +241,6 @@ export default defineComponent({
   },
   mounted() {
     var _this = this;
-    if (_this.$q.cookies.has('token')) {
-      let userinfoStr = jwtDecode(_this.$q.cookies.get("token"));
-      _this.icon = window.g.BaseUrl + userinfoStr.icon
-    } else {
-    }
-    _this.allArtInfos = []
     _this.getList = throttle(this.getList, 1000)
     _this.getList()
     this.$store.dispatch("bbsChange/logo", 'img:statics/logo_black.svg');

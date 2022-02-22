@@ -29,26 +29,26 @@
                     </q-item-section>
                   </q-item>
                   <q-item clickable :to="{ name : 'phone' }" v-ripple>
-                    <q-item-section class="col-10 menu_left my-font text-left">
+                    <q-item-section class="col-10 menu_left  text-left">
                       {{ $t("community.backfontpage") }}
                     </q-item-section>
                   </q-item>
                   <q-item>
-                    <q-item-section class="col-10 menu_left my-font text-left">
+                    <q-item-section class="col-10 menu_left  text-left">
                       {{ $t("index.osc") }}
                     </q-item-section>
                   </q-item>
                   <q-item clickable :to="{ name : 'articleList' }" v-ripple class="row">
                     <div class="col-1">
                     </div>
-                    <q-item-section class="col-10 menu_left my-font text-left">
+                    <q-item-section class="col-10 menu_left  text-left">
                       GreaterWMS{{ $t("index.osc") }}
                     </q-item-section>
                   </q-item>
                   <q-item clickable :to="{ name : 'articleListDV' }" v-ripple class="row">
                     <q-item-section class="col-1">
                     </q-item-section>
-                    <q-item-section class="col-10 menu_left my-font text-left">
+                    <q-item-section class="col-10 menu_left  text-left">
                       DVadmin{{ $t("index.osc") }}
                     </q-item-section>
                   </q-item>
@@ -102,13 +102,13 @@
                     </q-item>
                     <!--                中文简体-->
                     <q-item clickable v-ripple @click="langChange('zh-hans')" class="border_bottom menu_right">
-                      <q-item-section class="menu_left my-font text-left">
+                      <q-item-section class="menu_left  text-left">
                         中文简体
                       </q-item-section>
                     </q-item>
                     <!--                    English-->
                     <q-item clickable @click="langChange('en-US')" v-ripple class="border_bottom menu_right">
-                      <q-item-section class="menu_left my-font text-left">
+                      <q-item-section class="menu_left  text-left">
                         English
                       </q-item-section>
                     </q-item>
@@ -126,10 +126,23 @@
                          :visible="visible"
                          ref="scrollAreaIndex"
                          @scroll="onScroll()"
+                         :delay="1500"
                          :style="{ height: scroll_height, width: width }"
           >
           <router-view/>
           </q-scroll-area>
+          <q-page-sticky
+            position="bottom-right"
+            :offset="[25, 100]"
+          >
+            <q-btn
+              padding="md"
+              icon="img:statics/return.svg"
+              style="opacity: 0.18; background: #000000"
+              @click="ScrollToTop()"
+            >
+            </q-btn>
+          </q-page-sticky>
         </q-page>
       </q-page-container>
     </q-layout>
@@ -149,9 +162,9 @@ export default defineComponent({
       thumbStyle: {
         right: '4px',
         borderRadius: '5px',
-        backgroundColor: '#E0E0E0',
+        backgroundColor: '#116FEC',
         width: '8px',
-        opacity: 0.75
+        opacity: 0.5
       },
       barStyle: {
         right: '2px',
@@ -176,7 +189,7 @@ export default defineComponent({
     },
     onScroll() {
       var _this = this
-      _this.pagelocation = _this.$refs.scrollAreaIndex.getScrollPercentage().top
+      this.$store.dispatch("pagelocation/pageLocationChange", _this.$refs.scrollAreaIndex.getScrollPercentage().top);
     },
   },
   computed: {

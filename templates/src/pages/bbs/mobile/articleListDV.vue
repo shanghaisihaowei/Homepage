@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div style="padding-bottom: 50px">
+    <q-input v-model="pagelocation" style="display:none"/>
     <!--    搜索框-->
     <q-card class="row q-pa-md my-card shadow-0" style="padding-bottom: 0">
       <div class="col-12">
