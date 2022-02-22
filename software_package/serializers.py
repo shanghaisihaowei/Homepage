@@ -260,3 +260,10 @@ class RedactSoftwarePutModelSerializer(serializers.ModelSerializer):
         for item in versions_queyset:
             versions_list.append(item)
         return versions_list
+
+
+class BannerGETModelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Banner
+        fields = ['title','image','link','info']

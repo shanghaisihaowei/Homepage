@@ -35,6 +35,7 @@ urlpatterns = [
     path('comment/',views.CommentCreateView.as_view({'post':'create'})),
     path('my_soft/', views.MySoftwareReleaseGetView.as_view({'get': 'list'})),
     path('my_soft/<int:id>/', views.MySoftwareReleaseGetView.as_view({'get': 'retrieve','put': 'update','patch': 'partial_update',})),
+    path('banner_soft/',views.Bannerlistview.as_view({'get':'list'})),
 ]
 urlpatterns+=router.urls
 

@@ -130,3 +130,24 @@ class Comment_soft(BaseModel):
 
     def __str__(self):
         return "评论文章：%s   审核状态：%s  评论用户：%s  评论内容:%s"%(str(self.softwares),self.get_check_person_display(),self.user,self.content)
+
+
+
+class Banner(models.Model):
+    title = models.CharField(max_length=128,blank=True,verbose_name='名称')
+    image = models.ImageField(upload_to='banner', verbose_name='图片')
+    link = models.CharField(max_length=64,blank=True, verbose_name='跳转链接')
+    info = models.TextField(blank=True,verbose_name='详情')
+    created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    updated_time = models.DateTimeField(auto_now=True, verbose_name='最后更新时间')
+    is_delete = models.BooleanField(default=False, verbose_name='是否删除')
+    is_show = models.BooleanField(default=True, verbose_name='是否上架')
+    orders = models.IntegerField(verbose_name='优先级')
+
+    class Meta:
+        db_table = 'homepage_banner'
+        verbose_name='软件广告位轮播图'
+        verbose_name_plural=verbose_name
+
+    def __str__(self):
+        return "%s"%str(self.title)

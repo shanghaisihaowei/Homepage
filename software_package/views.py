@@ -675,3 +675,21 @@ class RedactSoftware(ModelViewSet):
         kwargs['partial'] = True
         return self.update(request, *args, **kwargs)
 
+
+
+class Bannerlistview(ModelViewSet):
+    queryset = models.Banner.objects.filter(is_delete=False, is_show=True).order_by('orders')[
+               :settings.BANNER_COUNT]
+    serializer_class = serializers.BannerGETModelSerializer
+
+    def get_queryset(self):
+        queryset = models.Banner.objects.filter(is_delete=False, is_show=True).order_by('orders')[
+                   :settings.BANNER_COUNT]
+        return queryset
+
+    def get_serializer_class(self):
+        if self.action in ['list']:
+            return serializers.BannerGETModelSerializer
+        else:
+            return self.http_method_not_allowed(request=self.request)
+
