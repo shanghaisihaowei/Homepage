@@ -126,10 +126,23 @@
                          :visible="visible"
                          ref="scrollAreaIndex"
                          @scroll="onScroll()"
+                         :delay="1500"
                          :style="{ height: scroll_height, width: width }"
           >
           <router-view/>
           </q-scroll-area>
+          <q-page-sticky
+            position="bottom-right"
+            :offset="[25, 100]"
+          >
+            <q-btn
+              padding="md"
+              icon="img:statics/return.svg"
+              style="opacity: 0.18; background: #000000"
+              @click="ScrollToTop()"
+            >
+            </q-btn>
+          </q-page-sticky>
         </q-page>
       </q-page-container>
     </q-layout>
@@ -149,9 +162,9 @@ export default defineComponent({
       thumbStyle: {
         right: '4px',
         borderRadius: '5px',
-        backgroundColor: '#E0E0E0',
+        backgroundColor: '#116FEC',
         width: '8px',
-        opacity: 0.75
+        opacity: 0.5
       },
       barStyle: {
         right: '2px',
@@ -176,7 +189,7 @@ export default defineComponent({
     },
     onScroll() {
       var _this = this
-      _this.pagelocation = _this.$refs.scrollAreaIndex.getScrollPercentage().top
+      this.$store.dispatch("pagelocation/pageLocationChange", _this.$refs.scrollAreaIndex.getScrollPercentage().top);
     },
   },
   computed: {

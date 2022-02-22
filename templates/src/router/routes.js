@@ -169,7 +169,17 @@ const routes = [{
             path: 'articleListDV',
             name: 'articleListDV',
             component: () => import('pages/bbs/mobile/articleListDV.vue'),
-          }
+          },
+          {
+            path: 'GreaterWMSDetail/:id',
+            name: 'GreaterWMSDetail_m',
+            component: () => import('pages/bbs/mobile/articleDetail.vue')
+          },
+          {
+            path: 'DVadminDetail/:id',
+            name: 'DVadminDetail_m',
+            component: () => import('pages/bbs/mobile/articleDetailDV.vue')
+          },
         ]
       },
     ]
