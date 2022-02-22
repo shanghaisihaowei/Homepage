@@ -1028,7 +1028,6 @@
               @getMarkdownText="getMarkdownText"
               :needUploadImg="true"
               :idIndex="1"
-              type="article"
             ></markdown-aditor>
           </div>
         </div>
@@ -1371,14 +1370,14 @@ export default defineComponent({
       get("/user/api/v1/get_email/?email=" + e)
         .then((res) => {
           if (res.detail) {
-            if (res.detail === 'The email number is invalid') {
+            if (res.detail === "The email number is invalid") {
               _this.$q.notify({
                 message: _this.$t("notice.email_invalid"),
                 icon: "close",
                 color: "negative",
               });
             }
-          }else if (res.msg === '邮箱已注册'){
+          } else if (res.msg === "邮箱已注册") {
             _this.$q.notify({
               message: _this.$t("community.emailable"),
               icon: "close",
@@ -1851,9 +1850,7 @@ export default defineComponent({
   mounted() {
     var _this = this;
     if (_this.$q.platform.is.mobile) {
-      this.$router.push({name: 'community_mobile'})
-    } else {
-      this.$router.push({name: 'community'})
+      this.$router.push({ name: "community_mobile" });
     }
     if (_this.$q.cookies.has("token")) {
       _this.getuserinfo();
@@ -1861,15 +1858,17 @@ export default defineComponent({
     } else {
       _this.$store.dispatch("bbsChange/loginChange", false);
     }
-    if (_this.$q.cookies.has('lang')){
-      if (_this.$q.cookies.get('lang') === 'ja') {
-        _this.$q.cookies.set('lang','en-US')
-        location.reload()
-      }else if (_this.$q.cookies.get('lang') === 'zh-hant'){
-        _this.$q.cookies.set('lang','zh-hans')
-        location.reload()
-      } else {}
-    } else {}
+    if (_this.$q.cookies.has("lang")) {
+      if (_this.$q.cookies.get("lang") === "ja") {
+        _this.$q.cookies.set("lang", "en-US");
+        location.reload();
+      } else if (_this.$q.cookies.get("lang") === "zh-hant") {
+        _this.$q.cookies.set("lang", "zh-hans");
+        location.reload();
+      } else {
+      }
+    } else {
+    }
   },
   watch: {
     lang(lang) {
