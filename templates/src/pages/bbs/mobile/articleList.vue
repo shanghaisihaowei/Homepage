@@ -243,7 +243,7 @@ export default defineComponent({
     var _this = this;
     _this.getList = throttle(this.getList, 1000)
     _this.getList()
-    this.$store.dispatch("bbsChange/logo", 'img:statics/logo_black.svg');
+    this.$store.dispatch("bbsChange/mobileLogo", 'statics/logo.svg');
     this.$store.dispatch("bbsChange/titletype", 'GreaterWMS');
   }
 });

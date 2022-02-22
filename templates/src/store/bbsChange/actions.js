@@ -31,3 +31,6 @@ export function logo(context, val) {
 export function titletype(context, val) {
   context.commit("TITLETYPE", val);
 }
+export function mobileLogo(context, val) {
+  context.commit("MOBILELOGO", val);
+}
