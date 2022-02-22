@@ -28,7 +28,6 @@ router = routers.SimpleRouter()
 
 urlpatterns = [
     path('softwareget/',views.SoftwareReleaseGetView.as_view({'get':'list'})),
-    path('softwareget/',views.SoftwareReleaseGetView.as_view({'get':'list'})),
     path('softwaregetret/<int:id>/',views.SoftwareReleaseGetView.as_view({'get':'retrieve'})),
     path('add/',views.SoftwareReleaseAddView.as_view({'post':'create'})),
     path('add/<int:id>/',views.SoftwareReleaseAddView.as_view({'put':'update'})),

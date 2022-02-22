@@ -48,7 +48,7 @@ class SoftwareReleaseDetailModelSerializer(serializers.ModelSerializer):
     comment = serializers.SerializerMethodField()
     class Meta:
         model=models.Software
-        fields = ['id','name','brief','user','tab','release_form','direction_for_use','rnb','dollar','create_time','updata_time','versions','people_buy','comment','number_downloads','affiliation']
+        fields = ['id','name','brief','user','tab','release_form','direction_for_use','rnb','dollar','create_time','updata_time','versions','people_buy','comment','number_downloads','affiliation','direction_markdown_text']
 
     def get_tab(self,obj):
         tab_queyset = models.Tab.objects.filter(software = obj).values('tab_name')
@@ -61,7 +61,7 @@ class SoftwareReleaseDetailModelSerializer(serializers.ModelSerializer):
 
     def get_versions(self,obj):
         versions_list = []
-        versions_queyset = models.Versions.objects.filter(software=obj).values('version','plugin_instructions','updata_time','version_type')
+        versions_queyset = models.Versions.objects.filter(software=obj).values('version','plugin_instructions','updata_time','version_type','plugin_markdown_text')
         for item in versions_queyset:
             item['updata_time'] = item['updata_time'].strftime('%Y-%m-%d')
             versions_list.append(item)
@@ -140,7 +140,8 @@ class SoftwareReleaseAddModelSerializer(serializers.ModelSerializer):
         插件作者
 
     """
-
+    create_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
+    updata_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
     class Meta:
         model = models.Software
         # fields = ['id','name','brief','rnb','dollar','user','check','release_form']
@@ -152,7 +153,7 @@ class SoftwareReleaseUpdateModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Software
-        fields = ['id','name','source_code_file']
+        fields = ['id','name','source_code_file','direction_markdown_text']
         extra_kwargs = {
             'name':{'read_only':True}
         }
@@ -196,7 +197,7 @@ class MyPublishPluginsListModelSerializer(serializers.ModelSerializer):
     check = serializers.CharField(source="get_check_dispaly",read_only=True)
     class Meta:
         model = models.Software
-        fields = ['id','name','brief','rnb','dollar','create_time','updata_time','tab','check','earnings']
+        fields = ['id','name','brief','rnb','dollar','create_time','updata_time','tab','check','earnings','direction_markdown_text']
 
     def get_tab(self,obj):
         tab_queyset = models.Tab.objects.filter(software = obj).values('tab_name')
@@ -210,7 +211,7 @@ class MyPublishPluginsDetailModelSerializer(serializers.ModelSerializer):
     versions = serializers.SerializerMethodField()
     class Meta:
         model = models.Software
-        fields = ['tab','versions','affiliation','currency','name','brief','source_code_file','direction_for_use','rnb','dollar','check','release_form']
+        fields = ['tab','versions','affiliation','currency','name','brief','source_code_file','direction_for_use','rnb','dollar','check','release_form','direction_markdown_text']
     def get_tab(self,obj):
         tab_queyset = models.Tab.objects.filter(software = obj).values('tab_name')
         return tab_queyset
@@ -246,7 +247,7 @@ class RedactSoftwarePutModelSerializer(serializers.ModelSerializer):
     versions = serializers.SerializerMethodField()
     class Meta:
         model = models.Software
-        fields = ['release_form','dollar','rnb','direction_for_use','source_code_file','brief','name','currency','affiliation','tab','versions']
+        fields = ['release_form','dollar','rnb','direction_for_use','source_code_file','brief','name','currency','affiliation','tab','versions','direction_markdown_text']
 
     def get_tab(self, obj):
         tab_queyset = models.Tab.objects.filter(software=obj).values('tab_name')

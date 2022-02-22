@@ -107,6 +107,7 @@ class SoftwareReleaseAddView(ModelViewSet):
                 'release_form': 0,
                 'direction_for_use': data.get('direction_for_use'),
                 'affiliation':data.get('affiliation'),
+                'direction_markdown_text':data.get('direction_markdown_text'),
             }
 
             serializer = self.get_serializer(data=data_dic)
@@ -118,6 +119,7 @@ class SoftwareReleaseAddView(ModelViewSet):
                 'plugin_instructions': data.get('plugin_instructions'),
                 'software': soft_obj,
                 'version_type': data.get('version_type'),
+                'plugin_markdown_text':data.get('plugin_markdown_text'),
             }
             models.Versions.objects.create(**ver_dic)
             tab_name = data.get('tab_name')
@@ -147,6 +149,7 @@ class SoftwareReleaseAddView(ModelViewSet):
                     'direction_for_use': data.get('direction_for_use'),
                     'currency': data.get('currency'),
                     'affiliation':data.get('affiliation'),
+                    'direction_markdown_text':data.get('direction_markdown_text'),
 
                 }
                 serializer = self.get_serializer(data=data_dic)
@@ -158,6 +161,7 @@ class SoftwareReleaseAddView(ModelViewSet):
                     'plugin_instructions': data.get('plugin_instructions'),
                     'software': soft_obj,
                     'version_type':data.get('version_type'),
+                    'plugin_markdown_text':data.get('plugin_markdown_text'),
                 }
                 models.Versions.objects.create(**ver_dic)
                 tab_name = data.get('tab_name')
@@ -186,6 +190,7 @@ class SoftwareReleaseAddView(ModelViewSet):
                     'direction_for_use': data.get('direction_for_use'),
                     'currency': data.get('currency'),
                     'affiliation':data.get('affiliation'),
+                    'direction_markdown_text':data.get('direction_markdown_text'),
                 }
                 serializer = self.get_serializer(data=data_dic)
                 serializer.is_valid(raise_exception=True)
@@ -196,6 +201,7 @@ class SoftwareReleaseAddView(ModelViewSet):
                     'plugin_instructions': data.get('plugin_instructions'),
                     'software': soft_obj,
                     'version_type': data.get('version_type'),
+                    'plugin_markdown_text':data.get('plugin_markdown_text'),
                 }
                 models.Versions.objects.create(**ver_dic)
                 tab_name = data.get('tab_name')
@@ -281,12 +287,14 @@ class DownLoadZipFile(GenericAPIView):
                     try:
                         path = str(obj.source_code_file)
                         file_path = str(os.path.join(settings.MEDIA_ROOT, str(obj.source_code_file).replace('\\', '/')))
-                        print(file_path)
+                        obj.number_downloads = F('number_downloads') + 1 # 下载次数+1
+                        obj.save()
                         # wrapper = FileWrapper(open(filename, 'rb'))
                         response = FileResponse(open(str(file_path), 'rb'))
                         response['Content-Type'] = 'application/octet-stream'
                         response['Content-Disposition'] = 'attachment; filename="%s"' % urlquote(path.split('/')[-1])
                         response['Content-Length'] = os.path.getsize(file_path)
+
                         return response
                     except Exception:
                         raise Http404
@@ -454,6 +462,7 @@ class MySoftwareReleaseGetView(ModelViewSet):
                         'rnb':data.get('rnb',None),
                         'dollar':data.get('dollar',None),
                         'release_form': int(data.get('release_form')),
+                        'direction_markdown_text':data.get('direction_markdown_text')
                     }
             else:
                 dict_data = {
@@ -466,6 +475,7 @@ class MySoftwareReleaseGetView(ModelViewSet):
                     'rnb': data.get('rnb', None),
                     'dollar': data.get('dollar', None),
                     'release_form': int(data.get('release_form')),
+                    'direction_markdown_text':data.get('direction_markdown_text')
                 }
             serializer = self.get_serializer(instance, data=dict_data, partial=partial)
             serializer.is_valid(raise_exception=True)
@@ -515,6 +525,7 @@ class MySoftwareReleaseGetView(ModelViewSet):
                             'rnb': float(data.get('rnb')),
                             'dollar': 0,
                             'release_form': int(data.get('release_form')),
+                            'direction_markdown_text':data.get('direction_markdown_text')
                         }
                 else:
                     dict_data = {
@@ -527,6 +538,7 @@ class MySoftwareReleaseGetView(ModelViewSet):
                         'rnb': float(data.get('rnb')),
                         'dollar': 0,
                         'release_form': int(data.get('release_form')),
+                        'direction_markdown_text':data.get('direction_markdown_text')
                     }
 
                 serializer = self.get_serializer(instance, data=dict_data, partial=partial)
@@ -576,6 +588,7 @@ class MySoftwareReleaseGetView(ModelViewSet):
                             'rnb': 0,
                             'dollar': data.get('dollar'),
                             'release_form': int(data.get('release_form')),
+                            'direction_markdown_text':data.get('direction_markdown_text')
                         }
                 else:
                     dict_data = {
@@ -588,6 +601,7 @@ class MySoftwareReleaseGetView(ModelViewSet):
                         'rnb': 0,
                         'dollar': data.get('dollar'),
                         'release_form': int(data.get('release_form')),
+                        'direction_markdown_text':data.get('direction_markdown_text')
                     }
 
                 serializer = self.get_serializer(instance, data=dict_data, partial=partial)
@@ -596,7 +610,7 @@ class MySoftwareReleaseGetView(ModelViewSet):
                 soft_obj = models.Software.objects.filter(pk=instance.pk).first()
                 result = models.Versions.objects.filter(software=soft_obj).values('id').annotate(max_id=Max('id'))
                 result_id_list = [item['max_id'] for item in result]
-                models.Versions.objects.filter(id__in=result_id_list).update(version=data.get('version'),plugin_instructions=data.get('plugin_instructions'),version_type=data.get('version_type'))
+                models.Versions.objects.filter(id__in=result_id_list).update(version=data.get('version'),plugin_instructions=data.get('plugin_instructions'),version_type=data.get('version_type'),plugin_markdown_text=data.get('plugin_markdown_text'))
                 models.Tab.objects.filter(software=soft_obj).delete()
                 tab_name = data.get('tab_name')
                 if '，' in tab_name:

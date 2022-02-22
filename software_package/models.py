@@ -65,7 +65,7 @@ class Software(BaseModel):
     earnings = models.DecimalField(max_digits=8,decimal_places=2,default=0,verbose_name='收益')
     comment_count = models.PositiveIntegerField(verbose_name='评论数', default=0)
     # version_type = models.CharField(max_length=32,verbose_name='发布的版本类型',null=True,blank=True)
-
+    direction_markdown_text = models.TextField(verbose_name='插件使用说明副本',null=True,blank=True)
     class Meta:
         db_table = 'homepage_software'
         verbose_name = '插件表'
@@ -75,7 +75,7 @@ class Software(BaseModel):
         return str(self.name)
 
 
-class  Versions(BaseModel):
+class Versions(BaseModel):
     """
     发布插件-版本
     """
@@ -85,6 +85,7 @@ class  Versions(BaseModel):
     software = models.ForeignKey(to='Software', on_delete=models.SET_NULL, null=True, blank=True, db_constraint=False,
                                  related_name='ver_softwares',
                                  verbose_name="插件id")
+    plugin_markdown_text = models.TextField(verbose_name='插件说明副本',null=True,blank=True) # 更新说明
 
 
     class Meta:
