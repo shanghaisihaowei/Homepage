@@ -33,10 +33,10 @@
                 });setid(item.id)
               ">
       <q-card-section>
-        <div class="my-font card_tol Wrap_two">
+        <div class=" card_tol Wrap_two">
           <a
             style="cursor: pointer"
-            class="my-font card_tol Wrap_two"
+            class="card_tol Wrap_two"
           >
             {{ item.title }}
           </a>
@@ -51,13 +51,13 @@
               height: 110px;border-radius: 4px;"/>
         </q-card-section>
 
-        <q-card-section v-html="item.intro" class="article_text my-font"></q-card-section>
+        <q-card-section v-html="item.intro" class="article_text "></q-card-section>
       </q-card-section>
       </div>
 
       <q-card-actions style="margin-top: -10px">
         <div
-          class="my-font flex flex-center"
+          class=" flex flex-center"
           style="
               font-size: 14px;
               font-weight: 400;
@@ -74,7 +74,7 @@
             </span>
         </div>
         <div
-          class="my-font flex flex-center"
+          class=" flex flex-center"
           style="
               font-size: 14px;
               font-weight: 400;
