@@ -27,7 +27,7 @@ class SoftwareReleaseGETModelSerializer(serializers.ModelSerializer):
     check = serializers.CharField(source='get_check_display',read_only=True)
     class Meta:
         model = models.Software
-        fields =['id','name','brief','user','tab','release_form','rnb','dollar','create_time','updata_time','people_buy','currency','number_downloads','affiliation','earnings','check']
+        fields =['id','soft_label','name','brief','user','tab','release_form','rnb','dollar','create_time','updata_time','people_buy','currency','number_downloads','affiliation','earnings','check']
 
     def get_tab(self,obj):
         queryset=models.Tab.objects.filter(software=obj).values('tab_name')
@@ -142,11 +142,29 @@ class SoftwareReleaseAddModelSerializer(serializers.ModelSerializer):
     """
     create_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
     updata_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
+    # source_code_file = serializers.SerializerMethodField()
     class Meta:
         model = models.Software
         # fields = ['id','name','brief','rnb','dollar','user','check','release_form']
-        fields = "__all__"
-
+        fields = ['id','user','soft_label','affiliation','currency','name','brief','source_code_file','direction_for_use','direction_markdown_text','rnb','dollar','check','putaway','people_buy','number_downloads','release_form','earnings','comment_count','create_time','updata_time','is_delete']
+    # def get_source_code_file(self,obj):
+    #     '''
+    #     http://127.0.0.1:8000/media/upload/2022/02/22/dist_Du5CFnc.zip
+    #     upload/2022/02/22/dist_Du5CFnc.zip
+    #     '''
+    #     source_code_file=str(obj.source_code_file)
+    #     print(source_code_file)
+    #     return source_code_file
+        # print(source_code_file)
+        # source_code_files = source_code_file.split('/',4)
+        # print(source_code_files)
+        # files=source_code_files[-1]
+        # files_name = files.split('.')[0]
+        # if '_' in files_name:
+        #     files_names=files_name.split('_')[-2]
+        #     return files_names+'.zip'
+        # else:
+        #     return files_name
 
 
 class SoftwareReleaseUpdateModelSerializer(serializers.ModelSerializer):
@@ -209,20 +227,28 @@ class MyPublishPluginsDetailModelSerializer(serializers.ModelSerializer):
     """
     tab = serializers.SerializerMethodField()
     versions = serializers.SerializerMethodField()
-    # source_code_file = serializers.SerializerMethodField()
+    source_code_file = serializers.SerializerMethodField()
     class Meta:
         model = models.Software
         fields = ['tab','versions','affiliation','currency','name','brief','source_code_file','direction_for_use','rnb','dollar','check','release_form','direction_markdown_text']
     def get_tab(self,obj):
         tab_queyset = models.Tab.objects.filter(software = obj).values('tab_name')
         return tab_queyset
-    # def get_source_code_file(self,obj):
-    #     '''
-    #     http://127.0.0.1:8000/media/upload/2022/02/22/dist_Du5CFnc.zip
-    #     upload/2022/02/22/dist_Du5CFnc.zip
-    #     '''
-    #     source_code_file=obj.source_code_file
-    #     if source_code_file.split('/',4)
+    def get_source_code_file(self,obj):
+        '''
+        http://127.0.0.1:8000/media/upload/2022/02/22/dist_Du5CFnc.zip
+        upload/2022/02/22/dist_Du5CFnc.zip
+        '''
+        source_code_file=str(obj.source_code_file)
+        source_code_files = source_code_file.split('/',4)
+        files=source_code_files[-1]
+        files_name = files.split('.')[0]
+        if '_' in files_name:
+            files_names=files_name.split('_')[-2]
+            return files_names+'.zip'
+        else:
+            return files_name
+
 
 
     def get_versions(self,obj):
