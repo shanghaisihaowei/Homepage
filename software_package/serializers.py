@@ -218,7 +218,7 @@ class MyPublishPluginsDetailModelSerializer(serializers.ModelSerializer):
 
     def get_versions(self,obj):
         versions_list = []
-        versions_queyset = models.Versions.objects.filter(software=obj).values('version','plugin_instructions','version_type')
+        versions_queyset = models.Versions.objects.filter(software=obj).values('version','plugin_instructions','version_type','plugin_markdown_text')
         for item in versions_queyset:
             versions_list.append(item)
         return versions_list
@@ -231,6 +231,7 @@ class MyPublishPluginsDetailModelSerializer(serializers.ModelSerializer):
         instance.brief = validated_data.get('brief',self.instance.brief)
         instance.source_code_file = validated_data.get('source_code_file',self.instance.source_code_file)
         instance.direction_for_use = validated_data.get('direction_for_use',self.instance.direction_for_use)
+        instance.direction_markdown_text = validated_data.get('direction_markdown_text',self.instance.direction_markdown_text)
         instance.rnb = validated_data.get('rnb',self.instance.rnb)
         instance.dollar = validated_data.get('dollar',self.instance.dollar)
         instance.check = 0
@@ -256,7 +257,7 @@ class RedactSoftwarePutModelSerializer(serializers.ModelSerializer):
     def get_versions(self, obj):
         versions_list = []
         versions_queyset = models.Versions.objects.filter(software=obj).values('version', 'plugin_instructions',
-                                                                               'version_type')
+                                                                               'version_type','plugin_markdown_text')
         for item in versions_queyset:
             versions_list.append(item)
         return versions_list
