@@ -43,7 +43,7 @@ class Authentication_tab(BaseModel):
 
 class UserInfo(AbstractUser, BaseModel):
     gender_type = ((0, "男"), (1, "女"), (2, "其他"))
-    type_user = ((0,'普通用户'),(1,'开发者'))
+    type_user = ((0,'普通用户'),(1,'开发者'),(2,'管理员'))
     username = models.CharField(max_length=64, unique=True, null=True)
     mobile = models.CharField(max_length=11, verbose_name='手机号',blank=True)
     icon = models.ImageField(upload_to=user_directory_path, default='icon/default.jpg',null=True, verbose_name='头像')
@@ -61,3 +61,6 @@ class UserInfo(AbstractUser, BaseModel):
 
     def __str__(self):
         return str(self.username)
+
+    def get_user_type(self,data):
+        pass

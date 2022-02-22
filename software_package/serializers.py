@@ -36,7 +36,7 @@ class SoftwareReleaseGETModelSerializer(serializers.ModelSerializer):
     def get_user(self, obj):
         request = self.context.get('request')
         icon_url = "%s://%s%s%s" % (request.scheme, request.META['HTTP_HOST'], settings.MEDIA_URL, obj.user.icon)
-        return {"id": obj.user.id, "author": obj.user.nickname, "icon": icon_url}
+        return {"id": obj.user.id, "author": obj.user.nickname, "icon": icon_url,'title_tag':obj.user.user_type}
 
 
 class SoftwareReleaseDetailModelSerializer(serializers.ModelSerializer):
@@ -57,7 +57,7 @@ class SoftwareReleaseDetailModelSerializer(serializers.ModelSerializer):
     def get_user(self, obj):
         request = self.context.get('request')
         icon_url = "%s://%s%s%s" % (request.scheme, request.META['HTTP_HOST'], settings.MEDIA_URL, obj.user.icon)
-        return {"id":obj.user.id,"author": obj.user.nickname, "icon": icon_url}
+        return {"id":obj.user.id,"author": obj.user.nickname, "icon": icon_url,'title_tag':obj.user.user_type}
 
     def get_versions(self,obj):
         versions_list = []

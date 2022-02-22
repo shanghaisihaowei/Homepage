@@ -80,7 +80,7 @@ class ArticleModelSerializer(serializers.ModelSerializer):
     def get_author_icon(self, obj):
         request = self.context.get('request')
         icon_url = "%s://%s%s%s"%(request.scheme,request.META['HTTP_HOST'],settings.MEDIA_URL,obj.author.icon)
-        return {"author":obj.author.nickname,"icon":icon_url}
+        return {"author":obj.author.nickname,"icon":icon_url,'title_tag':obj.author.user_type}
 
     def get_comment(self,obj):
         """
@@ -260,7 +260,7 @@ class ArticleAddModelSerializer(serializers.ModelSerializer):
     def get_author_icon(self, obj):
         request = self.context.get('request')
         icon_url = "%s://%s%s%s"%(request.scheme,request.META['HTTP_HOST'],settings.MEDIA_URL,obj.author.icon)
-        return {"author":obj.author.nickname,"icon":icon_url}
+        return {"author":obj.author.nickname,"icon":icon_url,'title_tag':obj.author.user_type}
 
 
 
@@ -353,7 +353,7 @@ class BrowseArticleModelSerializer(serializers.ModelSerializer):
     def get_author_icon(self, obj):
         request = self.context.get('request')
         icon_url = "%s://%s%s%s"%(request.scheme,request.META['HTTP_HOST'],settings.MEDIA_URL,obj.author.icon)
-        return {"id":obj.author.id,"author":obj.author.nickname,"icon":icon_url}
+        return {"id":obj.author.id,"author":obj.author.nickname,"icon":icon_url,'title_tag':obj.author.user_type}
 
     def get_comment(self, obj):
         """
@@ -434,7 +434,7 @@ class BrowseArticleDetailModelSerializer(serializers.ModelSerializer):
     def get_author_icon(self, obj):
         request = self.context.get('request')
         icon_url = "%s://%s%s%s"%(request.scheme,request.META['HTTP_HOST'],settings.MEDIA_URL,obj.author.icon)
-        return {"id":obj.author.id,"author":obj.author.nickname,"icon":icon_url}
+        return {"id":obj.author.id,"author":obj.author.nickname,"icon":icon_url,'title_tag':obj.author.user_type}
 
     def get_comment(self, obj):
         """
