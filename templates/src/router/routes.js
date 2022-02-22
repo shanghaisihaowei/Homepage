@@ -154,6 +154,24 @@ const routes = [{
         },
         ]
     },
+      {
+        path: '/community/mobile',
+        name: 'community_mobile',
+        redirect: '/community/mobile/articleList',
+        component: () => import('pages/bbs/mobile/home.vue'),
+        children: [
+          {
+            path: 'articleList',
+            name: 'articleList',
+            component: () => import('pages/bbs/mobile/articleList.vue'),
+          },
+          {
+            path: 'articleListDV',
+            name: 'articleListDV',
+            component: () => import('pages/bbs/mobile/articleListDV.vue'),
+          }
+        ]
+      },
     ]
 },
 

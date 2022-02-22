@@ -167,18 +167,18 @@
                 {{ $t('index.navbar.contact') }}
               </q-item-section>
             </q-item>
-            <!--            发行说明-->
-            <!--            <q-item clickable :to="{ name : 'phone_release_notes' }" v-ripple class="row">-->
-            <!--              <q-item-section class="col-1">-->
-            <!--                <q-img-->
-            <!--                  width="14px"-->
-            <!--                  src="statics/phone/issued.svg"-->
-            <!--                />-->
-            <!--              </q-item-section>-->
-            <!--              <q-item-section class="col-8 menu_left my-font text-left">-->
-            <!--                {{ $t('avatar3.issued') }}-->
-            <!--              </q-item-section>-->
-            <!--            </q-item>-->
+<!--                        社区-->
+                        <q-item clickable :to="{ name : 'community_mobile' }" v-ripple class="row">
+                          <q-item-section class="col-1">
+                            <q-img
+                              width="14px"
+                              src="statics/phone/issued.svg"
+                            />
+                          </q-item-section>
+                          <q-item-section class="col-8 menu_left my-font text-left">
+                            {{ $t("index.osc") }}
+                          </q-item-section>
+                        </q-item>
             <q-item/>
           </q-list>
         </div>
