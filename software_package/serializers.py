@@ -302,4 +302,4 @@ class BannerGETModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Banner
-        fields = ['title','image','link','info']
+        fields = ['title','image','link']
