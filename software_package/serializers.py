@@ -283,7 +283,7 @@ class RedactSoftwarePutModelSerializer(serializers.ModelSerializer):
     versions = serializers.SerializerMethodField()
     class Meta:
         model = models.Software
-        fields = ['release_form','dollar','rnb','direction_for_use','source_code_file','brief','name','currency','affiliation','tab','versions','direction_markdown_text']
+        fields = ['release_form','dollar','rnb','direction_for_use','source_code_file','brief','name','currency','affiliation','tab','versions','direction_markdown_text','check','putaway']
 
     def get_tab(self, obj):
         tab_queyset = models.Tab.objects.filter(software=obj).values('tab_name')
@@ -302,4 +302,4 @@ class BannerGETModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Banner
-        fields = ['title','image','link','info']
+        fields = ['title','image','link']
