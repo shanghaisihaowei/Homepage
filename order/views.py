@@ -583,9 +583,10 @@ class Orderstatus(GenericAPIView):
         software=self.request.GET.get('software')
         software_obj=models.Software.objects.filter(id = software).first()
         if software_obj:
-            if software_obj.release_form == 0:
+            obj_status=int(software_obj.release_form)
+            if obj_status == 0:
                 return APIResponse(status=True)
-            elif software_obj.release_form ==1:
+            elif obj_status ==1:
                 obj=models.Order.objects.filter(software=software,user=request.user,is_delete=False,status=2).first()
                 if obj is None:
                     return APIResponse(status=False)
