@@ -191,7 +191,7 @@ class ArticleModelSerializer(serializers.ModelSerializer):
         dr = re.compile(r'<[^>]+>', re.S)
         content = dr.sub('', content_html)
         print(content)
-        content.replace('<img ','<img style="width:100%"')
+        # content.replace('<img ','<img style="width:100%"')
         reg = re.compile('.*src=\"(data:image/*?)\"')
         # print(reg)
         # if re.match(reg, content_html):
@@ -282,7 +282,7 @@ class ArticleAddModelSerializer(serializers.ModelSerializer):
             dr = re.compile(r'<[^>]+>', re.S)
             content = dr.sub('',str(content_html))  # 提取简介
             content_html=str(content_html)
-            content_html = content_html.replace('<img ', '<img style="width:100%" ')
+            # content_html = content_html.replace('<img ', '<img style="width:100%" ')
             attrs['content'] = str(content_html)
             if len(content) > 200:
                 attrs['intro'] = content[:200]   # 有简介

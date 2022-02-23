@@ -464,8 +464,8 @@ class MySoftwareReleaseGetView(ModelViewSet):
                         'brief':data.get('brief',instance.brief),
                         'source_code_file':self.request.FILES.get('source_code_file'),
                         'direction_for_use':data.get('direction_for_use',instance.direction_for_use),
-                        'rnb':data.get('rnb',None),
-                        'dollar':data.get('dollar',None),
+                        'rnb':float(0.00),
+                        'dollar':float(0.00),
                         'release_form': int(data.get('release_form')),
                         'direction_markdown_text':data.get('direction_markdown_text')
                     }
@@ -477,8 +477,8 @@ class MySoftwareReleaseGetView(ModelViewSet):
                     'brief': data.get('brief', instance.brief),
                     'source_code_file': instance.source_code_file,
                     'direction_for_use': data.get('direction_for_use', instance.direction_for_use),
-                    'rnb': data.get('rnb', None),
-                    'dollar': data.get('dollar', None),
+                    'rnb': float(0.00),
+                    'dollar': float(0.00),
                     'release_form': int(data.get('release_form')),
                     'direction_markdown_text':data.get('direction_markdown_text')
                 }

@@ -581,11 +581,18 @@ class Orderstatus(GenericAPIView):
     filter_backends = [DjangoFilterBackend, OrderingFilter, ]
     def get(self,request,*args,**kwargs):
         software=self.request.GET.get('software')
-        obj=models.Order.objects.filter(software=software,user=request.user,is_delete=False,status=2).first()
-        if obj is None:
+        software_obj=models.Software.objects.filter(id = software).first()
+        if software_obj:
+            if software_obj.release_form == 0:
+                return APIResponse(status=True)
+            elif software_obj.release_form ==1:
+                obj=models.Order.objects.filter(software=software,user=request.user,is_delete=False,status=2).first()
+                if obj is None:
+                    return APIResponse(status=False)
+                # result = self.get_serializer(instance=res)
+                return APIResponse(status=True)
+        else:
             return APIResponse(status=False)
-        # result = self.get_serializer(instance=res)
-        return APIResponse(status=True)
 
 
 class MyOrder(ModelViewSet):
