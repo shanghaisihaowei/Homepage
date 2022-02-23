@@ -274,6 +274,8 @@ class DownLoadZipFile(GenericAPIView):
             try:
                 path = str(obj.source_code_file)
                 file_path = str(os.path.join(settings.MEDIA_ROOT, str(obj.source_code_file).replace('\\', '/')))
+                obj.number_downloads = F('number_downloads') + 1  # 下载次数+1
+                obj.save()
                 response = FileResponse(open(str(file_path), 'rb'))
                 response['Content-Type'] = 'application/zip'
                 response['Content-Disposition'] = 'attachment; filename="%s"' % path.split('/')[-1]

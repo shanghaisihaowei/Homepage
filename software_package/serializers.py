@@ -247,7 +247,7 @@ class MyPublishPluginsDetailModelSerializer(serializers.ModelSerializer):
             files_names=files_name.split('_')[-2]
             return files_names+'.zip'
         else:
-            return files_name
+            return files_name+'.zip'
 
 
 
