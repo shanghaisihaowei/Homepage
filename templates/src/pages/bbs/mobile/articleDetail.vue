@@ -104,9 +104,22 @@
       </div>
       <q-separator inset/>
   </q-card>
-  <q-card-section style="padding: 30px">
-
+  <q-card-section v-if="def" style="padding: 30px">
   </q-card-section>
+  <q-card v-if="!def" class="q-pa-md shadow-0" style="padding-top: 100px">
+    <div style="height: 450px" class="q-pa-md">
+      <div class="flex flex-center">
+        <q-img
+          width="107px"
+          height="117px"
+          src="statics/community/default_page.svg"
+        />
+      </div>
+      <div class="q-pa-md flex flex-center default_page">
+        {{ $t("community.default_pageComment") }}
+      </div>
+    </div>
+  </q-card>
 </div>
 </template>
 
@@ -129,7 +142,8 @@ export default {
       userid: '',
       is_uptime: true,
       comment_count: '0',
-      comment: []
+      comment: [],
+      def: ''
     }
   },
   computed: {
@@ -164,6 +178,9 @@ export default {
           _this.time = res_msg.create_time
           _this.is_uptime = false
         }
+        _this.comment.forEach(i => {
+          _this.def = i.child
+        })
         _this.meta = {
           description: {name: 'description', content: 'GreaterWMS - Open Source Warehouse Management System'},
           keywords: {name: 'keywords', content: res_msg.content },
@@ -239,12 +256,13 @@ export default {
   padding-bottom: 10px;
 }
 .author {
-  font-size: 12px;
+  font-size: 14px;
   color: #333333;
   font-weight: 400;
 }
 .myAuthor {
   padding-left: 0;
+  padding-right: 0;
 }
 .art_time{
   font-size: 12px;
@@ -252,7 +270,7 @@ export default {
   color: #999999;
 }
 .tit {
-  font-size: 15px;
+  font-size: 18px;
   color: #333333;
   font-weight: 500;
 }
@@ -261,8 +279,8 @@ export default {
   padding-right: 0;
 }
 .contenter {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   color: #333333;
 }
 .fir_reply_author {

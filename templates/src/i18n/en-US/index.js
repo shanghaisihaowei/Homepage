@@ -189,6 +189,7 @@ export default {
         dvadmin: 'DVAdmin Plugins',
         greaterwms: 'GreaterWMS Plugins',
         default_page: 'You Haven\'t Posted Any Content For Now, Go And Post It Now~',
+        default_pageComment: 'No Comments Yet～',
         confirm_avatar: 'Please Click The Save Button To Take Effect！',
         community_chose: 'Please Select A Community To Publish To',
         password_err: 'The Account Number Or password Is Incorrect, Please Check And Try Again！',
