@@ -223,6 +223,7 @@ export default {
             paid: '已打款'
         },
         e_shop_view: {
+            official: '官方',
             release_plugins: '發佈插件',
             sort_default: '默認排序',
             sort_download: '下載次數',

@@ -223,6 +223,7 @@ export default {
             paid: '支払い済み'
         },
         e_shop_view: {
+            official: '官方',
             release_plugins: 'プラグインを配布する',
             sort_default: 'デフォルトソート',
             sort_download: 'ダウンロード回数',

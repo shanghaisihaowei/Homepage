@@ -189,6 +189,7 @@ export default {
         dvadmin: 'DVAdmin插件',
         greaterwms: 'GreaterWMS插件',
         default_page: '您暂时没有发布内容，快去发布吧～',
+        default_pageComment: '暂时没有发布评论～',
         confirm_avatar: '请点击保存按钮即可生效！',
         community_chose: '请选择需要发布的社区',
         password_err: '账号或密码错误，请检查后再试！',
@@ -274,6 +275,7 @@ export default {
             not_account: '您还没有绑定账户，请绑定成功后再试!'
         },
         e_shop_view: {
+            official: '官方',
             release_plugins: '发布插件',
             sort_default: '默认排序',
             sort_download: '下载次数',
