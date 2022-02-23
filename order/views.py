@@ -187,11 +187,11 @@ class PaymentStatusView(APIView):
                 software_obj = models.Software.objects.filter(id=order_obj.software.id).first()
                 software_obj.earnings = F('earnings') + order_obj.total_amount  # 软件收益记录
                 software_obj.people_buy = F('people_buy') + 1  # 软件购买记录
-                software_obj.number_downloads = F("number_downloads") + 1  # 软件下载记录
+                # software_obj.number_downloads = F("number_downloads") + 1  # 软件下载记录
                 software_obj.save()
                 print(order_obj.total_amount)
                 # rnb_obj = Rmb_wallet.objects.filter(userinfos=software_obj.user.pk).first()  # 软件作者钱包
-                Rmb_wallet.filter(userinfos=software_obj.user.pk).update(balance=F("balance")+order_obj.total_amount, withdrawal_amount=F("withdrawal_amount")+(order_obj.total_amount+(order_obj.total_amount * Decimal(0.8))))
+                Rmb_wallet.objects.filter(userinfos=software_obj.user.pk).update(balance=F("balance")+order_obj.total_amount, withdrawal_amount=F("withdrawal_amount")+(order_obj.total_amount+(order_obj.total_amount * Decimal(0.8))))
                 # rnb_obj.balance = F('balance') + order_obj.total_amount  # 线包收益更新
                 # rnb_obj.withdrawal_amount = rnb_obj.balance - (rnb_obj.balance * 0.2)
                 # rnb_obj.withdrawal_amount = F('withdrawal_amount') + (order_obj.total_amount-(order_obj.total_amount * 0.2))
@@ -502,7 +502,7 @@ class PayBack(APIView):
             # dollar_obj.save()
             software_obj.earnings = F('earnings')+order_obj.total_amount
             software_obj.people_buy = F('people_buy')+1
-            software_obj.number_downloads = F("number_downloads")+1
+            # software_obj.number_downloads = F("number_downloads")+1
             software_obj.save()
             Dollar_salary_detail.objects.create(author=order_obj.software.user,email=order_obj.user.email,user=order_obj.user.nickname,total=order_obj.total_amount,title=order_obj.title)
             logger.warning('%sPaypal订单支付成功' % order_obj.order_id)
