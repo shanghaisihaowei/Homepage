@@ -444,7 +444,8 @@ class AuthenticationView(GenericViewSet,CreateModelMixin,ListModelMixin):
     authentication_classes = (JWTAuthentication, )
     def get_queryset(self):
         if self.request.user:
-            return Authentication_tab.objects.filter(is_delete=False,email=self.request.user.email)
+            obj_email=UserInfo.objects.filter(id =self.request.user.pk).first()
+            return Authentication_tab.objects.filter(is_delete=False,email=obj_email)
         else:
             return Authentication_tab.objects.none()
 

@@ -20,16 +20,16 @@ def send_parse(appcode, img_path,email):
     result = parse(appcode, img_path)
     try:
         dict_data = json.loads(result)
-        if dict_data.get('success') == True and dict_data.get('is_fake') == False:
-            auth_obj.address = dict_data.get('address')
-            auth_obj.birth = dict_data.get('birth')
-            auth_obj.nationality = dict_data.get('nationality')
-            auth_obj.id_number = dict_data.get('num')
-            auth_obj.sex = dict_data.get('sex')
+        if dict_data['success'] == True and dict_data['is_fake'] == False:
+            auth_obj.address = dict_data['address']
+            auth_obj.birth = dict_data['birth']
+            auth_obj.nationality = dict_data['nationality']
+            auth_obj.id_number = dict_data['num']
+            auth_obj.sex = dict_data['sex']
             auth_obj.verify_status = 1
             auth_obj.save()
             content=user_auth(auth_obj.name,auth_obj.id_number)
-            if content.get("").get('respCode') == "0000":
+            if content.get('respCode') == "0000":
                 auth_obj.verify_status = 2
                 auth_obj.save()
                 return True
@@ -37,7 +37,7 @@ def send_parse(appcode, img_path,email):
                 auth_obj.verify_status = 3
                 auth_obj.save()
                 return False
-    except Exception:
+    except Exception as e:
         auth_obj.verify_status = 3
         auth_obj.save()
         return False
