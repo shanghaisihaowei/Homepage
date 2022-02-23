@@ -69,8 +69,11 @@ function ViewPrintAuth(url) {
     return axiosInstanceAuth.get(url)
 }
 
-function upload(url,data) {
-    return axiosFile.post(url,data)
+function uploadpost(url, data) {
+    return axiosFile.post(url, data)
+}
+function uploadput(url, data) {
+    return axiosFile.put(url, data)
 }
 
 export default boot(({
@@ -108,15 +111,15 @@ export default boot(({
     axiosInstanceAuth.interceptors.response.use(
         function (response) {
             if (response.data.detail) {
-              if (response.data.detail !== '服务器升级，登录令牌无效，请退出重新登录！' || response.data.detail !== '此令牌对任何类型的令牌无效') {
-                Notify.create({
-                  message: response.data.detail,
-                  icon: 'close',
-                  color: 'negative',
-                  timeout: 1500
-                })
-                cookies.remove('token')
-              }
+                if (response.data.detail !== '服务器升级，登录令牌无效，请退出重新登录！' || response.data.detail !== '此令牌对任何类型的令牌无效') {
+                    Notify.create({
+                        message: response.data.detail,
+                        icon: 'close',
+                        color: 'negative',
+                        timeout: 1500
+                    })
+                    cookies.remove('token')
+                }
             }
             return response.data
         },
@@ -318,20 +321,20 @@ export default boot(({
     )
 
     axiosFile.interceptors.request.use(
-      function (config) {
-        config.headers.post['Content-Type'] = 'application/json, charset="utf-8"'
-        config.headers.patch['Content-Type'] = 'application/json, charset="utf-8"'
-        config.headers.put['Content-Type'] = 'application/json, charset="utf-8"'
-        config.headers.language = lang
-        let token = cookies.get('token')
-        if (token) {
-          config.headers.Authorization = `Bearer ${token}`
+        function (config) {
+            config.headers.post['Content-Type'] = 'application/json, charset="utf-8"'
+            config.headers.patch['Content-Type'] = 'application/json, charset="utf-8"'
+            config.headers.put['Content-Type'] = 'application/json, charset="utf-8"'
+            config.headers.language = lang
+            let token = cookies.get('token')
+            if (token) {
+                config.headers.Authorization = `Bearer ${token}`
+            }
+            return config
+        },
+        function (error) {
+            return Promise.reject(error)
         }
-        return config
-      },
-      function (error) {
-        return Promise.reject(error)
-      }
     )
 
     axiosFile.interceptors.response.use(
@@ -437,5 +440,6 @@ export {
     deleteauth,
     patchauth,
     ViewPrintAuth,
-    upload
+    uploadpost,
+    uploadput
 }

@@ -31,3 +31,6 @@ export function LOGO(state, opened) {
 export function TITLETYPE(state, opened) {
   state.titletype = opened;
 }
+export function MOBILELOGO(state, opened) {
+  state.mobileLogo = opened;
+}

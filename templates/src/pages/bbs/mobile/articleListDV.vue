@@ -249,8 +249,8 @@ export default defineComponent({
     _this.allArtInfos = []
     _this.getList = throttle(this.getList, 1000)
     _this.getList()
-    this.$store.dispatch("bbsChange/logo", 'img:statics/logo_black.svg');
-    this.$store.dispatch("bbsChange/titletype", 'GreaterWMS');
+    this.$store.dispatch("bbsChange/mobileLogo", 'statics/DV_logo_w.svg');
+    this.$store.dispatch("bbsChange/titletype", 'DVAdmin');
   }
 });
 </script>

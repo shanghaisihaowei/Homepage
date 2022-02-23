@@ -60,61 +60,30 @@
           <div class="col-1"></div>
           <div class="col-7">
             <q-avatar square>
-              <img src="statics/logo.svg" alt="">
+              <img :src="mobileLogo" alt="">
             </q-avatar>
             <span>
-            GreaterWMS {{ $t("index.osc") }}
+           {{ titletype }} {{ $t("index.osc") }}
           </span>
           </div>
           <div class="col-2">
             <div style="float: right">
-              <q-btn flat @click="drawerRight = !drawerRight" round dense icon="translate"/>
-              <q-drawer
-                side="right"
-                v-model="drawerRight"
-                show-if-above
-                :width="200"
-                :breakpoint="700"
-                elevated
-                content-class="bg-primary text-white"
-              >
-                <div style="color: #333333">
-                  <q-list>
-                    <!--            语言-->
-                    <q-item class="row" style="border-bottom: #D5D5D5 solid 1px">
-                      <q-item-section class="col-1">
-                        <q-img
-                          width="14px"
-                          src="statics/phone/language.svg"
-                        />
-                      </q-item-section>
-                      <q-item-section class="col-8">
-                      </q-item-section>
-                      <q-item-section class="col-3">
-                        <q-btn
-                          round
-                          size="xs"
-                          flat
-                          icon="img:statics/phone/close.svg"
-                          @click="drawerRight = false"
-                        />
-                      </q-item-section>
-                    </q-item>
-                    <!--                中文简体-->
-                    <q-item clickable v-ripple @click="langChange('zh-hans')" class="border_bottom menu_right">
-                      <q-item-section class="menu_left  text-left">
-                        中文简体
-                      </q-item-section>
-                    </q-item>
-                    <!--                    English-->
-                    <q-item clickable @click="langChange('en-US')" v-ripple class="border_bottom menu_right">
-                      <q-item-section class="menu_left  text-left">
-                        English
-                      </q-item-section>
-                    </q-item>
-                  </q-list>
-                </div>
-              </q-drawer>
+              <q-btn
+                v-if="langlable !== '简体中文'"
+                round
+                flat
+                label="CN"
+                @click="langChange('zh-hans')"
+                :to="{ name: 'community' }"
+              />
+              <q-btn
+                v-if="langlable === '简体中文'"
+                round
+                flat
+                label="EN"
+                @click="langChange('en-US')"
+                :to="{ name: 'community' }"
+              />
             </div>
           </div>
         </q-toolbar>
@@ -124,7 +93,7 @@
           <q-scroll-area :thumb-style="thumbStyle"
                          :bar-style="barStyle"
                          :visible="visible"
-                         ref="scrollAreaIndex"
+                         ref="scrollAreaHome"
                          @scroll="onScroll()"
                          :delay="1500"
                          :style="{ height: scroll_height, width: width }"
@@ -132,6 +101,7 @@
           <router-view/>
           </q-scroll-area>
           <q-page-sticky
+            v-if="pagelocation > 0.2"
             position="bottom-right"
             :offset="[25, 100]"
           >
@@ -188,11 +158,23 @@ export default defineComponent({
       }, 1);
     },
     onScroll() {
-      var _this = this
-      this.$store.dispatch("pagelocation/pageLocationChange", _this.$refs.scrollAreaIndex.getScrollPercentage().top);
+      var _this = this;
+      _this.$store.dispatch(
+        "pagelocation/pageLocationChange",
+        _this.$refs.scrollAreaHome.getScrollPercentage().top
+      );
     },
   },
   computed: {
+    pagelocation() {
+      return this.$store.state.pagelocation.pagelocation;
+    },
+    mobileLogo() {
+      return this.$store.state.bbsChange.mobileLogo;
+    },
+    titletype() {
+      return this.$store.state.bbsChange.titletype;
+    },
   },
   mounted() {
     var _this = this
@@ -254,5 +236,13 @@ export default defineComponent({
 <style lang="scss" scoped>
 .mobile_toolbar {
   background-color: #116FEC
+}
+.bg_w {
+  background-color: white;
+  border-bottom: 1px #D8D8D8 solid;
+}
+.bg_b {
+  background-color: #116FEC;
+  border-bottom: 1px #D8D8D8 solid;
 }
 </style>

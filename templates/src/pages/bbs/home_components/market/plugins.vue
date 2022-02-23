@@ -1,13 +1,26 @@
 <template>
   <div class="plugins_view_container">
-    <q-card flat square class="header_container flex">
-      <q-card-section style="padding-top: 0; padding-bottom: 0"
-        ><q-select
+    <q-card flat class="q-mb-lg">
+      <img src="statics/advertising.png" style="width: 100%" />
+    </q-card>
+    <q-card flat class="header_container flex">
+      <q-card-section style="padding: 0">
+        <q-tabs
+          indicator-color="blue"
+          narrow-indicator
           class="header"
-          borderless
           v-model="sortordVal"
-          :options="sortordOptions"
-      /></q-card-section>
+        >
+          <q-tab
+            :name="item"
+            v-for="item in sortordOptions"
+            :key="item"
+            style="font-weight: 600"
+          >
+            {{ item }}
+          </q-tab>
+        </q-tabs>
+      </q-card-section>
       <q-card-section
         v-if="this.$q.cookies.get('token')"
         style="padding: 0 16px 0 0"
@@ -52,6 +65,7 @@ export default {
       sortordVal: this.$t("community.e_shop_view.sort_download"),
       sortordOptions: [
         this.$t("community.e_shop_view.sort_download"),
+        "官方",
         this.$t("community.e_shop_view.sort_free"),
         this.$t("community.e_shop_view.sort_pay"),
       ],
@@ -141,13 +155,22 @@ export default {
       let requsetUrl;
       switch (index) {
         case 0:
-          requsetUrl = "software/api/v1/softwareget/?ordering=-people_buy";
+          requsetUrl =
+            "software/api/v1/softwareget/?ordering=-people_buy&affiliation=" +
+            this.affiliation;
           break;
         case 1:
-          requsetUrl = "software/api/v1/softwareget/?release_form=0";
+          requsetUrl = "software/api/v1/softwareget/?soft_label=2";
           break;
         case 2:
-          requsetUrl = "software/api/v1/softwareget/?release_form=1";
+          requsetUrl =
+            "software/api/v1/softwareget/?release_form=0&affiliation=" +
+            this.affiliation;
+          break;
+        case 3:
+          requsetUrl =
+            "software/api/v1/softwareget/?release_form=1&affiliation=" +
+            this.affiliation;
           break;
       }
       get(requsetUrl).then((res) => {
