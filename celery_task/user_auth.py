@@ -24,6 +24,7 @@ def send_parse(appcode, img_path,email):
             auth_obj.address = dict_data.get('address')
             auth_obj.birth = dict_data.get('birth')
             auth_obj.nationality = dict_data.get('nationality')
+            auth_obj.id_number = dict_data.get('num')
             auth_obj.sex = dict_data.get('sex')
             auth_obj.verify_status = 1
             auth_obj.save()
