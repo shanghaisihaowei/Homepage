@@ -191,7 +191,7 @@ class PaymentStatusView(APIView):
                 software_obj.save()
                 print(order_obj.total_amount)
                 # rnb_obj = Rmb_wallet.objects.filter(userinfos=software_obj.user.pk).first()  # 软件作者钱包
-                Rmb_wallet.objects.filter(userinfos=software_obj.user.pk).update(balance=F("balance")+order_obj.total_amount, withdrawal_amount=F("withdrawal_amount")+(order_obj.total_amount+(order_obj.total_amount * Decimal(0.8))))
+                Rmb_wallet.objects.filter(userinfos=software_obj.user.pk).update(balance=F("balance")+order_obj.total_amount, withdrawal_amount=F("withdrawal_amount")+(order_obj.total_amount * Decimal(0.8)))
                 # rnb_obj.balance = F('balance') + order_obj.total_amount  # 线包收益更新
                 # rnb_obj.withdrawal_amount = rnb_obj.balance - (rnb_obj.balance * 0.2)
                 # rnb_obj.withdrawal_amount = F('withdrawal_amount') + (order_obj.total_amount-(order_obj.total_amount * 0.2))
