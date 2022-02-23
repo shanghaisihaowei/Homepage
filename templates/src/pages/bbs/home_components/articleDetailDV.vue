@@ -446,7 +446,7 @@ export default defineComponent({
     getavayarinfo() {
       var _this = this;
       let userinfoStr = jwtDecode(_this.$q.cookies.get("token"));
-      _this.avatar_now = userinfoStr.icon;
+      _this.avatar_now = window.g.BaseUrl +  userinfoStr.icon;
     },
     // 获取文章详情
     getdetailedinfo() {
