@@ -15,7 +15,7 @@
             @click="click_logo"
           />
           <span
-            class="text-black "
+            class="text-black"
             style="
               color: white;
               text-decoration: none;
@@ -118,7 +118,7 @@
               <!--                左侧导航栏-->
               <div v-show="isIndexMenu" class="col-2 row" style="height: 300px">
                 <q-card flat class="col-11" :offset="[0, 20]">
-                  <q-list bordered padding class=" col-12">
+                  <q-list bordered padding class="col-12">
                     <!--                        回到首页-->
                     <q-item to="/Homepage" clickable v-ripple class="col-1 row">
                       <div></div>
@@ -242,7 +242,7 @@
                   :offset="[0, 20]"
                   style="height: 620px"
                 >
-                  <q-list bordered padding class=" col-12 column">
+                  <q-list bordered padding class="col-12 column">
                     <!--                       返回社区-->
                     <q-item
                       clickable
@@ -517,7 +517,7 @@
           <!--            登录和注册切换-->
           <div class="col-11 column">
             <q-tabs
-              class="col-2 row "
+              class="col-2 row"
               v-model="tab"
               narrow-indicator
               active-bg-colo="white"
@@ -526,13 +526,13 @@
             >
               <div class="col-1"></div>
               <q-tab
-                class=" col-2"
+                class="col-2"
                 name="login"
                 style="font-size: 22px; font-weight: 500; color: #333333"
                 >{{ $t("index.login") }}
               </q-tab>
               <q-tab
-                class=" col-2"
+                class="col-2"
                 name="register"
                 style="
                   font-size: 22px !important;
@@ -589,7 +589,7 @@
                   <div class="col-1"></div>
                   <q-btn
                     v-if="!isloginOK"
-                    class="col-10 "
+                    class="col-10"
                     :label="login_"
                     unelevated
                     text-color="#999999"
@@ -603,7 +603,7 @@
                   ></q-btn>
                   <q-btn
                     v-if="isloginOK"
-                    class="col-10 "
+                    class="col-10"
                     :label="login_"
                     unelevated
                     text-color="#999999"
@@ -642,7 +642,7 @@
                 </div>
                 <div
                   v-if="lang === 'zh-hans'"
-                  class="col-1  text-center"
+                  class="col-1 text-center"
                   style="font-size: 12px; font-weight: 400; color: #999999"
                 >
                   登录/注册即代表同意
@@ -758,7 +758,7 @@
                   <div class="col-1"></div>
                   <q-btn
                     v-if="!isregOK"
-                    class="col-10 "
+                    class="col-10"
                     :label="register_"
                     unelevated
                     text-color="#999999"
@@ -773,7 +773,7 @@
                   ></q-btn>
                   <q-btn
                     v-if="isregOK"
-                    class="col-10 "
+                    class="col-10"
                     :label="register_"
                     unelevated
                     text-color="white"
@@ -790,7 +790,7 @@
                 </div>
                 <div
                   v-if="lang === 'zh-hans'"
-                  class="col-1  text-center"
+                  class="col-1 text-center"
                   style="font-size: 12px; font-weight: 400; color: #999999"
                 >
                   登录/注册即代表同意
@@ -829,7 +829,7 @@
           </div>
           <div class="col-11 column">
             <q-tabs
-              class="col-2 row "
+              class="col-2 row"
               v-model="forget_tab"
               narrow-indicator
               active-bg-colo="white"
@@ -848,7 +848,7 @@
                 ></q-btn>
               </div>
               <q-tab
-                class=" col-3"
+                class="col-3"
                 name="forget_password"
                 style="font-size: 18px; font-weight: 500; color: #666666"
                 >{{ $t("community.forget_password") }}
@@ -964,7 +964,7 @@
                 <div class="col-2 row">
                   <div class="col-1"></div>
                   <q-btn
-                    class="col-10 "
+                    class="col-10"
                     :label="submit"
                     unelevated
                     text-color="#ffffff"
@@ -991,7 +991,7 @@
       <q-card class="q-pb-md" style="width: 580px !important">
         <!--          发布和关闭按钮-->
         <div
-          class=" rel_dialog q-pa-md row"
+          class="rel_dialog q-pa-md row"
           style="border-bottom: 1px #dcdcdc solid"
         >
           <div class="col-11">{{ $t("community.push_article") }}</div>
@@ -1009,7 +1009,7 @@
         </div>
         <!--          标题-->
         <div class="q-pa-md" style="width: 100%; height: 100px">
-          <div class=" q-mb-sm">{{ $t("community.tip") }}</div>
+          <div class="q-mb-sm">{{ $t("community.tip") }}</div>
           <q-input
             counter
             outlined
@@ -1039,9 +1039,7 @@
             class="push_deNotebtn"
             style="float: right; width: 110px; height: 40px"
           >
-            <span class=" push_note">{{
-              $t("community.push_note")
-            }}</span>
+            <span class="push_note">{{ $t("community.push_note") }}</span>
           </q-btn>
           <q-btn
             v-show="ispushOK"
@@ -1050,9 +1048,7 @@
             style="float: right; width: 110px; height: 40px"
             @click="sendArticle"
           >
-            <span class=" push_note">{{
-              $t("community.push_note")
-            }}</span>
+            <span class="push_note">{{ $t("community.push_note") }}</span>
           </q-btn>
           <q-btn-dropdown
             unelevated
@@ -1662,6 +1658,7 @@ export default defineComponent({
           content: _this.qeditor,
           author: _this.$store.state.bbsChange.user_info.nickname,
           community_type: "1",
+          markdown_text: _this.markdown_text,
         };
         postauth("/article/api/v1/article/", msg)
           .then((res) => {

@@ -141,6 +141,9 @@ export default {
       postauth("article/api/v1/upload_file/", formData).then((res) => {
         this.value = `${this.value}![avatar](${window.g.BaseUrl}${res.result[0].url})`;
         this.$refs.img.value = "";
+        //防止直传图片导致blur事件不触发
+        this.$emit("getMarkdownHtml", marked(this.value));
+        this.$emit("getMarkdownText", this.value);
       });
     },
   },
