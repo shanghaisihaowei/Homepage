@@ -459,7 +459,7 @@ class MySoftwareReleaseGetView(ModelViewSet):
 
                     dict_data = {
                         'affiliation':data.get('affiliation',instance.affiliation),
-                        'currency':data.get('currency',None),
+                        'currency':None,
                         'name':data.get('name',instance.name),
                         'brief':data.get('brief',instance.brief),
                         'source_code_file':self.request.FILES.get('source_code_file'),
@@ -467,12 +467,14 @@ class MySoftwareReleaseGetView(ModelViewSet):
                         'rnb':float(0.00),
                         'dollar':float(0.00),
                         'release_form': int(data.get('release_form')),
-                        'direction_markdown_text':data.get('direction_markdown_text')
+                        'direction_markdown_text':data.get('direction_markdown_text'),
+                        'check':0,
+                        'putaway':False,
                     }
             else:
                 dict_data = {
                     'affiliation': data.get('affiliation', instance.affiliation),
-                    'currency': data.get('currency', None),
+                    'currency': None,
                     'name': data.get('name', instance.name),
                     'brief': data.get('brief', instance.brief),
                     'source_code_file': instance.source_code_file,
@@ -480,7 +482,9 @@ class MySoftwareReleaseGetView(ModelViewSet):
                     'rnb': float(0.00),
                     'dollar': float(0.00),
                     'release_form': int(data.get('release_form')),
-                    'direction_markdown_text':data.get('direction_markdown_text')
+                    'direction_markdown_text':data.get('direction_markdown_text'),
+                    'check': 0,
+                    'putaway': False,
                 }
             serializer = self.get_serializer(instance, data=dict_data, partial=partial)
             serializer.is_valid(raise_exception=True)
@@ -530,7 +534,9 @@ class MySoftwareReleaseGetView(ModelViewSet):
                             'rnb': float(data.get('rnb')),
                             'dollar': 0,
                             'release_form': int(data.get('release_form')),
-                            'direction_markdown_text':data.get('direction_markdown_text')
+                            'direction_markdown_text':data.get('direction_markdown_text'),
+                            'check':0,
+                            'putaway':False,
                         }
                 else:
                     dict_data = {
@@ -543,7 +549,9 @@ class MySoftwareReleaseGetView(ModelViewSet):
                         'rnb': float(data.get('rnb')),
                         'dollar': 0,
                         'release_form': int(data.get('release_form')),
-                        'direction_markdown_text':data.get('direction_markdown_text')
+                        'direction_markdown_text':data.get('direction_markdown_text'),
+                        'check': 0,
+                        'putaway': False,
                     }
 
                 serializer = self.get_serializer(instance, data=dict_data, partial=partial)
@@ -593,7 +601,9 @@ class MySoftwareReleaseGetView(ModelViewSet):
                             'rnb': 0,
                             'dollar': data.get('dollar'),
                             'release_form': int(data.get('release_form')),
-                            'direction_markdown_text':data.get('direction_markdown_text')
+                            'direction_markdown_text':data.get('direction_markdown_text'),
+                            'check':0,
+                            'putaway':False,
                         }
                 else:
                     dict_data = {
@@ -606,7 +616,9 @@ class MySoftwareReleaseGetView(ModelViewSet):
                         'rnb': 0,
                         'dollar': data.get('dollar'),
                         'release_form': int(data.get('release_form')),
-                        'direction_markdown_text':data.get('direction_markdown_text')
+                        'direction_markdown_text':data.get('direction_markdown_text'),
+                        'check': 0,
+                        'putaway': False,
                     }
 
                 serializer = self.get_serializer(instance, data=dict_data, partial=partial)
