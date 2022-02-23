@@ -274,6 +274,7 @@ export default {
             not_account: 'You Have Not Bound An Account, Please Bind It Successfully And Try Again!'
         },
         e_shop_view: {
+            official: 'official',
             release_plugins: 'Release Plugins',
             sort_default: 'Default Sort',
             sort_download: 'Download Count',

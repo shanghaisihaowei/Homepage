@@ -65,7 +65,7 @@ export default {
       sortordVal: this.$t("community.e_shop_view.sort_download"),
       sortordOptions: [
         this.$t("community.e_shop_view.sort_download"),
-        "官方",
+        this.$t("community.e_shop_view.official"),
         this.$t("community.e_shop_view.sort_free"),
         this.$t("community.e_shop_view.sort_pay"),
       ],
@@ -257,7 +257,6 @@ export default {
     height: 70px
     align-items: center
     justify-content: space-between
-    border-bottom: 1px solid #dcdcdc
     .header
         font-size: 18px
 </style>

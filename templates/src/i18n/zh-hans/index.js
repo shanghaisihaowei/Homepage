@@ -274,6 +274,7 @@ export default {
             not_account: '您还没有绑定账户，请绑定成功后再试!'
         },
         e_shop_view: {
+            official: '官方',
             release_plugins: '发布插件',
             sort_default: '默认排序',
             sort_download: '下载次数',
