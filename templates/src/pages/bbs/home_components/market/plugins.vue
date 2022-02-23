@@ -1,7 +1,9 @@
 <template>
   <div class="plugins_view_container">
-    <q-card flat class="q-mb-lg">
-      <img src="statics/advertising.png" style="width: 100%" />
+    <q-card v-if="imgSrc[0]" flat class="q-mb-lg">
+      <a :title="imgTitle[0]" :href="imgHref[0]">
+        <img :src="imgSrc[0]" style="width: 100%" />
+      </a>
     </q-card>
     <q-card flat class="header_container flex">
       <q-card-section style="padding: 0">
@@ -73,6 +75,9 @@ export default {
       hasPagination: false,
       maxPages: 1,
       affiliation: "",
+      imgSrc: [],
+      imgHref: [],
+      imgTitle: [],
     };
   },
   watch: {
@@ -178,6 +183,15 @@ export default {
         this.maxPages = Math.ceil(res.count / 20);
       });
     },
+    getAdvertisingImg() {
+      get("software/api/v1/banner_soft/").then((res) => {
+        res.forEach((item, index) => {
+          this.imgHref[index] = item.link;
+          this.imgSrc[index] = item.image;
+          this.imgTitle[index] = item.title;
+        });
+      });
+    },
     //更改网页title
     setHtmlTitle(type) {
       if (this.$q.cookies.get("lang") === "zh-hans") {
@@ -245,6 +259,9 @@ export default {
         };
       }
     },
+  },
+  created() {
+    this.getAdvertisingImg();
   },
   mounted() {
     this.$refs.pluginsList.showBtnHandler(false);
