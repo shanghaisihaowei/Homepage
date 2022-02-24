@@ -76,6 +76,19 @@ class Software(BaseModel):
         return str(self.name)
 
 
+class DownloadRecord(BaseModel):
+    softwares = models.ForeignKey(to=Software,on_delete=models.SET_NULL, null=True, blank=True, db_constraint=False,
+                               verbose_name='软件')
+    users = models.ForeignKey(to=UserInfo,on_delete=models.SET_NULL, null=True, blank=True, db_constraint=False,
+                               verbose_name='下载用户')
+
+    class Meta:
+        db_table = 'homepage_downloadrecord'
+        verbose_name = '下载记录表'
+        verbose_name_plural = verbose_name
+
+
+
 class Versions(BaseModel):
     """
     发布插件-版本
