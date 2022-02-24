@@ -10,8 +10,15 @@ from django.http import StreamingHttpResponse
 from django.shortcuts import render
 from rest_framework.viewsets import ViewSet
 from rest_framework.decorators import action
-
+from . import models
+from . import serializers
 from django.conf import settings
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
+from .filter import RecorderFilter
+from .filter import FileRenderCN
+from utils.page import MyPageNumberPagination
 class Stream_video_View(ViewSet):
     authentication_classes = ()
     def get_lang(self):
@@ -74,3 +81,52 @@ class Stream_video_View(ViewSet):
             resp['Content-Length'] = str(size)
         resp['Accept-Ranges'] = 'bytes'
         return resp
+
+
+class HomeBannerlistview(ModelViewSet):
+    queryset = models.HomeBanner.objects.filter(is_delete=False, is_show=True).order_by('orders')[
+               :settings.BANNER_COUNT]
+    serializer_class = serializers.HomeBannerGETModelSerializer
+
+    def get_queryset(self):
+        queryset = models.HomeBanner.objects.filter(is_delete=False, is_show=True).order_by('orders')[
+                   :settings.BANNER_COUNT]
+        return queryset
+
+    def get_serializer_class(self):
+        if self.action in ['list']:
+            return serializers.HomeBannerGETModelSerializer
+        else:
+            return self.http_method_not_allowed(request=self.request)
+
+
+
+class RecorderlistView(ModelViewSet):
+    pagination_class = MyPageNumberPagination
+    filter_backends = [DjangoFilterBackend, OrderingFilter, ]
+    ordering_fields = ['id', "created_time", "updated_time", ]
+    filter_class = RecorderFilter
+
+    def get_queryset(self):
+        return models.Recorder.objects.filter(is_delete=False)
+
+    def get_serializer_class(self):
+        if self.action in ['list',]:
+            return serializers.RecorderlistModelSerializer
+        else:
+            return self.http_method_not_allowed(request=self.request)
+
+    def list(self, request, *args, **kwargs):
+        from datetime import datetime
+        dt = datetime.now()
+        data = (
+            serializers.RecorderlistModelSerializer(instance).data
+            for instance in self.filter_queryset(self.get_queryset())
+        )
+        renderer = FileRenderCN.render(data)
+        response = StreamingHttpResponse(
+            renderer,
+            content_type="text/csv"
+        )
+        response['Content-Disposition'] = "attachment; filename='supplier_{}.csv'".format(str(dt.strftime('%Y%m%d%H%M%S%f')))
+        return response

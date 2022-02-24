@@ -69,6 +69,7 @@ INSTALLED_APPS = [
 
 ]
 
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -78,6 +79,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'silk.middleware.SilkyMiddleware',
+    'company.counter_middleware.Mydd',
 ]
 
 ROOT_URLCONF = 'HomePage.urls'
