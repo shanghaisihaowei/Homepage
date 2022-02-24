@@ -106,7 +106,6 @@ class RecorderlistView(ModelViewSet):
     filter_backends = [DjangoFilterBackend, OrderingFilter, ]
     ordering_fields = ['id', "created_time", "updated_time", ]
     filter_class = RecorderFilter
-
     def get_queryset(self):
         return models.Recorder.objects.filter(is_delete=False)
 
@@ -119,14 +118,32 @@ class RecorderlistView(ModelViewSet):
     def list(self, request, *args, **kwargs):
         from datetime import datetime
         dt = datetime.now()
-        data = (
-            serializers.RecorderlistModelSerializer(instance).data
+        data = (serializers.RecorderlistModelSerializer(instance).data
             for instance in self.filter_queryset(self.get_queryset())
         )
-        renderer = FileRenderCN.render(data)
+        renderer = FileRenderCN()
         response = StreamingHttpResponse(
-            renderer,
+            renderer.render(data),
             content_type="text/csv"
         )
-        response['Content-Disposition'] = "attachment; filename='supplier_{}.csv'".format(str(dt.strftime('%Y%m%d%H%M%S%f')))
+        response['Content-Disposition'] = "attachment; filename='supplier_{}.csv'".format(
+            str(dt.strftime('%Y%m%d%H%M%S%f')))
         return response
+
+
+        # queryset = self.filter_queryset(self.get_queryset())
+        #
+        # page = self.paginate_queryset(queryset)
+        # if page is not None:
+        #     serializer = self.get_serializer(page, many=True)
+        #     return self.get_paginated_response(serializer.data)
+        #
+        # serializer = self.get_serializer(queryset, many=True)
+        #
+        # renderer = FileRenderCN.render(serializer)
+        # response = StreamingHttpResponse(
+        #     renderer,
+        #     content_type="text/csv"
+        # )
+        # response['Content-Disposition'] = "attachment; filename='supplier_{}.csv'".format(str(dt.strftime('%Y%m%d%H%M%S%f')))
+        # return response

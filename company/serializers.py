@@ -17,4 +17,4 @@ class RecorderlistModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Recorder
-        fields = ['hosts','referers','mod','more','created_time','updated_time','is_delete']
+        fields = ['id','hosts','referers','mod','more','created_time','updated_time','is_delete']

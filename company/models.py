@@ -33,7 +33,7 @@ class Recorder(models.Model):
 
 class HomeBanner(models.Model):
     title = models.CharField(max_length=128,blank=True,verbose_name='名称')
-    image = models.ImageField(upload_to='banner', verbose_name='图片')
+    image = models.ImageField(upload_to='banner',null=True,blank=True, verbose_name='图片')
     link = models.CharField(max_length=64,blank=True, verbose_name='跳转链接')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     updated_time = models.DateTimeField(auto_now=True, verbose_name='最后更新时间')

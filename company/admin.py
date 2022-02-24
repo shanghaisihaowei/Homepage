@@ -38,3 +38,4 @@ class HomeBanner(admin.ModelAdmin):
     # 搜索条件设置
     search_fields = ('id',)
 
+admin.site.register(models.Recorder)
