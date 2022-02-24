@@ -226,7 +226,7 @@ export default {
             official: '官方',
             release_plugins: '發佈插件',
             sort_default: '默認排序',
-            sort_download: '下載次數',
+            sort_download: '下載量',
             sort_free: '免費',
             sort_pay: '付費',
             plugins_factory: '插件工廠',

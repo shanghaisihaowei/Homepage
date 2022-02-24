@@ -278,7 +278,7 @@ export default {
             official: '官方',
             release_plugins: '发布插件',
             sort_default: '默认排序',
-            sort_download: '下载次数',
+            sort_download: '下载量',
             sort_free: '免费',
             sort_pay: '付费',
             plugins_factory: '插件工厂',

@@ -210,14 +210,14 @@ export default defineComponent({
     getavayarinfo() {
       var _this = this;
       let userinfoStr = jwtDecode(_this.$q.cookies.get("token"));
-      _this.avatar_now = window.g.BaseUrl +  userinfoStr.icon;
+      _this.avatar_now = window.g.BaseUrl + userinfoStr.icon;
     },
     // 获取文章详情
     getdetailedinfo() {
       var _this = this;
       get(
         "article/api/v1/Browse/" +
-          _this.$q.cookies.get("articleId") +
+          _this.$route.params.id +
           "/" +
           "?community_type=1"
       )
@@ -271,7 +271,7 @@ export default defineComponent({
       var msg = {};
       msg["content"] = _this.qeditor_commentary;
       msg["depth"] = 1;
-      msg["article"] = _this.$q.cookies.get("articleId");
+      msg["article"] = _this.$route.params.id;
       postauth("/comment/api/v1/commentadd/", msg)
         .then((res) => {
           if (res.code === 200) {

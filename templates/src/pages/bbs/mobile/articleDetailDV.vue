@@ -62,7 +62,7 @@
       <q-separator inset/>
     </q-card>
     <!--    评论表-->
-    <q-card v-for="item in comment" class="shadow-0">
+    <q-card v-for="(item,index) in comment" class="shadow-0">
       <q-card-section horizontal>
         <q-card-section>
           <q-avatar size="30px">
@@ -73,6 +73,18 @@
           <span class="contenter">
             {{ item.user__nickname }}
           </span>
+          <span
+            style="
+              height: 21px;
+              background-color: #116fec;
+              font-size: 12px;
+              color: white;
+              padding: 2px 3px 0 3px;
+            "
+            class="q-ml-sm"
+            v-show="item.user__id === this.userid"
+          >{{ $t("community.e_shop_view.author") }}</span
+          >
         </q-card-section>
         <q-card-section class="q-pa-md flex flex-center art_time">
         <span>
@@ -83,9 +95,21 @@
       <q-card-section style="padding-left:62px;padding-top: 0">
         {{item.content}}
       </q-card-section>
-      <div class="sen_cun" v-if="item.child" v-for="(sen_item,ind) in item.child" :key="ind">
+      <!--      二级评论-->
+      <!--      查看更多-->
+      <div
+        v-show="item.child[0] && !showChildComment[index]"
+        class="reply_button q-mt-md"
+        style="font-size: 12px;margin-left: 63px"
+        @click="viewMoreComment(index, true)"
+      >
+        <span style="color: #d8d8d8; margin-right: 10px">——</span>
+        {{ $t("community.e_shop_view.view_more") }}
+        <img style="margin-left: 5px" src="statics/pull_down.svg" />
+      </div>
+      <div v-show="showChildComment[index]" class="sen_cun" v-if="item.child" v-for="(sen_item,ind) in item.child" :key="ind">
         <q-avatar
-          size="30px"
+          size="20px"
         >
           <img
             :src=sen_item.user__icon
@@ -95,13 +119,50 @@
         <span class="q-pa-md fir_reply_author">
             {{ sen_item.user__nickname }}
           </span>
-        <span class="fir_reply_time">
-            {{ sen_item.create_time }}
+        <span
+          style="
+              background-color: #116fec;
+              font-size: 12px;
+              color: white;
+              padding: 2px 3px 0 3px;
+            "
+          class="q-ml-sm"
+          v-show="sen_item.user__id === this.userid"
+        >{{ $t("community.e_shop_view.author") }}</span
+        >
+        <br>
+        <img style="padding-left: 31px" src="statics/reply_to2.svg" />
+        <span class="q-pa-md fir_reply_author">
+            {{ sen_item.reply__user__nickname }}
           </span>
-        <div v-html="sen_item.content" style="margin-left: 55px">
+        <span
+          style="
+              background-color: #116fec;
+              font-size: 12px;
+              color: white;
+              padding: 2px 3px 0 3px;
+            "
+          class="q-ml-sm"
+          v-show="sen_item.is_author"
+        >{{ $t("community.e_shop_view.author") }}</span
+        >
+        <div class="content_sen" v-html="sen_item.content">
+        </div>
+        <div class="art_time">
+          {{ sen_item.create_time }}
         </div>
       </div>
-      <q-separator inset/>
+      <div
+        v-show="item.child[0] && showChildComment[index]"
+        style="font-size: 12px;margin-left: 63px"
+        class="reply_button q-mt-md"
+        @click="viewMoreComment(index, false)"
+      >
+              <span style="color: #d8d8d8; margin-right: 10px">——</span
+              >{{ $t("community.e_shop_view.pull_up") }}
+        <img style="margin-left: 5px" src="statics/pull_up.svg" />
+      </div>
+      <q-separator style="margin-top: 16px" inset/>
     </q-card>
     <q-card-section v-if="def" style="padding: 30px">
     </q-card-section>
@@ -142,7 +203,8 @@ export default {
       is_uptime: true,
       comment_count: '0',
       comment: [],
-      def: ''
+      def: '',
+      showChildComment: [],
     }
   },
   computed: {
@@ -199,6 +261,9 @@ export default {
         })
       })
     },
+    viewMoreComment(index, val) {
+      this.showChildComment[index] = val;
+    },
   },
   mixins: [
     createMetaMixin(function () {
@@ -250,9 +315,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.content_sen {
+  font-size: 16px;
+  margin-left: 18px;
+  padding: 10px;
+  color: #333333;
+}
 .sen_cun {
-  margin-left: 48px;
-  padding-bottom: 10px;
+  margin: 0 20px;
+  padding: 10px 10px;
+  background-color: #F5F5F5;
 }
 .author {
   font-size: 14px;
@@ -282,9 +354,16 @@ export default {
   font-weight: 400;
   color: #333333;
 }
-.fir_reply_time {
+.fir_reply_author {
+  padding-left: 10px;
+  padding-right: 0;
   font-size: 14px;
   font-weight: 400;
   color: #999999;
+}
+.art_msg {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333333;
 }
 </style>

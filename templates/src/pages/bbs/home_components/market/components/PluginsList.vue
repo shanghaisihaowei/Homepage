@@ -124,7 +124,7 @@
           >
           <img style="margin-right: 3px" src="statics/download.svg" />
           <span
-            >{{ $t("community.e_shop_view.download_count") }}：{{
+            >{{ $t("community.e_shop_view.sort_download") }}：{{
               item.number_downloads
             }}</span
           >
