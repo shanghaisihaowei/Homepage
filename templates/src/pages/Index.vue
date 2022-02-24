@@ -477,6 +477,14 @@
           </div>
         </div>
       </q-footer>
+      <q-dialog v-model="advertise">
+        <q-card class="shadow-0" style="width: 650px;cursor: pointer;background: rgba(0,0,0,0)" @click="goTo(advertiseUrl)">
+          <img :title="advertiseTitle" src="statics/advertise/100.svg" alt="">
+        </q-card>
+        <q-card class="shadow-0" style="margin-top: -600px;cursor: pointer; background: rgba(0,0,0,0)" @click="advertise = false">
+          <img src="statics/advertise/close.svg" alt="">
+        </q-card>
+      </q-dialog>
     </q-layout>
   </q-scroll-area>
 </template>
@@ -669,7 +677,7 @@ tr td a:hover, tr td a:active {
 <script>
 import {defineComponent, ref} from 'vue'
 import {openURL, createMetaMixin} from 'quasar'
-import {getauth, post} from "boot/axios";
+import {get, getauth, post} from "boot/axios";
 
 export default defineComponent({
   name: 'Index',
@@ -738,7 +746,10 @@ export default defineComponent({
       isfull: false,
       isnull: true,
       issued_msg: [],
-      ismobile: false
+      ismobile: false,
+      advertise: true,
+      advertiseUrl: '',
+      advertiseTitle: ''
     }
   },
   mixins: [
@@ -800,6 +811,15 @@ export default defineComponent({
           color: 'negative'
         })
       })
+    },
+    //获取广告链接
+    getadvertiseUrl () {
+      var _this = this
+      get('resp/api/v1/banner').then(res => {
+        console.log(res)
+        _this.advertiseUrl = res[0].link
+        _this.advertiseTitle = res[0].title
+      })
     }
   },
   computed: {
@@ -821,6 +841,14 @@ export default defineComponent({
     } else {
       this.ismobile = false
       this.$router.push({name: 'Homepage'})
+    }
+    _this.getadvertiseUrl()
+    if (_this.$q.cookies.has('area')) {
+      if (_this.$q.cookies.get('area') !== 'China') {
+        _this.advertise = false
+      } else  {
+        _this.advertise = true
+      }
     }
   },
   created() {
