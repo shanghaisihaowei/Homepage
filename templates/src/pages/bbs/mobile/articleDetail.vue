@@ -62,7 +62,7 @@
     <q-separator inset/>
   </q-card>
 <!--    评论表-->
-    <q-card v-for="item in comment" class="shadow-0">
+    <q-card v-for="(item,index) in comment" class="shadow-0">
     <q-card-section horizontal>
       <q-card-section>
         <q-avatar size="30px">
@@ -96,7 +96,18 @@
       {{item.content}}
     </q-card-section>
 <!--      二级评论-->
-      <div class="sen_cun" v-if="item.child" v-for="(sen_item,ind) in item.child" :key="ind">
+<!--      查看更多-->
+      <div
+        v-show="item.child[0] && !showChildComment[index]"
+        class="reply_button q-mt-md"
+        style="font-size: 12px;margin-left: 63px"
+        @click="viewMoreComment(index, true)"
+      >
+        <span style="color: #d8d8d8; margin-right: 10px">——</span>
+        {{ $t("community.e_shop_view.view_more") }}
+        <img style="margin-left: 5px" src="statics/pull_down.svg" />
+      </div>
+      <div v-show="showChildComment[index]" class="sen_cun" v-if="item.child" v-for="(sen_item,ind) in item.child" :key="ind">
         <q-avatar
           size="20px"
         >
@@ -141,6 +152,16 @@
             {{ sen_item.create_time }}
         </div>
       </div>
+      <div
+        v-show="item.child[0] && showChildComment[index]"
+        style="font-size: 12px;margin-left: 63px"
+        class="reply_button q-mt-md"
+        @click="viewMoreComment(index, false)"
+      >
+              <span style="color: #d8d8d8; margin-right: 10px">——</span
+              >{{ $t("community.e_shop_view.pull_up") }}
+        <img style="margin-left: 5px" src="statics/pull_up.svg" />
+      </div>
       <q-separator style="margin-top: 16px" inset/>
   </q-card>
   <q-card-section v-if="def" style="padding: 30px">
@@ -182,7 +203,8 @@ export default {
       is_uptime: true,
       comment_count: '0',
       comment: [],
-      def: ''
+      def: '',
+      showChildComment: [],
     }
   },
   computed: {
@@ -239,6 +261,9 @@ export default {
           color: 'negative'
         })
       })
+    },
+    viewMoreComment(index, val) {
+      this.showChildComment[index] = val;
     },
   },
   mixins: [
