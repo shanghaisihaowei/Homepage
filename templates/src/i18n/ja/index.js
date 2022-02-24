@@ -226,7 +226,7 @@ export default {
             official: '官方',
             release_plugins: 'プラグインを配布する',
             sort_default: 'デフォルトソート',
-            sort_download: 'ダウンロード回数',
+            sort_download: 'ダウンロード数',
             sort_free: '無料',
             sort_pay: '付费',
             plugins_factory: 'プラグイン工場',
