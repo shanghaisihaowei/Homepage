@@ -90,10 +90,10 @@ class Comment_soft(admin.ModelAdmin):
 @admin.register(models.Banner)
 class Banner(admin.ModelAdmin):
 
-    list_display =('id','title','info','is_delete','is_show','orders','created_time')
+    list_display =('id','title','is_delete','is_show','orders','created_time')
     # 默认不配置的话，第一个字段会存在链接到记录编辑页面
     # list_display_links = None
-    list_display_links = ('title','info','is_delete','is_show','orders')
+    list_display_links = ('title','is_delete','is_show','orders')
     # 每页显示条目数 缺省值100
     list_per_page = 10
     readonly_fields = ('id',)
