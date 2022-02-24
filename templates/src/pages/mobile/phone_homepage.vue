@@ -310,6 +310,14 @@
     </div>
   </div>
 </div>
+  <q-dialog v-model="advertise">
+    <q-card class="shadow-0" style="width: 350px;cursor: pointer;background: rgba(0,0,0,0);margin-top: 50px" @click="goTo(advertiseUrl)">
+      <img :title="advertiseTitle" src="statics/advertise/100.svg" alt="">
+    </q-card>
+    <q-card class="shadow-0" style="margin-top: -100px;cursor: pointer; background: rgba(0,0,0,0)" @click="advertise = false">
+      <img src="statics/advertise/close.svg" alt="">
+    </q-card>
+  </q-dialog>
 </template>
 
 <style lang="scss" scoped>
@@ -420,6 +428,7 @@
 <script>
 import {defineComponent, ref} from "vue";
 import {createMetaMixin, LocalStorage, openURL, Screen} from "quasar";
+import {get} from "boot/axios";
 
 export default defineComponent({
   name: "phone_homepage",
@@ -429,6 +438,9 @@ export default defineComponent({
       langlable: '',
       scroll_height: Screen.height + '' + 'px',
       code_warehous: this.$t('index.code_warehouse'),
+      advertise: true,
+      advertiseUrl: '',
+      advertiseTitle: ''
     }
   },
   mixins: [
@@ -455,8 +467,25 @@ export default defineComponent({
       _this.pagelocation = _this.$refs.scrollAreaIndex.getScrollPercentage().top
       console.log(_this.$refs.scrollAreaIndex.getScrollPercentage())
     },
+    //获取广告链接
+    getadvertiseUrl () {
+      var _this = this
+      get('resp/api/v1/banner').then(res => {
+        console.log(res)
+        _this.advertiseUrl = res[0].link
+        _this.advertiseTitle = res[0].title
+      })
+    }
   },
   mounted() {
+    this.getadvertiseUrl()
+    if (this.$q.cookies.has('area')) {
+      if (this.$q.cookies.get('area') !== 'China') {
+        this.advertise = false
+      } else  {
+        this.advertise = true
+      }
+    }
   },
   created() {
     var _this = this
