@@ -79,6 +79,9 @@
           <div v-if="isLogin">
             <q-avatar style="cursor: pointer" @click="toHomepage()">
               <img :src="avatar_img" style="border-radius: 25px" />
+              <q-tooltip>
+                {{ $t('community.personal_center') }}
+              </q-tooltip>
             </q-avatar>
           </div>
           <q-btn
