@@ -266,6 +266,7 @@ class ArticleAddModelSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         content_html=attrs.get('content',None)
+        contents = content_html
         # print(type(content_html))
         # content_html=content_html.replace('<img ','<img style="width:100%" ')
         # print(content_html)
@@ -283,7 +284,7 @@ class ArticleAddModelSerializer(serializers.ModelSerializer):
             content = dr.sub('',str(content_html))  # 提取简介
             content_html=str(content_html)
             # content_html = content_html.replace('<img ', '<img style="width:100%" ')
-            attrs['content'] = str(content_html)
+            attrs['content'] = contents
             if len(content) > 200:
                 attrs['intro'] = content[:200]   # 有简介
                 return attrs
