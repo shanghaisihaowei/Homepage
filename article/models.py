@@ -28,7 +28,7 @@ class Article(BaseModel):
     intro = models.CharField(max_length=300, null=True, blank=True, verbose_name='文章简介')
     # cover = models.ImageField(upload_to=article_directory_path, default='cover/default.jpg',null=True,blank=True, verbose_name='文章封面')
     # is_cover = models.BooleanField(default=True,verbose_name='是否有图片')
-    content = RichTextField(null=True, blank=True, verbose_name='文章内容')
+    content = models.TextField(null=True, blank=True, verbose_name='文章内容')
     author = models.ForeignKey(to=UserInfo, on_delete=models.SET_NULL, null=True, blank=True, db_constraint=False,
                                verbose_name='文章作者')
     check_person = models.SmallIntegerField(choices=type_choices, verbose_name='文章审核状态',default=2)
