@@ -85,10 +85,10 @@ export default boot(({
 
     var lang = cookies.get('lang')
     if (cookies) {
-        lang = lang || 'en-US'
+        lang = lang || 'zh-hans'
     } else {
-        cookies.set('lang', 'en-US')
-        lang = 'en-US'
+        cookies.set('lang', 'zh-hans')
+        lang = 'zh-hans'
     }
 
     axiosInstanceAuth.interceptors.request.use(
