@@ -35,6 +35,16 @@ export default defineComponent({
   mounted() {
     var _this = this
     _this.verifyToken()
+    // if (_this.$q.cookies.has('lang')) {
+    // } else {
+    //   if (_this.$q.cookies.has('area')) {
+    //     if (_this.$q.cookies.get('area') === 'China') {
+    //       _this.$q.cookies.set('lang', 'zh-hans')
+    //     } else {
+    //       _this.$q.cookies.set('lang', 'en-US')
+    //     }
+    //   }
+    // }
   },
 })
 </script>

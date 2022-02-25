@@ -559,7 +559,6 @@ export default defineComponent({
     getadvertiseUrl () {
       var _this = this
       get('resp/api/v1/banner').then(res => {
-        console.log(res)
         _this.advertiseUrl = res[0].link
         _this.advertiseTitle = res[0].title
       })

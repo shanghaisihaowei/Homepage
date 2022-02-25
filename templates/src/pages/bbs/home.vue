@@ -101,7 +101,7 @@
         <div class="col-2"></div>
       </q-toolbar>
     </q-header>
-    <q-page-container>
+    <q-page-container style="background: #F4F6F8">
       <q-page>
         <q-scroll-area
           :thumb-style="thumbStyle"

@@ -465,13 +465,11 @@ export default defineComponent({
     onScroll() {
       var _this = this
       _this.pagelocation = _this.$refs.scrollAreaIndex.getScrollPercentage().top
-      console.log(_this.$refs.scrollAreaIndex.getScrollPercentage())
     },
     //获取广告链接
     getadvertiseUrl () {
       var _this = this
       get('resp/api/v1/banner').then(res => {
-        console.log(res)
         _this.advertiseUrl = res[1].link
         _this.advertiseTitle = res[1].title
       })
