@@ -30,7 +30,7 @@
                     style="margin-left: 16px; cursor: pointer"
                     @click="tochangMsg()"
                   >
-                    <img src="statics/modify.svg" />
+                    <img src="statics/modify.svg" alt=""/>
                   </span>
                 </div>
 
@@ -220,7 +220,7 @@
 </template>
 <script>
 import { defineComponent } from "vue";
-import { get, getauth } from "boot/axios";
+import { get } from "boot/axios";
 import { throttle, createMetaMixin } from "quasar";
 import jwtDecode from "jwt-decode";
 
@@ -240,6 +240,7 @@ export default defineComponent({
         this.$t("community.hottest"),
       ],
       sortordVal: this.$t("community.newest"),
+      isrefresh: false
     };
   },
   mixins: [
@@ -299,7 +300,6 @@ export default defineComponent({
     },
     getsearchList() {
       var _this = this;
-      console.log(111);
       _this.pathname = "/article/api/v1/Browse/?community_type=0";
       if (_this.pathname !== null) {
         get(_this.pathname + "&title__contains=" + _this.searchword)
