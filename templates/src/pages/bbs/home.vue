@@ -174,7 +174,7 @@
                       </q-item-section>
                     </q-item>
                     <q-separator spaced />
-                    <!-- 商城 -->
+                    <!-- 市场 -->
                     <q-item class="col-1 row">
                       <q-item-section class="col-1"></q-item-section>
                       <q-item-section>
@@ -220,22 +220,36 @@
                         }}</span>
                       </q-item-section>
                     </q-item>
+                    <q-separator v-show="this.$q.cookies.get('area') === 'China'" spaced />
+<!--                    商城-->
+                    <q-item class="col-1 row" v-show="this.$q.cookies.get('area') === 'China'">
+                      <q-item-section class="col-1"></q-item-section>
+                      <q-item-section>
+                        <span
+                          style="
+                            font-size: 16px;
+                            font-weight: 500;
+                            color: #777888;
+                          "
+                        >{{ $t("shop.index") }}</span
+                        >
+                      </q-item-section>
+                    </q-item>
 
-                    <!--                    <q-item-->
-                    <!--                      clickable-->
-                    <!--                      v-ripple-->
-                    <!--                      :active="link === 'equipment'"-->
-                    <!--                      @click="link = 'equipment'"-->
-                    <!--                      active-class="my-menu-link"-->
-                    <!--                      class="col-1"-->
-                    <!--                    >-->
-                    <!--                      <q-item-section avatar></q-item-section>-->
-                    <!--                      <q-item-section>-->
-                    <!--                        <span style="font-size: 14px; font-weight: 400">{{-->
-                    <!--                          $t("community.equipment")-->
-                    <!--                        }}</span>-->
-                    <!--                      </q-item-section>-->
-                    <!--                    </q-item>-->
+                    <q-item
+                      clickable
+                      v-ripple
+                      :active="this.link === 'shop'"
+                      active-class="my-menu-link"
+                      v-show="this.$q.cookies.get('area') === 'China'"
+                    >
+                      <q-item-section avatar></q-item-section>
+                      <q-item-section>
+                        <span style="font-size: 16px; font-weight: 400">{{
+                            $t("shop.hardwareShop")
+                          }}</span>
+                      </q-item-section>
+                    </q-item>
                   </q-list>
                 </q-card>
               </div>
