@@ -988,7 +988,7 @@
     </q-dialog>
     <!--      发布弹窗dialog-->
     <q-dialog v-model="releasedia" full-width>
-      <q-card class="q-pb-md" style="width: 580px !important">
+      <q-card class="q-pb-md article" style="width: 580px !important">
         <!--          发布和关闭按钮-->
         <div
           class="rel_dialog q-pa-md row"
