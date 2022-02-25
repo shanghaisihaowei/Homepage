@@ -2,6 +2,7 @@ from rest_framework import viewsets
 from rest_framework.views import APIView
 from .models import ListModel, CheckModel
 from . import serializers, throttle
+from utils.throttle import VisitThrottle
 from utils.page import MyPageNumberPagination
 from utils.md5 import Md5
 from rest_framework.filters import OrderingFilter
@@ -25,7 +26,7 @@ class APIViewSet(viewsets.ModelViewSet):
     """
     authentication_classes = []
     permission_classes = []
-    throttle_classes = [throttle.VisitThrottle]
+    throttle_classes = [VisitThrottle]
     queryset = ListModel.objects.all()
     pagination_class = MyPageNumberPagination
     filter_backends = [DjangoFilterBackend, OrderingFilter, ]
@@ -77,9 +78,11 @@ class APIViewSet(viewsets.ModelViewSet):
 class Area_Check(APIView):
     authentication_classes = (JWTAuthentication,)
     def get(self, request):
-        # ip = '114.82.62.63'
-        ip = self.request.META.get('HTTP_X_FORWARDED_FOR') if self.request.META.get(
-            'HTTP_X_FORWARDED_FOR') else self.request.META.get('REMOTE_ADDR')
+        if settings.DEBUG == True:
+            ip = '114.82.62.63'
+        else:
+            ip = self.request.META.get('HTTP_X_FORWARDED_FOR') if self.request.META.get(
+                'HTTP_X_FORWARDED_FOR') else self.request.META.get('REMOTE_ADDR')
         import geoip2.database
         client = geoip2.database.Reader(os.path.join(settings.BASE_DIR, 'utils/GeoLite2-City.mmdb'))
         area = client.city(str(ip))
