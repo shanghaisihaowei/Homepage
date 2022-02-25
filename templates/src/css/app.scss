@@ -1,9 +1,9 @@
-.bgi {
-  background-image: url('/statics/background.svg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%!important;
-  margin-top: -50px;
-}
+// .bgi {
+//   background-image: url('/statics/background.svg');
+//   background-repeat: no-repeat;
+//   background-size: 100% 100%!important;
+//   margin-top: -50px;
+// }
 //@font-face {
 //  font-family: SourceHanSans;
 //  src: url(../components/SourceHanSansSC-VF.woff);
@@ -36,3 +36,35 @@
 .art_msg img {
     max-width: 100%;
   }
+.art_msg{
+    max-width: calc(50vw);
+}  
+pre code{
+    display:block;
+    overflow-x: auto;
+    padding: 15px;
+
+}
+code{
+    padding: 3px 10px;
+    background:rgba($color: #000000, $alpha: 0.05);
+}
+
+.markdown{
+    max-width: calc(23vw);
+}
+.article .markdown{
+    max-width: 250px;
+}
+blockquote{
+    display: block;
+    padding: 16px;
+    margin: 0 0 24px;
+    border-left: 8px solid #dddfe4;
+    background: #eef0f4;
+    overflow: auto;
+    word-break: break-word!important;
+    p{
+        margin:0;
+    }
+}
