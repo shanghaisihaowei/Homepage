@@ -27,7 +27,7 @@ import company.apps
 import my_wallet.apps
 import order.apps
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -65,7 +65,6 @@ INSTALLED_APPS = [
     'company.apps.CompanyConfig',
     'my_wallet.apps.MyWalletConfig',
     'silk',
-    # 'minio_storage'
 
 ]
 
@@ -78,6 +77,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'silk.middleware.SilkyMiddleware',
+    'company.counter_middleware.Mydd', # 中间键记录访问
 ]
 
 ROOT_URLCONF = 'HomePage.urls'
@@ -423,27 +423,5 @@ PA_RETURN_URL = BASE_URL + '/order/api/v1/pay_back/'
 # Paupal取消支付返回的页面
 PA_CANCEL_URL = BASE_URL + '/order/api/v1/pay_back/'
 
-# from utils.minio_fdfs import MinioStorage
-# DEFAULT_FILE_STORAGE='utils.minio_fdfs.MinioStorage'
-# MINIO_CONF = {
-#     'endpoint': '39.104.19.231:9999',
-#     'access_key': 'minioadmin',
-#     'secret_key': 'minioadmin123?',
-#     'secure': False
-# }
-# BUCKET_NAME='mybucket'
-# DEFAULT_FILE_STORAGE = "minio_storage.storage.MinioMediaStorage"
-# STATICFILES_STORAGE = "minio_storage.storage.MinioStaticStorage"
-# MINIO_STORAGE_ENDPOINT = '172.17.0.2:9000'
-# MINIO_STORAGE_ACCESS_KEY = 'minioadmin'
-# MINIO_STORAGE_SECRET_KEY = 'minioadmin123?'
-# # MINIO_STORAGE_ACCESS_KEY = 'greaterwms'
-# # MINIO_STORAGE_SECRET_KEY = 'greaterwms123?'
-# MINIO_STORAGE_USE_HTTPS = False
-# MINIO_STORAGE_MEDIA_BUCKET_NAME = 'media'
-# MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET = True
-# MINIO_STORAGE_STATIC_BUCKET_NAME = 'static'
-# MINIO_STORAGE_AUTO_CREATE_STATIC_BUCKET = True
-# MINIO_STORAGE_STATIC_USE_PRESIGNED = True
-# MINIO_STORAGE_MEDIA_USE_PRESIGNED = True
+
 

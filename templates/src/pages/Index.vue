@@ -669,7 +669,7 @@ tr td a:hover, tr td a:active {
 <script>
 import {defineComponent, ref} from 'vue'
 import {openURL, createMetaMixin} from 'quasar'
-import {getauth, post} from "boot/axios";
+import {get, getauth, post} from "boot/axios";
 
 export default defineComponent({
   name: 'Index',
@@ -800,7 +800,7 @@ export default defineComponent({
           color: 'negative'
         })
       })
-    }
+    },
   },
   computed: {
     tabname: {

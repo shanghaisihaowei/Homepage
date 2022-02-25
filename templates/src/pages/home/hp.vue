@@ -513,11 +513,20 @@
       </div>
     </div>
   </div>
+  <q-dialog v-model="advertise">
+    <q-card class="shadow-0" style="width: 650px;cursor: pointer;background: rgba(0,0,0,0)" @click="goTo(advertiseUrl)">
+      <img :title="advertiseTitle" src="statics/advertise/100.svg" alt="">
+    </q-card>
+    <q-card class="shadow-0" style="margin-top: -600px;cursor: pointer; background: rgba(0,0,0,0)" @click="advertise = false">
+      <img src="statics/advertise/close.svg" alt="">
+    </q-card>
+  </q-dialog>
 </template>
 
 <script>
 import { openURL } from "quasar";
 import { defineComponent, ref } from "vue";
+import {get} from "boot/axios";
 
 export default defineComponent({
   name: "homepage",
@@ -537,12 +546,24 @@ export default defineComponent({
       },
       videourl: "",
       posterurl: "",
+      advertise: true,
+      advertiseUrl: '',
+      advertiseTitle: ''
     };
   },
   methods: {
     goTo(e) {
       openURL(e);
     },
+    //获取广告链接
+    getadvertiseUrl () {
+      var _this = this
+      get('resp/api/v1/banner').then(res => {
+        console.log(res)
+        _this.advertiseUrl = res[0].link
+        _this.advertiseTitle = res[0].title
+      })
+    }
   },
   mounted() {
     if (this.$q.cookies.get("lang") === "zh-hans") {
@@ -551,6 +572,14 @@ export default defineComponent({
     } else {
       this.videourl = window.g.BaseUrl + "media/video/GreaterWMSEN.mp4";
       this.posterurl = window.g.BaseUrl + "media/poster/posteren.jpg";
+    }
+    this.getadvertiseUrl()
+    if (this.$q.cookies.has('area')) {
+      if (this.$q.cookies.get('area') !== 'China') {
+        this.advertise = false
+      } else  {
+        this.advertise = true
+      }
     }
   },
   setup() {
