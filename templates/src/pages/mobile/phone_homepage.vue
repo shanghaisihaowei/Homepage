@@ -472,8 +472,8 @@ export default defineComponent({
       var _this = this
       get('resp/api/v1/banner').then(res => {
         console.log(res)
-        _this.advertiseUrl = res[0].link
-        _this.advertiseTitle = res[0].title
+        _this.advertiseUrl = res[1].link
+        _this.advertiseTitle = res[1].title
       })
     }
   },
