@@ -46,10 +46,10 @@
                 </q-list>
               </q-btn-dropdown>
               <q-btn
-                @click="contact_us = true"
+                v-show="this.$q.cookies.get('area') === 'China'"
+                @click="goTo('https://shop.56yhz.com/index/')"
                 flat
-                :label=navbar.issued
-                :to="{ name: 'release_notes' }"
+                :label=navbar.shop
                 style="font-size: 16px;font-weight: 400"></q-btn>
               <q-btn flat :label=navbar.community to="/community/GreaterWMS"
                      style="font-size: 16px;font-weight: 400"></q-btn>
@@ -338,7 +338,7 @@
                     <td height="30px">
                       <div
                         style="cursor: pointer"
-                        @click="this.$router.push({ name: 'release_notes' })"
+                        @click="this.$router.push({ name: 'release_notes' });contact_us = true"
                         :class="{'font_white':contact_us}"
                       >
                         {{ $t('avatar3.issued') }}
@@ -702,7 +702,7 @@ export default defineComponent({
         market: this.$t('index.navbar.market'),
         demo: this.$t('index.navbar.demo'),
         contact: this.$t('index.navbar.contact'),
-        issued: this.$t('avatar3.issued')
+        shop: this.$t("shop.hardwareShop")
       },
       visible: false,
       width: this.$q.screen.width + '' + 'px',

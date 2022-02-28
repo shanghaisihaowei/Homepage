@@ -185,6 +185,11 @@ const routes = [{
             name: 'pluginsList_m',
             component: () => import('pages/bbs/mobile/pluginsList.vue')
           },
+          {
+            path: 'pluginsDetail/:id',
+            name: 'pluginsDetail_m',
+            component: () => import('pages/bbs/mobile/pluginsDetail.vue')
+          },
         ]
       },
     ]

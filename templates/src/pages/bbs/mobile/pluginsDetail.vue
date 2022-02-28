@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white">
+  <div class="bg-white" style="max-width: 400px">
     <q-card square flat style="color: #999999" class="bottom_border q-py-md"
     ><q-btn class="text-body1" @click="this.$router.go(-1)" flat>
       &lt;{{ $t("community.e_shop_view.back") }}
@@ -64,9 +64,9 @@
 </template>
 <script>
 import { defineComponent } from "vue";
-import PluginsList from "./components/PluginsList";
-import Timeline from "./components/Timeline.vue";
-import CommentList from "./components/CommentList.vue";
+import PluginsList from "../home_components/market/components/PluginsList";
+import Timeline from "../home_components/market/components/Timeline.vue";
+import CommentList from "../home_components/market/components/CommentList.vue";
 import { get, getauth } from "boot/axios";
 export default defineComponent({
   components: {

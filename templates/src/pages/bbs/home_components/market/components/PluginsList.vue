@@ -204,7 +204,7 @@ export default defineComponent({
     goPluginDetail(id) {
       if (this.$q.platform.is.mobile) {
         this.$router.push({
-          path: `/market/pluginDetail/${id}`,
+          path: `/community/mobile/pluginsDetail/${id}`,
         });
       } else  {
         this.$router.push({
