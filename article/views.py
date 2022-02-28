@@ -194,11 +194,14 @@ class BrowseArticleView(GenericViewSet, RetrieveModelMixin, ListModelMixin):
             else:
                 return models.Article.objects.filter(community_type=community_type,language=1,check_person=1,is_delete=False).order_by('-updata_time')
         else:
-            lang = self.get_lang()
-            if lang == 'zh-hans':
-                return models.Article.objects.filter(community_type=0,language=0,check_person=1,is_delete=False).order_by('-updata_time')
+            if self.action in ['retrive']:
+                return models.Article.objects.filter(check_person=1, is_delete=False).order_by('-updata_time')
             else:
-                return models.Article.objects.filter(community_type=0,language=1,check_person=1,is_delete=False).order_by('-updata_time')
+                lang = self.get_lang()
+                if lang == 'zh-hans':
+                    return models.Article.objects.filter(language=0,check_person=1,is_delete=False).order_by('-updata_time')
+                else:
+                    return models.Article.objects.filter(language=1,check_person=1,is_delete=False).order_by('-updata_time')
 
 
     def retrieve(self, request, *args, **kwargs):
