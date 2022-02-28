@@ -221,7 +221,7 @@ export default {
     // 获取文章详情
     getdetailedinfo() {
       var _this = this
-      get('article/api/v1/Browse/' +_this.$q.cookies.get('articleId') + '/' + '?community_type=1').then(res => {
+      get('article/api/v1/Browse/' +_this.$q.cookies.get('articleId')).then(res => {
         var res_msg = res.result
         _this.title = res_msg.title
         _this.head_title = res_msg.title

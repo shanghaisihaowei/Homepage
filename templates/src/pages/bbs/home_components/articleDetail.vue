@@ -464,9 +464,7 @@ export default defineComponent({
       var _this = this;
       get(
         "article/api/v1/Browse/" +
-          _this.$route.params.id +
-          "/" +
-          "?community_type=0"
+          _this.$route.params.id
       )
         .then((res) => {
           var res_msg = res.result;
