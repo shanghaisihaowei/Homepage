@@ -180,6 +180,11 @@ const routes = [{
             name: 'DVadminDetail_m',
             component: () => import('pages/bbs/mobile/articleDetailDV.vue')
           },
+          {
+            path: 'pluginsList/:belong',
+            name: 'pluginsList_m',
+            component: () => import('pages/bbs/mobile/pluginsList.vue')
+          },
         ]
       },
     ]
