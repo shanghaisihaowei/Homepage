@@ -30,8 +30,9 @@
       <q-btn
         @click="addAccount"
         class="q-mr-md"
-        style="background-color: #116fec; min-width: 120px; height: 40px"
-        ><span style="font-size: 20px; color: white">{{
+        flat
+        style="background-color: #116fec; min-width: 120px; height: 38px"
+        ><span style="font-size: 16px; color: white">{{
           $t("community.myAccount_view.add_account")
         }}</span></q-btn
       >

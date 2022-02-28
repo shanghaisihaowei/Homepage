@@ -23,13 +23,17 @@
           </q-tab>
         </q-tabs>
       </q-card-section>
-      <q-card-section
-        v-if="this.$q.cookies.get('token')"
-        style="padding: 0 16px 0 0"
-        class="flex flex-center"
+      <q-card-section style="padding: 0 16px 0 0" class="flex flex-center"
         ><q-btn
-          @click="this.$router.push('/market/pluginRelease/newPlugin')"
-          color="primary"
+          @click="release"
+          flat
+          style="
+            background: #116efc;
+            color: white;
+            min-width: 120px;
+            height: 38px;
+            font-size: 16px;
+          "
           >{{ $t("community.e_shop_view.release_plugins") }}</q-btn
         ></q-card-section
       >
@@ -120,6 +124,13 @@ export default {
     }),
   ],
   methods: {
+    release() {
+      if (this.$q.cookies.get("token")) {
+        this.$router.push("/market/pluginRelease/newPlugin");
+      } else {
+        this.$store.dispatch("bbsChange/toLoginChange", true);
+      }
+    },
     //设置插件列表和分页
     setPluginsList(res) {
       this.pluginList = res.results;

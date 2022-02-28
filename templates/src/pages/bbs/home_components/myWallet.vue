@@ -16,7 +16,7 @@
         <q-tab name="dollar" class="details" no-caps>
           {{ $t("community.mywallet.dollar_wallet") }}
         </q-tab>
-        <q-space/>
+        <q-space />
 
         <!--        提现按钮-->
         <!--        人民币提现-->
@@ -43,7 +43,7 @@
         </q-btn>
       </q-tabs>
 
-      <q-separator/>
+      <q-separator />
 
       <q-card-section class="row" horizontal style="height: 180px">
         <!--        总收入-->
@@ -55,8 +55,7 @@
             />
           </span>
           <span class="tit_top my-font">
-            {{
-              $t("community.mywallet.total_revenue")
+            {{ $t("community.mywallet.total_revenue")
             }}<span>{{ currency === "rmb" ? "(￥)" : "($)" }}：</span>
           </span>
           <div class="number_amount text-center my-font-D">
@@ -64,15 +63,14 @@
           </div>
         </q-card-section>
 
-        <q-separator vertical/>
+        <q-separator vertical />
         <!--        可提现-->
         <q-card-section class="col-4">
           <span>
-            <img class="icon_top" src="statics/person_center/withdraw.svg"/>
+            <img class="icon_top" src="statics/person_center/withdraw.svg" />
           </span>
           <span class="tit_top my-font">
-            {{
-              $t("community.mywallet.withdrawnable")
+            {{ $t("community.mywallet.withdrawnable")
             }}<span>{{ currency === "rmb" ? "(￥)" : "($)" }}：</span>
           </span>
           <!--          感叹号-->
@@ -100,15 +98,14 @@
           </div>
         </q-card-section>
 
-        <q-separator vertical/>
+        <q-separator vertical />
         <!--        月累计提现-->
         <q-card-section class="col-4">
           <span>
-            <img class="icon_top" src="statics/person_center/income.svg"/>
+            <img class="icon_top" src="statics/person_center/income.svg" />
           </span>
           <span class="tit_top my-font">
-            {{
-              $t("community.mywallet.mcw")
+            {{ $t("community.mywallet.mcw")
             }}<span>{{ currency === "rmb" ? "(￥)" : "($)" }}：</span>
           </span>
           <div class="number_amount text-center my-font-D">
@@ -146,7 +143,7 @@
             {{ $t("community.mywallet.earnings_detail") }}</span
           >
         </q-tab>
-        <q-space/>
+        <q-space />
         <!-- 功能暂未开发，暂时隐藏按钮 -->
         <q-btn
           @click="this.$router.push('/community/myAccount')"
@@ -159,7 +156,7 @@
         </q-btn>
       </q-tabs>
 
-      <q-separator/>
+      <q-separator />
 
       <q-tab-panels v-model="tab" animated>
         <q-tab-panel class="no-padding" name="one">
@@ -169,8 +166,7 @@
               {{ $t("community.mywallet.date") }}
             </span>
             <span class="text-center col-3 void">
-              {{
-                $t("community.mywallet.withdrawal_Amount")
+              {{ $t("community.mywallet.withdrawal_Amount")
               }}<span>{{ currency === "rmb" ? "(￥)" : "($)" }}</span>
             </span>
             <span class="text-center col-3 void">
@@ -208,8 +204,7 @@
               {{ $t("community.mywallet.user") }}
             </span>
             <span class="text-center col-2 void">
-              {{
-                $t("community.mywallet.earnings_amount")
+              {{ $t("community.mywallet.earnings_amount")
               }}<span>{{ currency === "rmb" ? "(￥)" : "($)" }}</span>
             </span>
             <span class="text-center col-4 void">
@@ -243,15 +238,15 @@
         />
       </div>
       <div v-if="!hasPagination" class="flex flex-center q-mt-lg">
-        <q-btn flat>{{ $t('notice.nomoredata') }}</q-btn>
+        <q-btn flat>{{ $t("notice.nomoredata") }}</q-btn>
       </div>
     </q-card>
   </div>
 </template>
 
 <script>
-import {defineComponent} from "vue";
-import {getauth} from "boot/axios";
+import { defineComponent } from "vue";
+import { getauth } from "boot/axios";
 
 export default defineComponent({
   name: "myWallet",
@@ -268,8 +263,8 @@ export default defineComponent({
       withdraw_monthly: "0.00",
       wallet_type: "",
       withdraw_type: "",
-      getwithdrawUrl: '',
-      isverify: false
+      getwithdrawUrl: "",
+      isverify: false,
     };
   },
   watch: {
@@ -282,12 +277,12 @@ export default defineComponent({
           this.wallet_type = "r_wallet";
           this.detail_type = "rmb_salary";
           this.withdraw_type = "r_cash";
-          this.getwithdrawUrl = 'pay/api/v1/rnbccount/'
+          this.getwithdrawUrl = "pay/api/v1/rnbccount/";
         } else {
           this.wallet_type = "d_wallet";
           this.detail_type = "dollar_salary";
           this.withdraw_type = "d_cash";
-          this.getwithdrawUrl = 'pay/api/v1/usd_account/'
+          this.getwithdrawUrl = "pay/api/v1/usd_account/";
         }
         this.getWalletDetail();
         if (this.tab === "one") {
@@ -338,8 +333,7 @@ export default defineComponent({
     getcumulative() {
       var _this = this;
       getauth("")
-        .then((res) => {
-        })
+        .then((res) => {})
         .catch((err) => {
           _this.$q.notify({
             message: err.detail,
@@ -385,103 +379,113 @@ export default defineComponent({
     withdraw() {
       var _this = this;
       //获取认证状态
-      if (_this.$q.cookies.get('area') === 'China') {
-        getauth('/user/api/v1/auth_status/').then(res2 => {
-          _this.isverify = res2.result.status
-          //当完成认证
-          if (_this.isverify === true) {
-            //判断有无绑定账号
-            getauth(_this.getwithdrawUrl).then(res => {
-              if (res.length === 0) {
-                _this.$q.notify({
-                  message: _this.$t('community.mywallet.not_account'),
-                  icon: 'close',
-                  color: 'negative'
+      if (_this.$q.cookies.get("area") === "China") {
+        getauth("/user/api/v1/auth_status/")
+          .then((res2) => {
+            _this.isverify = res2.result.status;
+            //当完成认证
+            if (_this.isverify === true) {
+              //判断有无绑定账号
+              getauth(_this.getwithdrawUrl)
+                .then((res) => {
+                  if (res.length === 0) {
+                    _this.$q.notify({
+                      message: _this.$t("community.mywallet.not_account"),
+                      icon: "close",
+                      color: "negative",
+                    });
+                    _this.$router.push("/community/myAccount");
+                  } else {
+                    if (_this.walletDetails.withdrawal_amount < 800) {
+                      this.$q.notify({
+                        message: _this.$t("community.mywallet.insufficient800"),
+                        icon: "close",
+                        color: "negative",
+                      });
+                    } else {
+                      _this.$router.push("/community/withdraw");
+                    }
+                  }
                 })
-                _this.$router.push("/community/myAccount");
-              } else {
-                if (_this.walletDetails.withdrawal_amount < 800) {
-                  this.$q.notify({
-                    message: _this.$t('community.mywallet.insufficient800'),
+                .catch((err) => {
+                  _this.$q.notify({
+                    message: err.detail,
                     icon: "close",
                     color: "negative",
                   });
-                } else {
-                  _this.$router.push("/community/withdraw");
-                }
-              }
-            }).catch(err => {
+                });
+            } else {
               _this.$q.notify({
-                message: err.detail,
-                icon: 'close',
-                color: 'negative'
-              })
-            })
-          } else {
-            _this.$q.notify({
-              message: _this.$t('community.mywallet.not_certified'),
-              icon: 'close',
-              color: 'negative'
-            })
-          }
-        }).catch(err => {
-          _this.$q.notify({
-            message: err.detail,
-            icon: 'close',
-            color: 'negative'
+                message: _this.$t("community.mywallet.not_certified"),
+                icon: "close",
+                color: "negative",
+              });
+            }
           })
-        })
-      } else {}
+          .catch((err) => {
+            _this.$q.notify({
+              message: err.detail,
+              icon: "close",
+              color: "negative",
+            });
+          });
+      } else {
+      }
     },
     withdraw_foreign() {
       var _this = this;
-      if (_this.$q.cookies.get('area') === 'China') {
-        getauth('/user/api/v1/auth_status/').then(res2 => {
-          _this.isverify = res2.result.status
-          //当完成认证
-          if (_this.isverify === true) {
-            //判断有无绑定账号
-            getauth(_this.getwithdrawUrl).then(res => {
-              if (res.length === 0) {
-                _this.$q.notify({
-                  message: _this.$t('community.mywallet.not_account'),
-                  icon: 'close',
-                  color: 'negative'
+      if (_this.$q.cookies.get("area") === "China") {
+        getauth("/user/api/v1/auth_status/")
+          .then((res2) => {
+            _this.isverify = res2.result.status;
+            //当完成认证
+            if (_this.isverify === true) {
+              //判断有无绑定账号
+              getauth(_this.getwithdrawUrl)
+                .then((res) => {
+                  if (res.length === 0) {
+                    _this.$q.notify({
+                      message: _this.$t("community.mywallet.not_account"),
+                      icon: "close",
+                      color: "negative",
+                    });
+                    _this.$router.push("/community/myAccount");
+                  } else {
+                    if (_this.walletDetails.withdrawal_amount < 100) {
+                      this.$q.notify({
+                        message: _this.$t("community.mywallet.insufficient100"),
+                        icon: "close",
+                        color: "negative",
+                      });
+                    } else {
+                      _this.$router.push("/community/withdraw_foreign");
+                    }
+                  }
                 })
-                _this.$router.push("/community/myAccount");
-              } else {
-                if (_this.walletDetails.withdrawal_amount < 100) {
-                  this.$q.notify({
-                    message: _this.$t('community.mywallet.insufficient100'),
+                .catch((err) => {
+                  _this.$q.notify({
+                    message: err.detail,
                     icon: "close",
                     color: "negative",
                   });
-                } else {
-                  _this.$router.push("/community/withdraw_foreign");
-                }
-              }
-            }).catch(err => {
+                });
+            } else {
               _this.$q.notify({
-                message: err.detail,
-                icon: 'close',
-                color: 'negative'
-              })
-            })
-          } else {
-            _this.$q.notify({
-              message: _this.$t('community.mywallet.not_certified'),
-              icon: 'close',
-              color: 'negative'
-            })
-          }
-        }).catch(err => {
-          _this.$q.notify({
-            message: err.detail,
-            icon: 'close',
-            color: 'negative'
+                message: _this.$t("community.mywallet.not_certified"),
+                icon: "close",
+                color: "negative",
+              });
+            }
           })
-        })
-      } else {}
+          .catch((err) => {
+            _this.$q.notify({
+              message: err.detail,
+              icon: "close",
+              color: "negative",
+            });
+          });
+      } else {
+      }
     },
   },
   mounted() {
@@ -529,7 +533,8 @@ export default defineComponent({
   background-color: #116fec;
   color: white;
   min-width: 120px;
-  font-size: 18px;
+  height: 38px;
+  font-size: 16px;
   font-weight: 500;
 }
 

@@ -35,7 +35,7 @@
                     style="margin-left: 16px; cursor: pointer"
                     @click="tochangMsg()"
                   >
-                    <img src="statics/modify.svg" alt=""/>
+                    <img src="statics/modify.svg" alt="" />
                   </span>
                 </div>
 
@@ -49,12 +49,13 @@
                 <!--                            发布按钮-->
                 <q-btn
                   flat
-                  class="my-font"
                   text-color="#ffffff"
-                  align="left"
-                  size="xs"
                   icon="img:statics/push.svg"
-                  style="background-color: #116fec; width: 100px; height: 32px"
+                  style="
+                    background-color: #116fec;
+                    min-width: 120px;
+                    height: 38px;
+                  "
                   @click="$store.dispatch('bbsChange/releasediaChange', true)"
                 >
                   <span
@@ -132,6 +133,7 @@
         >
           <template v-slot:after>
             <q-btn
+              style="height: 40px"
               color="primary"
               icon="search"
               unelevated
