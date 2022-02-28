@@ -48,7 +48,7 @@
       </q-card-section>
       <!--        文章集体内容-->
       <q-card-section style="padding-top: 10px!important;">
-        <div v-html="content" class="art_msg">
+        <div v-html="content" class="art_message">
         </div>
       </q-card-section>
       <!--       图片-->
@@ -361,7 +361,7 @@ export default {
   font-weight: 400;
   color: #999999;
 }
-.art_msg {
+.art_message {
   font-size: 16px;
   font-weight: 400;
   color: #333333;

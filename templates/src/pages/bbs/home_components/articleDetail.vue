@@ -45,7 +45,7 @@
       </q-card-section>
       <!--        文章集体内容-->
       <q-card-section>
-        <div v-html="content" class="art_msg my-font"></div>
+        <div v-html="content" class="art_message my-font"></div>
       </q-card-section>
       <!--       图片-->
       <q-card-section>
@@ -381,7 +381,7 @@
   margin-top: 30px;
 }
 
-.art_msg {
+.art_message {
   letter-spacing: 1px;
   font-size: 15px;
   font-weight: 400;
