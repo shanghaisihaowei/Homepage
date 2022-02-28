@@ -17,9 +17,12 @@
           />
         </div>
         <div style="position: absolute; right: 0; bottom: 0">
-          <q-btn color="primary" @click="releaseReviews(1, '', '', '')">{{
-            $t("community.e_shop_view.release")
-          }}</q-btn>
+          <q-btn
+            flat
+            style="background: #116efc; color: white"
+            @click="releaseReviews(1, '', '', '')"
+            >{{ $t("community.e_shop_view.release") }}</q-btn
+          >
         </div>
       </div>
       <q-card

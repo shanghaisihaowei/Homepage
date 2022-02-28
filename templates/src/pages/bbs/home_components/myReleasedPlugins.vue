@@ -21,7 +21,8 @@
       <q-btn
         @click="this.$router.push('/market/pluginRelease/newPlugin')"
         class="q-mr-md"
-        style="background-color: #116fec; min-width: 120px; height: 40px"
+        flat
+        style="background-color: #116fec; min-width: 120px; height: 38px"
         ><span style="font-size: 16px; color: white">{{
           $t("community.e_shop_view.release_plugins")
         }}</span></q-btn

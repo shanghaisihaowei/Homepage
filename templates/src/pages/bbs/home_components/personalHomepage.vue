@@ -52,8 +52,8 @@
                 style="
                   background: white;
                   color: #116fec;
-                  width: 130px;
-                  height: 32px;
+                  min-width: 120px;
+                  height: 38px;
                   float: right;
                 "
               >
