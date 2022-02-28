@@ -14,14 +14,15 @@
       :style="{ cursor: showBtn ? 'default' : 'pointer' }"
     >
       <q-card-section :class="{'col-9':this.$q.platform.is.mobile,'col-10':!this.$q.platform.is.mobile}">
-        <div :class="{'flex':!this.$q.platform.is.mobile,'row':this.$q.platform.is.mobile}" style="align-items: center">
-          <div class="plugin_des" :class="{'col-9':this.$q.platform.is.mobile}" style="font-size: 20px; font-weight: 600">
+        <div :class="{'flex row':!this.$q.platform.is.mobile,'row':this.$q.platform.is.mobile}" style="align-items: center">
+          <div class="plugin_des" :class="{'col-9':this.$q.platform.is.mobile,'col-10':!this.$q.platform.is.mobile}" style="font-size: 20px; font-weight: 600">
             {{ item.name }}
           </div>
           <div
             class="q-ml-sm"
-            :class="{'row-2':this.$q.platform.is.mobile}"
+            :class="{'col-2':this.$q.platform.is.mobile,'col-1':!this.$q.platform.is.mobile,}"
             style="
+              width: 45px!important;
               font-size: 14px;
               background-color: #116fec;
               color: white;
