@@ -13,13 +13,14 @@
       "
       :style="{ cursor: showBtn ? 'default' : 'pointer' }"
     >
-      <q-card-section class="col-10">
-        <div class="flex" style="align-items: center">
-          <div style="font-size: 20px; font-weight: 600">
+      <q-card-section :class="{'col-9':this.$q.platform.is.mobile,'col-10':!this.$q.platform.is.mobile}">
+        <div :class="{'flex':!this.$q.platform.is.mobile,'row':this.$q.platform.is.mobile}" style="align-items: center">
+          <div class="plugin_des" :class="{'col-9':this.$q.platform.is.mobile}" style="font-size: 20px; font-weight: 600">
             {{ item.name }}
           </div>
           <div
             class="q-ml-sm"
+            :class="{'row-2':this.$q.platform.is.mobile}"
             style="
               font-size: 14px;
               background-color: #116fec;
@@ -61,7 +62,7 @@
           </div>
         </div>
       </q-card-section>
-      <q-card-section class="col-2">
+      <q-card-section :class="{'col-3':this.$q.platform.is.mobile,'col-2':!this.$q.platform.is.mobile}">
         <div
           v-if="item.check == '未审核' || item.check == '审核未通过'"
           :style="
@@ -200,9 +201,15 @@ export default defineComponent({
 
     //跳转插件详情页
     goPluginDetail(id) {
-      this.$router.push({
-        path: `/market/pluginDetail/${id}`,
-      });
+      if (this.$q.platform.is.mobile) {
+        this.$router.push({
+          path: `/market/pluginDetail/${id}`,
+        });
+      } else  {
+        this.$router.push({
+          path: `/market/pluginDetail/${id}`,
+        });
+      }
     },
     //关闭dialog
     closeDialog(val) {
