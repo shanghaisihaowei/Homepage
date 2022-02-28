@@ -240,7 +240,8 @@
           {{ $t('avatar3.tip_note2') }}
         </div>
     </div>
-      <div v-if="lang === 'zh-hans'" class="col-6 text-center">
+      <div v-if="lang !== 'ja'" class="col-2"></div>
+      <div v-if="lang === 'zh-hans'" class="col-4 text-center">
         <div class="my-font footer_title_right">
           {{ $t('avatar3.about') }}
         </div>
@@ -253,7 +254,7 @@
         </router-link>
         </div>
       </div>
-      <div v-if="lang === 'zh-hant'" class="col-6 text-center">
+      <div v-if="lang === 'zh-hant'" class="col-4 text-center">
         <div class="my-font footer_title_right">
           {{ $t('avatar3.about') }}
         </div>
@@ -266,7 +267,7 @@
           </router-link>
         </div>
       </div>
-      <div v-else-if="lang === 'en-US'" class="col-6 text-center">
+      <div v-else-if="lang === 'en-US'" class="col-4 text-center">
         <div class="my-font footer_title_right">
           {{ $t('avatar3.about') }}
         </div>
@@ -306,6 +307,7 @@
     <div class="my-font record_msg text-center">
       {{ $t('avatar3.record_number') }}
       <a href="" style="color: blue">{{ $t('avatar3.icp') }}</a>
+      <br>
       {{ $t('avatar3.record_number2') }}
     </div>
   </div>
@@ -465,15 +467,13 @@ export default defineComponent({
     onScroll() {
       var _this = this
       _this.pagelocation = _this.$refs.scrollAreaIndex.getScrollPercentage().top
-      console.log(_this.$refs.scrollAreaIndex.getScrollPercentage())
     },
     //获取广告链接
     getadvertiseUrl () {
       var _this = this
       get('resp/api/v1/banner').then(res => {
-        console.log(res)
-        _this.advertiseUrl = res[0].link
-        _this.advertiseTitle = res[0].title
+        _this.advertiseUrl = res[1].link
+        _this.advertiseTitle = res[1].title
       })
     }
   },

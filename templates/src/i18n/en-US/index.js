@@ -407,5 +407,9 @@ export default {
             my_plugins: 'You have not published the plugin yet, go ahead and publish it',
         }
 
+    },
+    shop: {
+      index: 'Shop',
+      hardwareShop: 'Hardware Mall'
     }
 }

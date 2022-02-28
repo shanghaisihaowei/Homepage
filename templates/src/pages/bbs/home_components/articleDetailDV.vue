@@ -4,7 +4,7 @@
       <!--                  返回按钮-->
       <q-card-actions>
         <q-btn
-          @click="this.$router.push({ name: 'community' })"
+          @click="this.$router.push({ name: 'DVadmin' })"
           style="font-size: 14px; font-weight: 400; color: #999999"
           unelevated
           :label="goblack"

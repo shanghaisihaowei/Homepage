@@ -406,5 +406,9 @@ export default {
             my_orders: '您暂时没有订单，赶快去下单吧～',
             my_plugins: '您暂时没有发布插件，快去发布吧～',
         }
+    },
+    shop: {
+      index: '商城',
+      hardwareShop: '硬件商城'
     }
 }

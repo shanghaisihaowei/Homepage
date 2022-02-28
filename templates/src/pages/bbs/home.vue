@@ -79,6 +79,9 @@
           <div v-if="isLogin">
             <q-avatar style="cursor: pointer" @click="toHomepage()">
               <img :src="avatar_img" style="border-radius: 25px" />
+              <q-tooltip>
+                {{ $t('community.personal_center') }}
+              </q-tooltip>
             </q-avatar>
           </div>
           <q-btn
@@ -101,7 +104,7 @@
         <div class="col-2"></div>
       </q-toolbar>
     </q-header>
-    <q-page-container>
+    <q-page-container style="background: #F4F6F8">
       <q-page>
         <q-scroll-area
           :thumb-style="thumbStyle"
@@ -171,7 +174,7 @@
                       </q-item-section>
                     </q-item>
                     <q-separator spaced />
-                    <!-- 商城 -->
+                    <!-- 市场 -->
                     <q-item class="col-1 row">
                       <q-item-section class="col-1"></q-item-section>
                       <q-item-section>
@@ -217,22 +220,37 @@
                         }}</span>
                       </q-item-section>
                     </q-item>
+<!--                    <q-separator v-show="this.$q.cookies.get('area') === 'China'" spaced />-->
+<!--&lt;!&ndash;                    商城&ndash;&gt;-->
+<!--                    <q-item class="col-1 row" v-show="this.$q.cookies.get('area') === 'China'">-->
+<!--                      <q-item-section class="col-1"></q-item-section>-->
+<!--                      <q-item-section>-->
+<!--                        <span-->
+<!--                          style="-->
+<!--                            font-size: 16px;-->
+<!--                            font-weight: 500;-->
+<!--                            color: #777888;-->
+<!--                          "-->
+<!--                        >{{ $t("shop.index") }}</span-->
+<!--                        >-->
+<!--                      </q-item-section>-->
+<!--                    </q-item>-->
 
-                    <!--                    <q-item-->
-                    <!--                      clickable-->
-                    <!--                      v-ripple-->
-                    <!--                      :active="link === 'equipment'"-->
-                    <!--                      @click="link = 'equipment'"-->
-                    <!--                      active-class="my-menu-link"-->
-                    <!--                      class="col-1"-->
-                    <!--                    >-->
-                    <!--                      <q-item-section avatar></q-item-section>-->
-                    <!--                      <q-item-section>-->
-                    <!--                        <span style="font-size: 14px; font-weight: 400">{{-->
-                    <!--                          $t("community.equipment")-->
-                    <!--                        }}</span>-->
-                    <!--                      </q-item-section>-->
-                    <!--                    </q-item>-->
+<!--                    <q-item-->
+<!--                      clickable-->
+<!--                      v-ripple-->
+<!--                      :active="this.link === 'shop'"-->
+<!--                      active-class="my-menu-link"-->
+<!--                      v-show="this.$q.cookies.get('area') === 'China'"-->
+<!--                      @click="goTo('https://shop.56yhz.com');this.link = 'shop'"-->
+<!--                    >-->
+<!--                      <q-item-section avatar></q-item-section>-->
+<!--                      <q-item-section>-->
+<!--                        <span style="font-size: 16px; font-weight: 400">{{-->
+<!--                            $t("shop.hardwareShop")-->
+<!--                          }}</span>-->
+<!--                      </q-item-section>-->
+<!--                    </q-item>-->
                   </q-list>
                 </q-card>
               </div>

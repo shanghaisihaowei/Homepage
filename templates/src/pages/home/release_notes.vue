@@ -18,7 +18,7 @@
               active-class="my-menu-link"
             >
               <q-item-section style="font-size: 18px;font-weight: 400">
-                V 2.1.0
+                V 2.1
               </q-item-section>
             </q-item>
 
