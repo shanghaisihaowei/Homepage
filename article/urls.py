@@ -35,7 +35,7 @@ urlpatterns = [
     path('upload_file/', views.Upload.as_view({'post': 'upload_file'})),
     path('topwms/<int:id>/', views.GreaterWMSTopArticleView.as_view({'get': 'retrieve'})),
     path('topwms/', views.GreaterWMSTopArticleView.as_view({'get':'list'})),
-    # path('topdv/<int:id>/', views.DVAdminTopArticleView.as_view({'get':'retrieve'})),
+    path('topdv/<int:id>/', views.DVAdminTopArticleView.as_view({'get':'retrieve'})),
     path('topdv/', views.DVAdminTopArticleView.as_view({'get':'list'})),
 ]
 urlpatterns +=router.urls

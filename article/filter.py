@@ -20,6 +20,7 @@ class ArticleFilter(FilterSet):
             "create_time": ['exact', 'iexact', 'year', 'month', 'day', 'week_day', 'gt', 'gte', 'lt', 'lte', 'range'],
             "updata_time": ['exact', 'iexact', 'year', 'month', 'day', 'week_day', 'gt', 'gte', 'lt', 'lte', 'range'],
             "is_delete": ['exact', 'iexact', 'contains', 'icontains'],
+            "top": ['exact', 'iexact', 'contains', 'icontains'],
         }
 
 

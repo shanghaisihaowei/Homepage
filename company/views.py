@@ -16,7 +16,7 @@ from django.conf import settings
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
-from .filter import RecorderFilter,ArticleBannerFilter
+from .filter import RecorderFilter,ArticleBannerFilter,MobileArticleBannerFilter
 from .filter import FileRenderCN
 from utils.page import MyPageNumberPagination
 from django.core.cache import cache
@@ -139,11 +139,17 @@ class ArticleBannerView(ModelViewSet):
 
 class MobileArticleBannerView(ModelViewSet):
     filter_backends = [DjangoFilterBackend, OrderingFilter, ]
-    filter_class = ArticleBannerFilter
+    filter_class = MobileArticleBannerFilter
     lookup_field = 'id'
     queryset = models.MobileArticleBanner.objects.filter(is_delete=False, is_show=True).order_by('orders')[
                :settings.BANNER_COUNT]
     serializers_class = serializers.ArticleBannerGETModelSerializer
+
+
+    def get_queryset(self):
+        queryset = models.MobileArticleBanner.objects.filter(is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+        return queryset
+
 
     def get_serializer_class(self):
         if self.action in ['list']:
