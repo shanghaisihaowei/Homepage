@@ -100,10 +100,10 @@ export default{
       handler(val) {
         this.affiliation = val.params.belong === "GreaterWMS" ? 0 : 1;
         if (val.params.belong === "GreaterWMS") {
-          this.$store.dispatch("bbsChange/logo", "img:statics/logo_black.svg");
+          this.$store.dispatch("bbsChange/mobileLogo", "statics/logo.svg");
           this.$store.dispatch("bbsChange/titletype", "GreaterWMS");
         } else {
-          this.$store.dispatch("bbsChange/logo", "img:statics/DV_logo.svg");
+          this.$store.dispatch("bbsChange/mobileLogo", "statics/DV_logo_w.svg");
           this.$store.dispatch("bbsChange/titletype", "DVAdmin");
         }
         this.getPlginsList();
