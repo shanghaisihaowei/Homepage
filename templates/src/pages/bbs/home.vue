@@ -80,7 +80,7 @@
             <q-avatar style="cursor: pointer" @click="toHomepage()">
               <img :src="avatar_img" style="border-radius: 25px" />
               <q-tooltip>
-                {{ $t('community.personal_center') }}
+                {{ $t("community.personal_center") }}
               </q-tooltip>
             </q-avatar>
           </div>
@@ -104,7 +104,7 @@
         <div class="col-2"></div>
       </q-toolbar>
     </q-header>
-    <q-page-container style="background: #F4F6F8">
+    <q-page-container style="background: #f4f6f8">
       <q-page>
         <q-scroll-area
           :thumb-style="thumbStyle"
@@ -220,9 +220,15 @@
                         }}</span>
                       </q-item-section>
                     </q-item>
-                    <q-separator v-show="this.$q.cookies.get('area') === 'China'" spaced />
-<!--                    商城-->
-                    <q-item class="col-1 row" v-show="this.$q.cookies.get('area') === 'China'">
+                    <q-separator
+                      v-show="this.$q.cookies.get('area') === 'China'"
+                      spaced
+                    />
+                    <!--                    商城-->
+                    <q-item
+                      class="col-1 row"
+                      v-show="this.$q.cookies.get('area') === 'China'"
+                    >
                       <q-item-section class="col-1"></q-item-section>
                       <q-item-section>
                         <span
@@ -231,7 +237,7 @@
                             font-weight: 500;
                             color: #777888;
                           "
-                        >{{ $t("shop.index") }}</span
+                          >{{ $t("shop.index") }}</span
                         >
                       </q-item-section>
                     </q-item>
@@ -242,13 +248,16 @@
                       :active="this.link === 'shop'"
                       active-class="my-menu-link"
                       v-show="this.$q.cookies.get('area') === 'China'"
-                      @click="goTo('https://shop.56yhz.com/index/');this.link = 'shop'"
+                      @click="
+                        goTo('https://shop.56yhz.com/index/');
+                        this.link = 'shop';
+                      "
                     >
                       <q-item-section avatar></q-item-section>
                       <q-item-section>
                         <span style="font-size: 16px; font-weight: 400">{{
-                            $t("shop.hardwareShop")
-                          }}</span>
+                          $t("shop.hardwareShop")
+                        }}</span>
                       </q-item-section>
                     </q-item>
                   </q-list>
@@ -1009,12 +1018,14 @@
       <q-card class="q-pb-md article" style="width: 580px !important">
         <!--          发布和关闭按钮-->
         <div
-          class="rel_dialog q-pa-md row"
-          style="border-bottom: 1px #dcdcdc solid"
+          class="rel_dialog q-pa-md row flex"
+          style="
+            border-bottom: 1px #dcdcdc solid;
+            justify-content: space-between;
+          "
         >
-          <div class="col-11">{{ $t("community.push_article") }}</div>
+          <div>{{ $t("community.push_article") }}</div>
           <q-btn
-            class="col-1"
             unelevated
             icon="close"
             @click="
