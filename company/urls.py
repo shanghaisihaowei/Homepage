@@ -27,6 +27,8 @@ from rest_framework import routers
 urlpatterns = [
     path(r'resp/',views.Stream_video_View.as_view({'get':'stream_video'})),
     path(r'banner/',views.HomeBannerlistview.as_view({'get':'list'})),
+    path(r'article_banner/',views.ArticleBannerView.as_view({'get':'list'})),
+    path(r'mobile_banner/',views.MobileArticleBannerView.as_view({'get':'list'})),
     path(r'recorder/',views.RecorderlistView.as_view({'get':'list'})),
 
 ]

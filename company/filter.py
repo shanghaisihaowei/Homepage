@@ -1,5 +1,5 @@
 from django_filters import FilterSet
-from .models import Recorder
+from .models import Recorder,ArticleBanner
 from rest_framework_csv.renderers import CSVStreamingRenderer
 class RecorderFilter(FilterSet):
     class Meta:
@@ -13,6 +13,24 @@ class RecorderFilter(FilterSet):
             "created_time": ['exact', 'iexact', 'year', 'month', 'day', 'week_day', 'gt', 'gte', 'lt', 'lte', 'range'],
             "updated_time": ['exact', 'iexact', 'year', 'month', 'day', 'week_day', 'gt', 'gte', 'lt', 'lte', 'range'],
             "is_delete": ['exact', 'iexact', 'contains', 'icontains'],
+        }
+
+
+
+class ArticleBannerFilter(FilterSet):
+    class Meta:
+        model = ArticleBanner
+        fields = {
+            "id": ['exact', 'iexact', 'gt', 'gte', 'lt', 'lte', 'isnull', 'in', 'range'],
+            "title": ['exact', 'iexact', 'contains', 'icontains'],
+            "link": ['exact', 'iexact', 'contains', 'icontains'],
+            "created_time": ['exact', 'iexact', 'year', 'month', 'day', 'week_day', 'gt', 'gte', 'lt', 'lte', 'range'],
+            "updated_time": ['exact', 'iexact', 'year', 'month', 'day', 'week_day', 'gt', 'gte', 'lt', 'lte', 'range'],
+            "is_delete": ['exact', 'iexact', 'contains', 'icontains'],
+            "is_show": ['exact', 'iexact', 'contains', 'icontains'],
+            "language": ['exact', 'iexact', 'contains', 'icontains'],
+            "orders": ['exact', 'iexact', 'contains', 'icontains'],
+            "community": ['exact', 'iexact', 'contains', 'icontains'],
         }
 
 def file_headers():

@@ -27,4 +27,12 @@ class ArticleBannerGETModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.ArticleBanner
-        fields = ['title']
+        fields = ['title','image','link','community']
+
+
+class MobileArticleBannerGETModelSerializer(serializers.ModelSerializer):
+
+
+    class Meta:
+        model = models.MobileArticleBanner
+        fields = ['title','image','link','community']
