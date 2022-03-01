@@ -543,14 +543,14 @@
       </div>
     </div>
   </div>
-<!--  <q-dialog v-model="advertise">-->
-<!--    <q-card class="shadow-0" style="width: 650px;cursor: pointer;background: rgba(0,0,0,0)" @click="goTo(advertiseUrl)">-->
-<!--      <img :title="advertiseTitle" src="statics/advertise/100.svg" alt="">-->
-<!--    </q-card>-->
-<!--    <q-card class="shadow-0" style="margin-top: -600px;cursor: pointer; background: rgba(0,0,0,0)" @click="advertise = false">-->
-<!--      <img src="statics/advertise/close.svg" alt="">-->
-<!--    </q-card>-->
-<!--  </q-dialog>-->
+  <q-dialog v-model="advertise">
+    <q-card class="shadow-0" style="width: 650px;cursor: pointer;background: rgba(0,0,0,0)" @click="goTo(advertiseUrl)">
+      <img :title="advertiseTitle" src="statics/advertise/100.svg" alt="">
+    </q-card>
+    <q-card class="shadow-0" style="margin-top: -600px;cursor: pointer; background: rgba(0,0,0,0)" @click="advertise = false">
+      <img src="statics/advertise/close.svg" alt="">
+    </q-card>
+  </q-dialog>
 </template>
 
 <script>
