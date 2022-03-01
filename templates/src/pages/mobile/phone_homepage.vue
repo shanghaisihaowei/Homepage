@@ -350,8 +350,8 @@
   </div>
 </div>
   <q-dialog v-model="advertise">
-    <q-card class="shadow-0" style="width: 350px;cursor: pointer;background: rgba(0,0,0,0);margin-top: 50px" @click="goTo(advertiseUrl)">
-      <img :title="advertiseTitle" src="statics/advertise/100.svg" alt="">
+    <q-card class="shadow-0" style="width: 350px;cursor: pointer;background: rgba(0,0,0,0);margin-top: 50px" @click="goTo(advertiseUrl[0])">
+      <img :title="advertiseTitle[0]" src="statics/advertise/100.svg" alt="">
     </q-card>
     <q-card class="shadow-0" style="margin-top: -100px;cursor: pointer; background: rgba(0,0,0,0)" @click="advertise = false">
       <img src="statics/advertise/close.svg" alt="">
@@ -481,8 +481,8 @@ export default defineComponent({
       scroll_height: Screen.height + '' + 'px',
       code_warehous: this.$t('index.code_warehouse'),
       advertise: true,
-      advertiseUrl: '',
-      advertiseTitle: ''
+      advertiseUrl: [],
+      advertiseTitle: []
     }
   },
   mixins: [
@@ -511,9 +511,11 @@ export default defineComponent({
     //获取广告链接
     getadvertiseUrl () {
       var _this = this
-      get('resp/api/v1/banner').then(res => {
-        _this.advertiseUrl = res[1].link
-        _this.advertiseTitle = res[1].title
+      get('resp/api/v1/banner/?mode=2').then(res => {
+        res.forEach((i,index) => {
+          _this.advertiseUrl[index] = i.link
+          _this.advertiseTitle[index] = i.title
+        })
       })
     }
   },
