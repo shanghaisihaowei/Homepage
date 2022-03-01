@@ -268,7 +268,7 @@ export default{
       _this.cant_push = !_this.cant_push
       setTimeout(function(){
        _this.cant_push = false
-      },1000)
+      },2000)
     }
   },
   created() {
