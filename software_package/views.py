@@ -382,7 +382,6 @@ class CommentCreateView(ViewSetMixin, CreateAPIView):
 
 
 from django.db.models import Max
-# 我发布的插件列表(未调通)
 class MySoftwareReleaseGetView(ModelViewSet):
     """
     list:

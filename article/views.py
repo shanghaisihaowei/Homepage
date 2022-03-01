@@ -240,10 +240,14 @@ class GreaterWMSTopArticleView(ModelViewSet):
 
     def get_queryset(self):
         lang = self.get_lang()
-        if lang == 'zh-hans':
-            return models.Article.objects.filter(community_type=0,language=0,check_person=1,is_delete=False,top=True).order_by('-updata_time')
+        if lang:
+            if lang == 'zh-hans':
+                return models.Article.objects.filter(community_type=0,language=0,check_person=1,is_delete=False,top=True).order_by('-updata_time')
+            else:
+                return models.Article.objects.filter(community_type=0,language=1,check_person=1,is_delete=False,top=True).order_by('-updata_time')
         else:
-            return models.Article.objects.filter(community_type=0,language=1,check_person=1,is_delete=False,top=True).order_by('-updata_time')
+            return models.Article.objects.filter(community_type=0, language=0, check_person=1, is_delete=False,
+                                                 top=True).order_by('-updata_time')
 
     def retrieve(self, request, *args, **kwargs):
         serializer = super().retrieve(request, *args, **kwargs)
@@ -280,12 +284,15 @@ class DVAdminTopArticleView(ModelViewSet):
 
     def get_queryset(self):
         lang = self.get_lang()
-
-        if lang == 'zh-hans':
-            return models.Article.objects.filter(community_type=1, language=0, check_person=1, is_delete=False,
+        if lang:
+            if lang == 'zh-hans':
+                return models.Article.objects.filter(community_type=1, language=0, check_person=1, is_delete=False,
+                                                     top=True).order_by('-updata_time')
+            else:
+                return models.Article.objects.filter(community_type=1, language=1, check_person=1, is_delete=False,
                                                  top=True).order_by('-updata_time')
         else:
-            return models.Article.objects.filter(community_type=1, language=1, check_person=1, is_delete=False,
+            return models.Article.objects.filter(community_type=1, language=0, check_person=1, is_delete=False,
                                                  top=True).order_by('-updata_time')
 
     def retrieve(self, request, *args, **kwargs):

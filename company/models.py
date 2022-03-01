@@ -70,6 +70,8 @@ class ArticleBanner(models.Model):
         verbose_name='文章广告位轮播图'
         verbose_name_plural=verbose_name
 
+    def __str__(self):
+        return "%s"%str(self.title)
 
 class MobileArticleBanner(models.Model):
     community_choices = ((0, 'GreaterWMS开源社区'), (1, 'DVAdmin社区'))
@@ -90,3 +92,6 @@ class MobileArticleBanner(models.Model):
         db_table = 'homepage_mobile_article_banner'
         verbose_name='手机文章广告位轮播图'
         verbose_name_plural=verbose_name
+
+    def __str__(self):
+        return "%s"%str(self.title)
