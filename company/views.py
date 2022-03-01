@@ -90,9 +90,18 @@ class HomeBannerlistview(ModelViewSet):
                :settings.BANNER_COUNT]
     serializer_class = serializers.HomeBannerGETModelSerializer
 
+    def get_mode_type(self):
+        mode=self.request.query_params.get('mode')
+        return mode
+
     def get_queryset(self):
-        queryset = models.HomeBanner.objects.filter(is_delete=False, is_show=True).order_by('orders')[
-                   :settings.BANNER_COUNT]
+        mode=self.get_mode_type()
+        if mode:
+            queryset = models.HomeBanner.objects.filter(mode=mode,is_delete=False, is_show=True).order_by('orders')[
+                       :settings.BANNER_COUNT]
+        else:
+            queryset = models.HomeBanner.objects.filter(mode=1,is_delete=False, is_show=True).order_by('orders')[
+                       :settings.BANNER_COUNT]
         return queryset
 
     def get_serializer_class(self):
@@ -124,7 +133,11 @@ class ArticleBannerView(ModelViewSet):
 
     def get_queryset(self):
         community=self.get_community_type()
-        queryset = models.ArticleBanner.objects.filter(community=community,is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+        if community:
+            queryset = models.ArticleBanner.objects.filter(community=community,is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+        else:
+            queryset = models.ArticleBanner.objects.filter(community=0, is_delete=False, is_show=True).order_by(
+                'orders')[:settings.BANNER_COUNT]
         return queryset
 
     def get_serializer_class(self):
@@ -148,15 +161,24 @@ class ArticleBannerView(ModelViewSet):
 
 class MobileArticleBannerView(ModelViewSet):
     filter_backends = [DjangoFilterBackend, OrderingFilter, ]
-    filter_class = MobileArticleBannerFilter
+    # filter_class = MobileArticleBannerFilter
     lookup_field = 'id'
     queryset = models.MobileArticleBanner.objects.filter(is_delete=False, is_show=True).order_by('orders')[
                :settings.BANNER_COUNT]
     serializers_class = serializers.ArticleBannerGETModelSerializer
 
+    def get_community_type(self):
+        community = self.request.query_params.get('community')
+        return community
 
     def get_queryset(self):
-        queryset = models.MobileArticleBanner.objects.filter(is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+        community=self.get_community_type()
+        if community:
+            queryset = models.MobileArticleBanner.objects.filter(community=community,is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+        else:
+            queryset = models.MobileArticleBanner.objects.filter(community=0, is_delete=False,
+                                                                 is_show=True).order_by('orders')[
+                       :settings.BANNER_COUNT]
         return queryset
 
 

@@ -24,10 +24,10 @@ class MarketUpload(admin.ModelAdmin):
 @admin.register(models.HomeBanner)
 class HomeBanner(admin.ModelAdmin):
 
-    list_display =('id','title','is_delete','is_show','orders','created_time')
+    list_display =('id','title','mode','is_delete','is_show','orders','created_time')
     # 默认不配置的话，第一个字段会存在链接到记录编辑页面
     # list_display_links = None
-    list_display_links = ('title','is_delete','is_show','orders')
+    list_display_links = ('title','mode','is_delete','is_show','orders')
     # 每页显示条目数 缺省值100
     list_per_page = 10
     readonly_fields = ('id',)

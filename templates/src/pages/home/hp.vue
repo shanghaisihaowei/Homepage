@@ -527,18 +527,18 @@
       />
       <div style="margin-top: 85px" class="row">
         <div class="col-2"></div>
-        <div class="col-2"><img class="can_clock" @click="goTo('https://www.zebra.cn/cn/zh.html')" src="statics/partner/zebra.png" alt=""></div>
-        <div class="col-2"><img class="can_clock" @click="goTo('http://www.digitalchina.com/')" src="statics/partner/szsm.png" alt=""></div>
-        <div class="col-2"><img class="can_clock" @click="goTo('https://www.urovo.com/')" style="padding-top: 20px" src="statics/partner/urovo.png" alt=""></div>
-        <div class="col-2"><img class="can_clock" @click="goTo('https://www.panpass.com/?renqun_youhua=1933165&bd_vid=11940383777790952909')" src="statics/partner/panpass.png" alt=""></div>
+        <div class="col-2 flex flex-center"><img class="can_clock" @click="goTo('https://www.zebra.cn/cn/zh.html')" src="statics/partner/zebra.png" alt=""></div>
+        <div class="col-2 flex flex-center"><img class="can_clock" @click="goTo('http://www.digitalchina.com/')" src="statics/partner/szsm.png" alt=""></div>
+        <div class="col-2 flex flex-center"><img class="can_clock" @click="goTo('https://www.urovo.com/')" src="statics/partner/urovo.png" alt=""></div>
+        <div class="col-2 flex flex-center"><img class="can_clock" @click="goTo('https://www.panpass.com/?renqun_youhua=1933165&bd_vid=11940383777790952909')" src="statics/partner/panpass.png" alt=""></div>
         <div class="col-2"></div>
       </div>
       <div style="margin-top: 85px" class="row">
         <div class="col-2"></div>
-        <div class="col-2"><img class="can_clock" @click="goTo('https://www.oschina.net/')" src="statics/partner/cos.svg" alt=""></div>
-        <div class="col-2"><img class="can_clock" @click="goTo('https://github.com/Singosgu/GreaterWMS.git')" src="statics/partner/github.svg" alt=""></div>
-        <div class="col-2"><img class="can_clock" @click="goTo('https://www.geekplus.com/')" src="statics/partner/geek.svg" alt=""></div>
-        <div class="col-2"><img class="can_clock" @click="goTo('https://gitee.com/Singosgu/GreaterWMS.git')" src="statics/partner/gitee.svg" alt=""></div>
+        <div class="col-2 flex flex-center"><img class="can_clock" @click="goTo('https://www.oschina.net/')" src="statics/partner/cos.svg" alt=""></div>
+        <div class="col-2 flex flex-center"><img class="can_clock" @click="goTo('https://github.com/Singosgu/GreaterWMS.git')" src="statics/partner/github.svg" alt=""></div>
+        <div class="col-2 flex flex-center"><img class="can_clock" @click="goTo('https://www.geekplus.com/')" src="statics/partner/geek.svg" alt=""></div>
+        <div class="col-2 flex flex-center"><img class="can_clock" @click="goTo('https://gitee.com/Singosgu/GreaterWMS.git')" src="statics/partner/gitee.svg" alt=""></div>
         <div class="col-2"></div>
       </div>
     </div>
