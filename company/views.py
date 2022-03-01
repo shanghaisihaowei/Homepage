@@ -16,9 +16,11 @@ from django.conf import settings
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
-from .filter import RecorderFilter
+from .filter import RecorderFilter,ArticleBannerFilter
 from .filter import FileRenderCN
 from utils.page import MyPageNumberPagination
+from django.core.cache import cache
+from rest_framework.response import Response
 class Stream_video_View(ViewSet):
     authentication_classes = ()
     def get_lang(self):
@@ -99,13 +101,61 @@ class HomeBannerlistview(ModelViewSet):
         else:
             return self.http_method_not_allowed(request=self.request)
 
+    # def list(self, request, *args, **kwargs):
+    #     home_banner_list = cache.get('home_banner_list_cache')
+    #     if not home_banner_list:
+    #         serializer = super().list(self, request, *args, **kwargs)
+    #         home_banner_list = serializer.data
+    #         cache.set('home_banner_list_cache',home_banner_list)
+    #     return Response(home_banner_list)
 
 
 
-class GreaterWMSArticleBannerView(ModelViewSet):
-    queryset = models.ArticleBanner.objects.filter(is_delete=False,is_show=True,community=0).order_by('orders')[:settings.BANNER_COUNT]
+class ArticleBannerView(ModelViewSet):
+    filter_backends = [DjangoFilterBackend, OrderingFilter, ]
+    filter_class = ArticleBannerFilter
+    lookup_field = 'id'
+    queryset = models.ArticleBanner.objects.filter(is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+    serializers_class = serializers.ArticleBannerGETModelSerializer
 
-    serializer_class = serializers.ArticleBannerGETModelSerializer
+    def get_queryset(self):
+        queryset = models.ArticleBanner.objects.filter(is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+        return queryset
+
+    def get_serializer_class(self):
+        if self.action in ['list']:
+            return serializers.ArticleBannerGETModelSerializer
+        else:
+            return self.http_method_not_allowed(request=self.request)
+
+    # def list(self, request, *args, **kwargs):
+    #     article_banner_list = cache.get('article_banner_list_cache')
+    #     if not article_banner_list:
+    #         serializer = super().list(self, request, *args, **kwargs)
+    #         article_banner_list = serializer.data
+    #         cache.set('article_banner_list_cache',article_banner_list)
+    #     return Response(article_banner_list)
+
+
+class MobileArticleBannerView(ModelViewSet):
+    filter_backends = [DjangoFilterBackend, OrderingFilter, ]
+    filter_class = ArticleBannerFilter
+    lookup_field = 'id'
+    queryset = models.MobileArticleBanner.objects.filter(is_delete=False, is_show=True).order_by('orders')[
+               :settings.BANNER_COUNT]
+    serializers_class = serializers.ArticleBannerGETModelSerializer
+
+    def get_serializer_class(self):
+        if self.action in ['list']:
+            return serializers.ArticleBannerGETModelSerializer
+        else:
+            return self.http_method_not_allowed(request=self.request)
+
+
+# class GreaterWMSArticleBannerView(ModelViewSet):
+#     queryset = models.ArticleBanner.objects.filter(is_delete=False,is_show=True,community=0).order_by('orders')[:settings.BANNER_COUNT]
+#
+#     serializer_class = serializers.ArticleBannerGETModelSerializer
 
 
 class RecorderlistView(ModelViewSet):
@@ -138,19 +188,3 @@ class RecorderlistView(ModelViewSet):
         return response
 
 
-        # queryset = self.filter_queryset(self.get_queryset())
-        #
-        # page = self.paginate_queryset(queryset)
-        # if page is not None:
-        #     serializer = self.get_serializer(page, many=True)
-        #     return self.get_paginated_response(serializer.data)
-        #
-        # serializer = self.get_serializer(queryset, many=True)
-        #
-        # renderer = FileRenderCN.render(serializer)
-        # response = StreamingHttpResponse(
-        #     renderer,
-        #     content_type="text/csv"
-        # )
-        # response['Content-Disposition'] = "attachment; filename='supplier_{}.csv'".format(str(dt.strftime('%Y%m%d%H%M%S%f')))
-        # return response

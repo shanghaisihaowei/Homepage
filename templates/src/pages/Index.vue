@@ -300,7 +300,7 @@
       <q-footer v-if="!ismobile" class="my-font" :class="{'home_footer':!contact_us,'not_home_footer':contact_us}"
                 style="padding-bottom: 15px">
         <div>
-          <div class="row" style="padding-top: 70px">
+          <div class="row" style="padding-top: 150px">
             <div class="col-2"></div>
             <!--            logo加介绍-->
             <div class="col-2">
