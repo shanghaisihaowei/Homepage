@@ -48,8 +48,8 @@
         :max-pages="6"
       />
     </div>
-    <div class="flex flex-center q-mt-lg" v-if="!hasPagination">
-      <q-btn flat>{{ $t("notice.nomoredata") }}</q-btn>
+    <div class="text-center q-mt-lg" v-if="!hasPagination">
+      {{ $t("notice.nomoredata") }}
     </div>
   </div>
 </template>

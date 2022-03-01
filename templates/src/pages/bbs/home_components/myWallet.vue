@@ -237,8 +237,8 @@
           :max-pages="6"
         />
       </div>
-      <div v-if="!hasPagination" class="flex flex-center q-mt-lg">
-        <q-btn flat>{{ $t("notice.nomoredata") }}</q-btn>
+      <div v-if="!hasPagination" class="text-center q-mt-lg">
+        {{ $t("notice.nomoredata") }}
       </div>
     </q-card>
   </div>
