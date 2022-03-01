@@ -215,8 +215,8 @@
     <div class="flex flex-center" v-show="pathname !== null">
       <q-spinner-dots color="primary" size="xl" />
     </div>
-    <div class="flex flex-center" v-show="pathname === null">
-      <q-btn flat>{{ $t("notice.nomoredata") }}</q-btn>
+    <div class="text-center q-mt-lg" v-show="pathname === null">
+      {{ $t("notice.nomoredata") }}
     </div>
   </div>
 </template>
