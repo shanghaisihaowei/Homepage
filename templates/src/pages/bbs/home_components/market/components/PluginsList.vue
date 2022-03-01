@@ -131,8 +131,9 @@
             }}</span
           >
           <q-btn
+            flat
             v-if="item.release_form"
-            v-show="showBtn"
+            v-show="showBtn && !this.$q.platform.is.mobile"
             :color="alreadyBought ? 'grey' : 'primary'"
             class="q-ml-md"
             :disabled="alreadyBought"

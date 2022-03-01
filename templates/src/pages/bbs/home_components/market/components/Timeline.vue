@@ -1,5 +1,5 @@
 <template>
-  <div class="markdown">
+  <div class="markdown q-px-md">
     <q-timeline color="grey-5" layout="comfortable">
       <q-timeline-entry
         class="text-body1 my-font-D timeline_subtitle"

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white" style="max-width: 400px">
+  <div class="bg-white" style="max-width: 400px;padding-bottom: 40px">
     <q-card square flat style="color: #999999" class="bottom_border q-py-md"
     ><q-btn class="text-body1" @click="this.$router.go(-1)" flat>
       &lt;{{ $t("community.e_shop_view.back") }}
@@ -11,12 +11,13 @@
       :pluginList="pluginList"
       ref="pluginsList"
     ></plugins-list>
-    <div class="q-px-md">
+    <div v-show="!this.$q.platform.is.mobile" class="q-px-md">
       <q-card square flat class="q-py-md top_border text-h6">{{
           $t("community.e_shop_view.download")
         }}</q-card>
     </div>
     <a
+      v-show="!this.$q.platform.is.mobile"
       target="_blank"
       :href="downloadUrl"
       @click="checkDownloadStatus($event)"
@@ -42,6 +43,11 @@
         }}
       </div></a
     >
+    <div class="text-center" v-show="this.$q.platform.is.mobile" style="background: #EDEDED;padding: 16px 20px">
+      <span style="font-size: 12px;color: #666666">
+        {{ $t('community.mobile.cantbuy') }}
+      </span>
+    </div>
     <q-card square flat class="text-h6 q-px-md q-pt-lg">{{
         $t("community.e_shop_view.update_record")
       }}</q-card>
@@ -52,11 +58,12 @@
         $t("community.e_shop_view.plugin_introduce")
       }}</q-card>
     <div
-      class="markdown q-px-md q-pt-md text-body1"
+      class="q-px-md q-pt-md text-body1"
+      :class="{'markdown':!this.$q.platform.is.mobile}"
       v-html="pluginList[0].direction_for_use"
     ></div>
     <!-- 添加评论 -->
-    <q-card square flat class="text-h6 q-px-md q-pt-lg">{{
+    <q-card v-show="!this.$q.platform.is.mobile" square flat class="text-h6 q-px-md q-pt-lg">{{
         $t("community.e_shop_view.add_comment")
       }}</q-card>
     <comment-list :commentList="commentList" :userId="userId"></comment-list>

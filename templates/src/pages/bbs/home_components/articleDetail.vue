@@ -45,7 +45,7 @@
       </q-card-section>
       <!--        文章集体内容-->
       <q-card-section>
-        <div v-html="content" class="art_message my-font"></div>
+        <div v-html="content" class="art_msg my-font"></div>
       </q-card-section>
       <!--       图片-->
       <q-card-section>
@@ -381,7 +381,7 @@
   margin-top: 30px;
 }
 
-.art_message {
+.art_msg {
   letter-spacing: 1px;
   font-size: 15px;
   font-weight: 400;
@@ -462,10 +462,7 @@ export default defineComponent({
     // 获取文章详情
     getdetailedinfo() {
       var _this = this;
-      get(
-        "article/api/v1/Browse/" +
-          _this.$route.params.id
-      )
+      get("article/api/v1/Browse/" + _this.$route.params.id)
         .then((res) => {
           var res_msg = res.result;
           _this.title = res_msg.title;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="release_container">
     <q-card square flat style="color: #999999" class="bottom_border q-py-md"
       ><q-btn class="text-body1" @click="this.$router.go(-1)" flat>
         &lt;{{ $t("community.e_shop_view.back") }}
@@ -158,7 +158,6 @@
         <div class="text-h6 q-mb-sm">
           {{ $t("community.e_shop_view.plugin_introduce") }}：
         </div>
-
         <markdown-aditor
           :placeholder="placeholder_use"
           @getMarkdownHtml="getMarkdownHtml('useNotes', $event)"

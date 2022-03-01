@@ -50,11 +50,14 @@ code{
     background:rgba($color: #000000, $alpha: 0.05);
 }
 
-.markdown{
-    max-width: calc(23vw);
+.release_container .markdown{
+    max-width: calc(23.5vw);
+}
+.my_article_container .markdown{
+    max-width: calc(22vw);
 }
 .article .markdown{
-    max-width: 250px;
+    max-width: 255px;
 }
 blockquote{
     display: block;

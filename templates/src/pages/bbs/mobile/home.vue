@@ -52,25 +52,25 @@
                       DVadmin{{ $t("index.osc") }}
                     </q-item-section>
                   </q-item>
-<!--                  <q-item>-->
-<!--                    <q-item-section class="col-10 menu_left  text-left">-->
-<!--                      {{ $t("index.navbar.market") }}-->
-<!--                    </q-item-section>-->
-<!--                  </q-item>-->
-<!--                  <q-item clickable to="/community/mobile/pluginsList/GreaterWMS" v-ripple class="row">-->
-<!--                    <q-item-section class="col-1">-->
-<!--                    </q-item-section>-->
-<!--                    <q-item-section class="col-10 menu_left  text-left">-->
-<!--                      GreaterWMS{{ $t("community.plugin") }}-->
-<!--                    </q-item-section>-->
-<!--                  </q-item>-->
-<!--                  <q-item clickable to="/community/mobile/pluginsList/DVAdmin" v-ripple class="row">-->
-<!--                    <q-item-section class="col-1">-->
-<!--                    </q-item-section>-->
-<!--                    <q-item-section class="col-10 menu_left  text-left">-->
-<!--                      DVAdmin{{ $t("community.plugin") }}-->
-<!--                    </q-item-section>-->
-<!--                  </q-item>-->
+                  <q-item>
+                    <q-item-section class="col-10 menu_left  text-left">
+                      {{ $t("index.navbar.market") }}
+                    </q-item-section>
+                  </q-item>
+                  <q-item clickable to="/community/mobile/pluginsList/GreaterWMS" v-ripple class="row">
+                    <q-item-section class="col-1">
+                    </q-item-section>
+                    <q-item-section class="col-10 menu_left  text-left">
+                      GreaterWMS{{ $t("community.plugin") }}
+                    </q-item-section>
+                  </q-item>
+                  <q-item clickable to="/community/mobile/pluginsList/DVAdmin" v-ripple class="row">
+                    <q-item-section class="col-1">
+                    </q-item-section>
+                    <q-item-section class="col-10 menu_left  text-left">
+                      DVAdmin{{ $t("community.plugin") }}
+                    </q-item-section>
+                  </q-item>
                 </q-list>
               </div>
             </q-drawer>
