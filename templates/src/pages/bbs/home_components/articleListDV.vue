@@ -133,8 +133,7 @@
         >
           <template v-slot:after>
             <q-btn
-              style="height: 40px"
-              color="primary"
+              style="height: 40px; background: #116fec; color: white"
               icon="search"
               unelevated
               @click="getsearchList()"

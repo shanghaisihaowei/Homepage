@@ -544,8 +544,8 @@
     </div>
   </div>
   <q-dialog v-model="advertise">
-    <q-card class="shadow-0" style="width: 650px;cursor: pointer;background: rgba(0,0,0,0)" @click="goTo(advertiseUrl)">
-      <img :title="advertiseTitle" src="statics/advertise/100.svg" alt="">
+    <q-card class="shadow-0" style="width: 650px;cursor: pointer;background: rgba(0,0,0,0)" @click="goTo(advertiseUrl[0])">
+      <img :title="advertiseTitle[0]" src="statics/advertise/100.svg" alt="">
     </q-card>
     <q-card class="shadow-0" style="margin-top: -600px;cursor: pointer; background: rgba(0,0,0,0)" @click="advertise = false">
       <img src="statics/advertise/close.svg" alt="">
@@ -577,8 +577,8 @@ export default defineComponent({
       videourl: "",
       posterurl: "",
       advertise: true,
-      advertiseUrl: '',
-      advertiseTitle: ''
+      advertiseUrl: [],
+      advertiseTitle: []
     };
   },
   methods: {
@@ -589,8 +589,10 @@ export default defineComponent({
     getadvertiseUrl () {
       var _this = this
       get('resp/api/v1/banner').then(res => {
-        _this.advertiseUrl = res[0].link
-        _this.advertiseTitle = res[0].title
+        res.forEach((i,index) => {
+          _this.advertiseUrl[index] = i.link
+          _this.advertiseTitle[index] = i.title
+        })
       })
     }
   },
