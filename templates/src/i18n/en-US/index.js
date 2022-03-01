@@ -407,7 +407,8 @@ export default {
       my_plugins: 'You have not published the plugin yet, go ahead and publish it',
     },
     mobile: {
-      cantbuy: '目前手机端暂不支持下载和购买,请前往电脑端进行购买即下载.'
+      cantbuy: 'At Present, The Mobile Terminal Does Not Support Download And purchase, Please Go To The Computer Terminal To Purchase And Download.',
+      cantpush: 'Publish The Plugin, Please Go To The Computer To Operate'
     }
   },
   shop: {

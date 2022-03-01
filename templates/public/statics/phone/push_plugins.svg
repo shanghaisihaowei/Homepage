@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组</title>
+    <g id="插件页面" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="社区-手机版-提示" transform="translate(-630.000000, -1220.000000)">
+            <g id="编组" transform="translate(630.000000, 1220.000000)">
+                <rect id="矩形" fill="#000000" opacity="0.5" x="0" y="0" width="80" height="80" rx="4"></rect>
+                <text id="发布-插件" font-family="SourceHanSansCN-Medium, Source Han Sans CN" font-size="26" font-weight="400" fill="#FFFFFF">
+                    <tspan x="14" y="37">发布</tspan>
+                    <tspan x="14" y="63">插件</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
