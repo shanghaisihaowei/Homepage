@@ -23,7 +23,7 @@ import uuid
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
-from .filter import ArticleFilter
+from .filter import ArticleFilter,TopArticleFilter
 from rest_framework.exceptions import APIException
 from rest_framework.response import Response
 from .serializers import TopArticleViewModelSerializer
@@ -222,26 +222,24 @@ class GreaterWMSTopArticleView(ModelViewSet):
     # pagination_class = MyPageNumberPagination
     throttle_classes = [VisitThrottle, ]
     filter_backends = [DjangoFilterBackend, OrderingFilter, ]
-    filter_class = ArticleFilter
-
+    filter_class = TopArticleFilter
+    lookup_field = 'id'
 
     def get_lang(self):
         lang = self.request.META.get('HTTP_LANGUAGE')
         return lang
 
     def get_serializer_class(self):
-
-        if self.action in ['list',]:
+        if self.action in ['list']:
             return TopArticleViewModelSerializer
-        elif self.action in ['list']:
+        elif self.action in ['retrieve']:
             return TopArticleViewDetailModelSerializer
         else:
-            return self.http_method_not_allowed(request=self.request)
+            return TopArticleViewDetailModelSerializer
 
 
     def get_queryset(self):
         lang = self.get_lang()
-
         if lang == 'zh-hans':
             return models.Article.objects.filter(community_type=0,language=0,check_person=1,is_delete=False,top=True).order_by('-updata_time')
         else:
@@ -263,8 +261,8 @@ class DVAdminTopArticleView(ModelViewSet):
     # pagination_class = MyPageNumberPagination
     throttle_classes = [VisitThrottle, ]
     filter_backends = [DjangoFilterBackend, OrderingFilter, ]
-    filter_class = ArticleFilter
-
+    filter_class = TopArticleFilter
+    lookup_field = 'id'
 
 
     def get_lang(self):
@@ -273,12 +271,12 @@ class DVAdminTopArticleView(ModelViewSet):
 
     def get_serializer_class(self):
 
-        if self.action in ['list', ]:
+        if self.action in ['list']:
             return TopArticleViewModelSerializer
-        elif self.action in ['list']:
+        elif self.action in ['retrieve']:
             return TopArticleViewDetailModelSerializer
         else:
-            return self.http_method_not_allowed(request=self.request)
+            return TopArticleViewDetailModelSerializer
 
     def get_queryset(self):
         lang = self.get_lang()

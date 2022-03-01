@@ -552,13 +552,17 @@ class BrowseArticleDetailModelSerializer(serializers.ModelSerializer):
 
 
 class TopArticleViewModelSerializer(serializers.ModelSerializer):
+    author_icon = serializers.SerializerMethodField(read_only=True)
     changed_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
     create_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
     updata_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
     class Meta:
         model = models.Article
-        fields = ['id','title','intro','author','language','changed_time','create_time','updata_time','top']
-
+        fields = ['id','title','intro','author_icon','language','changed_time','create_time','updata_time','top']
+    def get_author_icon(self, obj):
+        request = self.context.get('request')
+        # icon_url = "%s://%s%s%s" % (request.scheme, request.META['HTTP_HOST'], settings.MEDIA_URL, obj.author.icon)
+        return {"id": obj.author.id, "author": obj.author.nickname, 'title_tag': obj.author.user_type}
 
 class TopArticleViewDetailModelSerializer(serializers.ModelSerializer):
     author_icon = serializers.SerializerMethodField(read_only=True)
@@ -568,7 +572,7 @@ class TopArticleViewDetailModelSerializer(serializers.ModelSerializer):
     comment = serializers.SerializerMethodField()
     class Meta:
         model = models.Article
-        fields = ['id','title','intro','content','author','check_person','language','changed_time','create_time','updata_time','community_type','comment_count','markdown_text','top']
+        fields = ['id','title','intro','comment','content','author_icon','check_person','language','changed_time','create_time','updata_time','community_type','comment_count','top']
 
     def get_author_icon(self, obj):
         request = self.context.get('request')
