@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="q-pb-lg q-pt-md q-px-md">
+    <div v-show="!this.$q.platform.is.mobile" class="q-pb-lg q-pt-md q-px-md">
       <div class="flex relative-position q-pb-xl" v-if="isLogin">
         <q-img
           width="50px"
@@ -44,7 +44,7 @@
         ></q-card
       >
     </div>
-    <q-card square flat class="text-body1 q-pa-md"
+    <q-card square flat class="text-body1 q-pa-md" :class="{'border_top': this.$q.platform.is.mobile}"
       >{{ commentNumber }}{{ $t("community.e_shop_view.reply_count") }}</q-card
     >
     <!-- 一级回复 -->
@@ -387,4 +387,6 @@ export default {
     width: fit-content
     &:hover
         color: $primary
+.border_top
+  border-top: 1px #E6E6E6 solid
 </style>

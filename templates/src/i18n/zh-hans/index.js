@@ -405,6 +405,9 @@ export default {
             zip_tip: '抱歉，目前只支持上传zip格式的文件，请重新上传',
             my_orders: '您暂时没有订单，赶快去下单吧～',
             my_plugins: '您暂时没有发布插件，快去发布吧～',
+        },
+        mobile: {
+          cantbuy: '目前手机端暂不支持下载和购买,请前往电脑端进行购买即下载.'
         }
     },
     shop: {
