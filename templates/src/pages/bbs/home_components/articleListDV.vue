@@ -1,6 +1,11 @@
 <template>
   <div>
     <q-input v-model="pagelocation" style="display: none" />
+    <q-card v-if="imgSrc[0]" flat class="q-mb-lg">
+      <a :title="imgTitle[0]" :href="imgHref[0]">
+        <img :src="imgSrc[0]" style="width: 100%" />
+      </a>
+    </q-card>
     <!--                  首页个人信息展示-->
     <q-card
       v-if="isLogin"
@@ -237,6 +242,9 @@ export default defineComponent({
       next_msg: "",
       icon: "",
       searchword: "",
+      imgSrc: [],
+      imgHref: [],
+      imgTitle: [],
     };
   },
   computed: {
@@ -321,9 +329,19 @@ export default defineComponent({
       _this.$store.dispatch("bbsChange/isIndexMenu", false);
       _this.$router.push({ name: "changePsd" });
     },
+    getAdvertisingImg() {
+      get("resp/api/v1/article_banner/").then((res) => {
+        res.forEach((item, index) => {
+          this.imgHref[index] = item.link;
+          this.imgSrc[index] = item.image;
+          this.imgTitle[index] = item.title;
+        });
+      });
+    },
   },
   created() {
     var _this = this;
+    _this.getAdvertisingImg();
     if (_this.$q.cookies.get("lang") === "zh-hans") {
       _this.title = "DVAdmin - 开源社区";
       _this.meta = {

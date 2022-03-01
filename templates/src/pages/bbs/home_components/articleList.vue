@@ -334,7 +334,7 @@ export default defineComponent({
       _this.$router.push({ name: "changePsd" });
     },
     getAdvertisingImg() {
-      get("software/api/v1/banner_soft/").then((res) => {
+      get("resp/api/v1/article_banner/").then((res) => {
         res.forEach((item, index) => {
           this.imgHref[index] = item.link;
           this.imgSrc[index] = item.image;
