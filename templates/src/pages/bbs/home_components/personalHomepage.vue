@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="my_article_container">
     <div class="row my-font">
       <q-card class="col-12">
         <!--          顶部信息栏-->
