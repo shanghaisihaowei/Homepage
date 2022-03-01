@@ -113,13 +113,18 @@ class HomeBannerlistview(ModelViewSet):
 
 class ArticleBannerView(ModelViewSet):
     filter_backends = [DjangoFilterBackend, OrderingFilter, ]
-    filter_class = ArticleBannerFilter
+    # filter_class = ArticleBannerFilter
     lookup_field = 'id'
     queryset = models.ArticleBanner.objects.filter(is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
     serializers_class = serializers.ArticleBannerGETModelSerializer
 
+    def get_community_type(self):
+        community=self.request.query_params.get('community')
+        return community
+
     def get_queryset(self):
-        queryset = models.ArticleBanner.objects.filter(is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+        community=self.get_community_type()
+        queryset = models.ArticleBanner.objects.filter(community=community,is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
         return queryset
 
     def get_serializer_class(self):
@@ -127,6 +132,10 @@ class ArticleBannerView(ModelViewSet):
             return serializers.ArticleBannerGETModelSerializer
         else:
             return self.http_method_not_allowed(request=self.request)
+
+
+
+
 
     # def list(self, request, *args, **kwargs):
     #     article_banner_list = cache.get('article_banner_list_cache')
