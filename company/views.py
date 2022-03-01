@@ -101,6 +101,13 @@ class HomeBannerlistview(ModelViewSet):
 
 
 
+
+class GreaterWMSArticleBannerView(ModelViewSet):
+    queryset = models.ArticleBanner.objects.filter(is_delete=False,is_show=True,community=0).order_by('orders')[:settings.BANNER_COUNT]
+
+    serializer_class = serializers.ArticleBannerGETModelSerializer
+
+
 class RecorderlistView(ModelViewSet):
     pagination_class = MyPageNumberPagination
     filter_backends = [DjangoFilterBackend, OrderingFilter, ]

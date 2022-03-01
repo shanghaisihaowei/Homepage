@@ -18,3 +18,13 @@ class RecorderlistModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Recorder
         fields = ['id','hosts','referers','mod','more','created_time','updated_time','is_delete']
+
+
+
+
+
+class ArticleBannerGETModelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.ArticleBanner
+        fields = ['title']

@@ -27,6 +27,8 @@ from rest_framework import routers
 router = routers.SimpleRouter()
 router.register('article',views.ArticleView,basename='article')
 router.register('Browse',views.BrowseArticleView,basename='Browse')
+router.register('topwms',views.GreaterWMSTopArticleView,basename='Browse')
+router.register('topdv',views.DVAdminTopArticleView,basename='Browse')
 
 urlpatterns = [
     # path('upload_img/', views.Upload.as_view({'post': 'upload_img'})),

@@ -26,6 +26,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .filter import ArticleFilter
 from rest_framework.exceptions import APIException
 from rest_framework.response import Response
+from .serializers import TopArticleViewModelSerializer
+from .serializers import TopArticleViewDetailModelSerializer
 class Upload(ViewSet):
     authentication_classes = (JWTAuthentication, )
     @action(methods='POST', detail=False)
@@ -121,9 +123,7 @@ class ArticleView(ModelViewSet):
 
         # result = serializer.data
         return Response(serializer.data)
-        # return APIResponse(code=200, result=result)
 
-#         return APIResponse(code=200, result=result)
 
 
     def create(self, request, *args, **kwargs):
@@ -203,6 +203,92 @@ class BrowseArticleView(GenericViewSet, RetrieveModelMixin, ListModelMixin):
                 else:
                     return models.Article.objects.filter(language=1,check_person=1,is_delete=False).order_by('-updata_time')
 
+
+    def retrieve(self, request, *args, **kwargs):
+        serializer = super().retrieve(request, *args, **kwargs)
+        result = serializer.data
+        return APIResponse(code=200, result=result)
+
+    def list(self, request, *args, **kwargs):
+        serializer = super().list(request, *args, **kwargs)
+        result = serializer.data
+        return APIResponse(code=200, result=result)
+
+
+
+
+class GreaterWMSTopArticleView(ModelViewSet):
+    queryset = models.Article.objects.all()
+    # pagination_class = MyPageNumberPagination
+    throttle_classes = [VisitThrottle, ]
+    filter_backends = [DjangoFilterBackend, OrderingFilter, ]
+    filter_class = ArticleFilter
+
+
+    def get_lang(self):
+        lang = self.request.META.get('HTTP_LANGUAGE')
+        return lang
+
+    def get_serializer_class(self):
+
+        if self.action in ['list',]:
+            return TopArticleViewModelSerializer
+        elif self.action in ['list']:
+            return TopArticleViewDetailModelSerializer
+        else:
+            return self.http_method_not_allowed(request=self.request)
+
+
+    def get_queryset(self):
+        lang = self.get_lang()
+
+        if lang == 'zh-hans':
+            return models.Article.objects.filter(community_type=0,language=0,check_person=1,is_delete=False,top=True).order_by('-updata_time')
+        else:
+            return models.Article.objects.filter(community_type=0,language=1,check_person=1,is_delete=False,top=True).order_by('-updata_time')
+
+    def retrieve(self, request, *args, **kwargs):
+        serializer = super().retrieve(request, *args, **kwargs)
+        result = serializer.data
+        return APIResponse(code=200, result=result)
+
+    def list(self, request, *args, **kwargs):
+        serializer = super().list(request, *args, **kwargs)
+        result = serializer.data
+        return APIResponse(code=200, result=result)
+
+
+class DVAdminTopArticleView(ModelViewSet):
+    queryset = models.Article.objects.all()
+    # pagination_class = MyPageNumberPagination
+    throttle_classes = [VisitThrottle, ]
+    filter_backends = [DjangoFilterBackend, OrderingFilter, ]
+    filter_class = ArticleFilter
+
+
+
+    def get_lang(self):
+        lang = self.request.META.get('HTTP_LANGUAGE')
+        return lang
+
+    def get_serializer_class(self):
+
+        if self.action in ['list', ]:
+            return TopArticleViewModelSerializer
+        elif self.action in ['list']:
+            return TopArticleViewDetailModelSerializer
+        else:
+            return self.http_method_not_allowed(request=self.request)
+
+    def get_queryset(self):
+        lang = self.get_lang()
+
+        if lang == 'zh-hans':
+            return models.Article.objects.filter(community_type=1, language=0, check_person=1, is_delete=False,
+                                                 top=True).order_by('-updata_time')
+        else:
+            return models.Article.objects.filter(community_type=1, language=1, check_person=1, is_delete=False,
+                                                 top=True).order_by('-updata_time')
 
     def retrieve(self, request, *args, **kwargs):
         serializer = super().retrieve(request, *args, **kwargs)

@@ -37,6 +37,7 @@ class Article(BaseModel):
     community_type = models.SmallIntegerField(choices=community_choices,default=0,verbose_name="社区归属")
     comment_count = models.PositiveIntegerField(verbose_name='评论数', default=0)
     markdown_text = models.TextField(verbose_name='old_text',null=True,blank=True)
+    top = models.BooleanField(default=False,verbose_name='文章是否置顶')
 
     class Meta:
         db_table = 'homepage_article'

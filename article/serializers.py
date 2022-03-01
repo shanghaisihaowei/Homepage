@@ -547,3 +547,91 @@ class BrowseArticleDetailModelSerializer(serializers.ModelSerializer):
     #         first_dict[node['reply_id']]['child'] = [node,]
     #
     #     return first_dict.values()
+
+
+
+
+class TopArticleViewModelSerializer(serializers.ModelSerializer):
+    changed_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
+    create_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
+    updata_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
+    class Meta:
+        model = models.Article
+        fields = ['id','title','intro','author','language','changed_time','create_time','updata_time','top']
+
+
+class TopArticleViewDetailModelSerializer(serializers.ModelSerializer):
+    author_icon = serializers.SerializerMethodField(read_only=True)
+    changed_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
+    create_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
+    updata_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
+    comment = serializers.SerializerMethodField()
+    class Meta:
+        model = models.Article
+        fields = ['id','title','intro','content','author','check_person','language','changed_time','create_time','updata_time','community_type','comment_count','markdown_text','top']
+
+    def get_author_icon(self, obj):
+        request = self.context.get('request')
+        icon_url = "%s://%s%s%s" % (request.scheme, request.META['HTTP_HOST'], settings.MEDIA_URL, obj.author.icon)
+        return {"id": obj.author.id, "author": obj.author.nickname, "icon": icon_url, 'title_tag': obj.author.user_type}
+
+    def get_comment(self, obj):
+        """
+        获取所有一级评论
+        :param obj:
+        :return:
+        """
+        first_queryset = models.Comment_sheet.objects.filter(article=obj, is_delete=False, root=None).order_by(
+            '-id').values(
+            'id',
+            'content',
+            'user__id',
+            'user__icon',
+            'user__nickname',
+            'create_time',
+            'article',
+            'root',
+            'is_author',
+        )
+        queryset_id = models.Comment_sheet.objects.filter(article=obj, is_delete=False, root=None).order_by(
+            '-id').values(
+            'id',
+        )
+        id_list = []
+        for item in queryset_id:
+            id_list.append(item['id'])
+        to_list = models.Comment_sheet.objects.filter(article=obj, is_delete=False, root__in=id_list).order_by(
+            '-id').values(
+            'id',
+            'content',
+            'user__id',
+            'user__icon',
+            'user__nickname',
+            'create_time',
+            'article',
+            'root',
+            'reply',
+            'reply__user__nickname',
+            'is_author',
+        )
+
+        request = self.context.get('request')
+        for item in first_queryset:
+            item['create_time'] = item['create_time'].strftime('%Y-%m-%d %H:%M')
+            item['user__icon'] = "%s://%s%s%s" % (
+                request.scheme, request.META['HTTP_HOST'], settings.MEDIA_URL, item['user__icon'])
+            item['child'] = []
+        first_queryset_dict = {}
+
+        for item in first_queryset:
+            first_queryset_dict[item['id']] = item
+        for item in to_list:
+            item['create_time'] = item['create_time'].strftime('%Y-%m-%d %H:%M')
+            item['user__icon'] = "%s://%s%s%s" % (
+                request.scheme, request.META['HTTP_HOST'], settings.MEDIA_URL, item['user__icon'])
+            first_queryset_dict[item['root']]['child'].append(item)
+
+        first_queryset_list = []
+        for item in first_queryset_dict.values():
+            first_queryset_list.append(item)
+        return first_queryset_list
