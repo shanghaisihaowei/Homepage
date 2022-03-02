@@ -347,7 +347,7 @@ class BrowseArticleModelSerializer(serializers.ModelSerializer):
     comment = serializers.SerializerMethodField()
     class Meta:
         model = models.Article
-        fields = ['id','check_person', 'title', 'intro', 'markdown_text','author_icon','community_type', 'create_time', 'updata_time','changed_time','comment','comment_count']
+        fields = ['id','check_person', 'title', 'intro', 'markdown_text','author_icon','community_type', 'create_time', 'updata_time','changed_time','comment','comment_count','top']
 
     # def get_user(self,obj):
     #     return model_to_dict(obj.author, fields=['id', 'nickname', 'icon'])
@@ -428,7 +428,7 @@ class BrowseArticleDetailModelSerializer(serializers.ModelSerializer):
     comment = serializers.SerializerMethodField()
     class Meta:
         model = models.Article
-        fields = ['id','check_person', 'title', 'intro','markdown_text', 'content', 'author_icon','community_type', 'create_time', 'updata_time','changed_time','comment','comment_count']
+        fields = ['id','check_person', 'title', 'intro','markdown_text', 'content', 'author_icon','community_type', 'create_time', 'updata_time','changed_time','comment','comment_count','top']
 
     # def get_user(self,obj):
     #     return model_to_dict(obj.author, fields=['id', 'nickname', 'icon'])
