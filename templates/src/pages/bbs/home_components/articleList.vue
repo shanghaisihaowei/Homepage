@@ -150,71 +150,88 @@
       class="col-12 my-card shadow-0"
       style="border-bottom: 1px #dcdcdc solid"
     >
-      <q-card-section>
-        <div class="my-font card_tol Wrap_two">
-          <a
-            style="cursor: pointer"
-            @click.stop="
-              this.$router.push({
-                path: `/community/GreaterWMSDetail/${item.id}`,
-              })
-            "
-            class="my-font card_tol Wrap_two"
-          >
-            {{ item.title }}
-          </a>
-        </div>
-      </q-card-section>
-
-      <q-card-section style="margin-top: -20px" horizontal>
-        <q-card-section v-show="item.cover != null">
-          <q-img
-            :src="item.cover"
-            style="width: 180px; height: 110px; border-radius: 4px"
-          />
+      <div v-if="!item.top">
+        <q-card-section>
+          <div class="my-font card_tol Wrap_two">
+            <a
+              style="cursor: pointer; display: flex; align-items: center"
+              @click.stop="
+                this.$router.push({
+                  path: `/community/GreaterWMSDetail/${item.id}`,
+                })
+              "
+              class="my-font card_tol Wrap_two"
+            >
+              <div
+                v-if="item.isTop"
+                style="
+                  font-size: 14px;
+                  background-color: #116fec;
+                  color: white;
+                  padding: 1px 7px 0 7px;
+                  border-radius: 4px;
+                "
+                class="q-mr-sm"
+              >
+                置顶
+              </div>
+              <div style="height: 22px; line-height: 22px">
+                {{ item.title }}
+              </div>
+            </a>
+          </div>
         </q-card-section>
 
-        <q-card-section
-          v-html="item.intro"
-          class="article_text my-font"
-        ></q-card-section>
-      </q-card-section>
+        <q-card-section style="margin-top: -20px" horizontal>
+          <q-card-section v-show="item.cover != null">
+            <q-img
+              :src="item.cover"
+              style="width: 180px; height: 110px; border-radius: 4px"
+            />
+          </q-card-section>
 
-      <q-card-actions style="margin-top: -10px">
-        <div
-          class="my-font flex flex-center"
-          style="
-            font-size: 14px;
-            font-weight: 400;
-            color: #999999;
-            margin-left: 1%;
-          "
-        >
-          <q-img
-            style="margin-top: -2px; margin-right: 10px"
-            width="12px"
-            height="14px"
-            src="statics/author.svg"
-          />
-          <span>
-            {{ item.author_icon.author }}
-          </span>
-        </div>
-        <div
-          class="my-font flex flex-center"
-          style="
-            font-size: 14px;
-            font-weight: 400;
-            color: #999999;
-            margin-left: 1%;
-          "
-        >
-          <span style="font-size: 12px !important">
-            {{ $t("community.push_time") }}
-            {{ item.updata_time }}
-          </span>
-        </div>
-      </q-card-actions>
+          <q-card-section
+            v-html="item.intro"
+            class="article_text my-font"
+          ></q-card-section>
+        </q-card-section>
+
+        <q-card-actions style="margin-top: -10px">
+          <div
+            class="my-font flex flex-center"
+            style="
+              font-size: 14px;
+              font-weight: 400;
+              color: #999999;
+              margin-left: 1%;
+            "
+          >
+            <q-img
+              style="margin-top: -2px; margin-right: 10px"
+              width="12px"
+              height="14px"
+              src="statics/author.svg"
+            />
+            <span>
+              {{ item.author_icon.author }}
+            </span>
+          </div>
+          <div
+            class="my-font flex flex-center"
+            style="
+              font-size: 14px;
+              font-weight: 400;
+              color: #999999;
+              margin-left: 1%;
+            "
+          >
+            <span style="font-size: 12px !important">
+              {{ $t("community.push_time") }}
+              {{ item.updata_time }}
+            </span>
+          </div>
+        </q-card-actions>
+      </div>
     </q-card>
     <div class="flex flex-center" v-show="pathname !== null">
       <q-spinner-dots color="primary" size="xl" />
@@ -296,6 +313,7 @@ export default defineComponent({
             res.result.results.forEach((item) => {
               _this.allArtInfos.push(item);
             });
+            _this.getTopArticle();
           })
           .catch((err) => {
             _this.$q.notify({
@@ -315,6 +333,9 @@ export default defineComponent({
             _this.allArtInfos = [];
             _this.pathname = res.result.next;
             res.result.results.forEach((item) => {
+              if (item.top) {
+                item.isTop = true;
+              }
               _this.allArtInfos.push(item);
             });
           })
@@ -339,6 +360,14 @@ export default defineComponent({
           this.imgHref[index] = item.link;
           this.imgSrc[index] = item.image;
           this.imgTitle[index] = item.title;
+        });
+      });
+    },
+    getTopArticle() {
+      get("article/api/v1/topwms/").then((res) => {
+        res.result.forEach((item) => {
+          item.isTop = true;
+          this.allArtInfos.unshift(item);
         });
       });
     },
