@@ -70,7 +70,7 @@ $warning   : #F2C037;
     span{
         color: #116FEC!important;
     }
-//消除scrollArea带来的width的增加    
+//消除scrollArea带来的width的增加
 .plugins_view_container
     .absolute{
         width: 100%;
@@ -80,7 +80,7 @@ $warning   : #F2C037;
     .q-btn{
         font-size: 18px;
     }
- //更改时间轴的样式   
+ //更改时间轴的样式
 .timeline_subtitle
     .q-timeline__subtitle{
         font-size: 20px;
@@ -93,33 +93,50 @@ $warning   : #F2C037;
     .q-timeline__title{
         font-size: 20px !important;
         font-weight: 400 !important;
-    }  
+    }
 .input_textarea
-    //更改textarea输入框的最低高度  
+    //更改textarea输入框的最低高度
     .q-field__control{
         min-height: 200px !important;
     }
     // 更改markdown预览框的高度
-.input_textarea 
+.input_textarea
     .q-field__marginal{
         height: auto !important;
         width: 50%;
         background-color: white;
-    }    
+    }
     //清除textarea的内边距
-.input_textarea 
+.input_textarea
     .q-field__control{
         padding: 0 0 0 15px !important;
         border-top-left-radius: 0 !important;
         border-top-right-radius: 0 !important;
     }
     //清除append插槽的左边距
-.input_textarea 
+.input_textarea
     .q-field__append{
         padding-left: 0 !important;
     }
 .myAccount
     .q-field__control{
         border-top-right-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;  
+        border-bottom-right-radius: 0 !important;
     }
+.timeline_subtitle_mobile
+    .q-timeline__subtitle{
+        font-size: 16px;
+        font-weight: 500;
+        opacity: 1;
+        width: 120px!important;
+        padding-right: 10px;
+}
+.timeline_subtitle_mobile
+    .q-timeline__title{
+        font-size: 16px !important;
+        font-weight: 500 !important;
+}
+.timeline_subtitle_mobile
+    .q-timeline__content{
+        padding-left: 10px;
+}

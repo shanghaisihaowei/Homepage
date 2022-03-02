@@ -48,17 +48,18 @@
         {{ $t('community.mobile.cantbuy') }}
       </span>
     </div>
-    <q-card square flat class="text-h6 q-px-md q-pt-lg">{{
+    <q-card square flat class="text-h6 q-px-md" style="font-size: 16px;color: #333333;font-weight: 600;border-bottom: 1px #E6E6E6 solid;padding: 15px">{{
         $t("community.e_shop_view.update_record")
       }}</q-card>
     <!-- 更新时间线 -->
     <timeline :timeline="timeline"></timeline>
     <!-- 插件介绍 -->
-    <q-card square flat class="text-h6 q-px-md">{{
+    <q-card square flat class="q-px-md" style="font-size: 16px;color:#333333;font-weight: 600">{{
         $t("community.e_shop_view.plugin_introduce")
       }}</q-card>
     <div
-      class="q-px-md q-pt-md text-body1"
+      class="q-px-md"
+      style="font-size: 14px;color:#333333;"
       :class="{'markdown':!this.$q.platform.is.mobile}"
       v-html="pluginList[0].direction_for_use"
     ></div>
@@ -71,9 +72,9 @@
 </template>
 <script>
 import { defineComponent } from "vue";
-import PluginsList from "../home_components/market/components/PluginsList";
-import Timeline from "../home_components/market/components/Timeline.vue";
-import CommentList from "../home_components/market/components/CommentList.vue";
+import PluginsList from "./components/PluginsListMobile";
+import Timeline from "./components/TimelineMobile";
+import CommentList from "./components/CommentListMobile";
 import { get, getauth } from "boot/axios";
 export default defineComponent({
   components: {

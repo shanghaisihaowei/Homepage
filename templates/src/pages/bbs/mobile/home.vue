@@ -126,7 +126,7 @@
             <q-btn
               padding="md"
               icon="img:statics/return.svg"
-              style="opacity: 0.18; background: #000000"
+              style="opacity: 0.5; background: #000000"
               @click="ScrollToTop()"
             >
             </q-btn>

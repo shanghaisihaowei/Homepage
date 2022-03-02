@@ -32,7 +32,7 @@ export default {
         title2: '倉庫管理AIの提供',
         code_warehouse: 'コード',
         features: '私たちの特徴',
-        partner: '',
+        partner: '相棒',
         400: 'Bad request (400)',
         401: 'Authorization not obtained (401)',
         403: 'Access denied (403)',

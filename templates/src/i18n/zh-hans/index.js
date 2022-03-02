@@ -52,7 +52,7 @@ export default {
         title2: '为仓库管理赋予AI智能',
         code_warehouse: '源 代 码',
         features: '我们的特点',
-        partner: '相棒'
+        partner: '合作伙伴'
     },
     contact: {
         tip: '上海四号位信息科技有限公司，优秀的系统集成方案服务商。其自主研发的 GreaterWMS（开源仓库管理系统）已被广泛应用于时尚、零售、快消品、医 药、电商、母婴等行业，且为国内外众多企业指定为官方物流软件服务商。',
