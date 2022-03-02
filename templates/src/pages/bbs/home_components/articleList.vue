@@ -149,7 +149,10 @@
       square
       class="col-12 my-card shadow-0"
     >
-      <div v-if="!item.top" style="border-bottom: 1px #dcdcdc solid">
+      <div
+        v-if="!item.top || item.isTop"
+        style="border-bottom: 1px #dcdcdc solid"
+      >
         <q-card-section>
           <div class="my-font card_tol Wrap_two">
             <a
