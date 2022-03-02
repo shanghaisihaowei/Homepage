@@ -711,10 +711,21 @@ class Bannerlistview(ModelViewSet):
                :settings.BANNER_COUNT]
     serializer_class = serializers.BannerGETModelSerializer
 
+    def get_mode_type(self):
+        mode=self.request.query_params.get('mode')
+        return mode
+
     def get_queryset(self):
-        queryset = models.Banner.objects.filter(is_delete=False, is_show=True).order_by('orders')[
-                   :settings.BANNER_COUNT]
-        return queryset
+        mode=self.get_mode_type()
+        if mode:
+            queryset = models.Banner.objects.filter(mode=mode,is_delete=False, is_show=True).order_by('orders')[
+                       :settings.BANNER_COUNT]
+            return queryset
+        else:
+            queryset = models.Banner.objects.filter(mode=1,is_delete=False, is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+            return queryset
+
+
 
     def get_serializer_class(self):
         if self.action in ['list']:

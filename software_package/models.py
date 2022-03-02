@@ -148,6 +148,7 @@ class Comment_soft(BaseModel):
 
 
 class Banner(models.Model):
+    mode_choices = ((1,'PC官网'),(2,'手机官网'))
     title = models.CharField(max_length=128,blank=True,verbose_name='名称')
     image = models.ImageField(upload_to='banner', verbose_name='图片')
     link = models.CharField(max_length=64,blank=True, verbose_name='跳转链接')
@@ -156,7 +157,7 @@ class Banner(models.Model):
     is_delete = models.BooleanField(default=False, verbose_name='是否删除')
     is_show = models.BooleanField(default=True, verbose_name='是否上架')
     orders = models.IntegerField(verbose_name='优先级')
-
+    mode = models.SmallIntegerField(choices=mode_choices, default=1, verbose_name='模式')
     class Meta:
         db_table = 'homepage_banner'
         verbose_name='软件广告位轮播图'
