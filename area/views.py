@@ -78,9 +78,9 @@ class APIViewSet(viewsets.ModelViewSet):
 class Area_Check(APIView):
     authentication_classes = (JWTAuthentication,)
     def get(self, request):
-        ip = '114.82.62.63'
-        #ip = self.request.META.get('HTTP_X_FORWARDED_FOR') if self.request.META.get(
-                #'HTTP_X_FORWARDED_FOR') else self.request.META.get('REMOTE_ADDR')
+        # ip = '114.82.62.63'
+        ip = self.request.META.get('HTTP_X_FORWARDED_FOR') if self.request.META.get(
+                'HTTP_X_FORWARDED_FOR') else self.request.META.get('REMOTE_ADDR')
         import geoip2.database
         client = geoip2.database.Reader(os.path.join(settings.BASE_DIR, 'utils/GeoLite2-City.mmdb'))
         area = client.city(str(ip))
