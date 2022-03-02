@@ -188,7 +188,7 @@ export default{
       });
     },
     getAdvertisingImg() {
-      get("software/api/v1/banner_soft/").then((res) => {
+      get("software/api/v1/banner_soft/?mode=2").then((res) => {
         res.forEach((item, index) => {
           this.imgHref[index] = item.link;
           this.imgSrc[index] = item.image;

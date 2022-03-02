@@ -32,7 +32,7 @@ class Recorder(models.Model):
 
 
 class HomeBanner(models.Model):
-    mode_choices = ((1,'PC社区'),(2,'手机官网'))
+    mode_choices = ((1,'PC官网'),(2,'手机官网'))
     title = models.CharField(max_length=128,blank=True,verbose_name='名称')
     image = models.ImageField(upload_to='banner',null=True,blank=True, verbose_name='图片')
     link = models.CharField(max_length=64,blank=True, verbose_name='跳转链接')

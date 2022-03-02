@@ -1,4 +1,7 @@
 <template>
+  <div>
+    <img @click="goTo(bannerUrl[0])" :src="bannerImgUrl[0]" alt="" style="max-width: 400px">
+  </div>
   <div style="padding-bottom: 50px">
     <q-input v-model="pagelocation" style="display:none"/>
     <!--    搜索框-->
@@ -102,7 +105,7 @@
 <script>
 import {defineComponent} from 'vue';
 import {get, getauth} from "boot/axios";
-import {throttle, createMetaMixin} from 'quasar'
+import {throttle, createMetaMixin, openURL} from 'quasar'
 import jwtDecode from "jwt-decode";
 
 export default defineComponent({
@@ -121,6 +124,8 @@ export default defineComponent({
         this.$t("community.hottest"),
       ],
       sortordVal: this.$t("community.newest"),
+      bannerImgUrl: [],
+      bannerUrl: []
     }
   },
   mixins: [
@@ -155,6 +160,9 @@ export default defineComponent({
     }
   },
   methods: {
+    goTo(e) {
+      openURL(e)
+    },
     getList() {
       var _this = this
       if (_this.pathname !== null) {
@@ -204,6 +212,22 @@ export default defineComponent({
       var _this = this
       _this.$store.dispatch('bbsChange/isIndexMenu', false)
       _this.$router.push({name: 'changePsd'})
+    },
+    // 获取广告位信息
+    getbanner() {
+      var _this = this
+      get('resp/api/v1/mobile_banner/?community=1').then(res => {
+        res.forEach((item,index) =>{
+          _this.bannerImgUrl[index] = item.image
+          _this.bannerUrl[index] = item.link
+        })
+      }).catch(err => {
+        _this.$q.notify({
+          message: err.detail,
+          icon: 'close',
+          color: 'negative'
+        })
+      })
     }
   },
   created() {
@@ -241,12 +265,7 @@ export default defineComponent({
   },
   mounted() {
     var _this = this;
-    if (_this.$q.cookies.has('token')) {
-      let userinfoStr = jwtDecode(_this.$q.cookies.get("token"));
-      _this.icon = window.g.BaseUrl + userinfoStr.icon
-    } else {
-    }
-    _this.allArtInfos = []
+    _this.getbanner()
     _this.getList = throttle(this.getList, 1000)
     _this.getList()
     this.$store.dispatch("bbsChange/mobileLogo", 'statics/DV_logo_w.svg');
