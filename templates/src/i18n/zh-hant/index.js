@@ -172,6 +172,7 @@ export default {
         content: '內容',
         dvadmin: 'DVAdmin插件',
         greaterwms: 'GreaterWMS插件',
+        top: '置頂',
         myorder: {
             index: '我的訂單',
             //new

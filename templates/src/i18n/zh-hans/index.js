@@ -194,6 +194,7 @@ export default {
         confirm_avatar: '请点击保存按钮即可生效！',
         community_chose: '请选择需要发布的社区',
         password_err: '账号或密码错误，请检查后再试！',
+        top: '置顶',
         withdraw: {
             withdrawal_application: '提现申请',
             submit_amount: '提交金额',
@@ -408,12 +409,12 @@ export default {
             my_plugins: '您暂时没有发布插件，快去发布吧～',
         },
         mobile: {
-          cantbuy: '目前手机端暂不支持下载和购买,请前往电脑端进行购买即下载.',
-          cantpush: '发布插件请到电脑端进行操作'
+            cantbuy: '目前手机端暂不支持下载和购买,请前往电脑端进行购买即下载.',
+            cantpush: '发布插件请到电脑端进行操作'
         }
     },
     shop: {
-      index: '商城',
-      hardwareShop: '硬件商城'
+        index: '商城',
+        hardwareShop: '硬件商城'
     }
 }

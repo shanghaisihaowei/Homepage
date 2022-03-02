@@ -175,7 +175,7 @@
                 "
                 class="q-mr-sm"
               >
-                置顶
+                {{ $t("community.top") }}
               </div>
               <div style="height: 22px; line-height: 22px">
                 {{ item.title }}

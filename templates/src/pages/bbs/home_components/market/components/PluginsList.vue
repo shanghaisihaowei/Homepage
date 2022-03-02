@@ -90,7 +90,10 @@
           }}
         </div>
         <div style="clear: both"></div>
-        <div style="font-size: 20px; margin-top: 43px; float: right">
+        <div
+          v-if="pluginList[0].id"
+          style="font-size: 20px; margin-top: 43px; float: right"
+        >
           <div
             style="color: #116fec; font-weight: 600"
             v-if="item.release_form == 0"
@@ -231,6 +234,7 @@ export default defineComponent({
       }
     },
   },
+  created() {},
 });
 </script>
 <style scoped lang="sass">

@@ -172,6 +172,7 @@ export default {
         content: 'コンテンツ',
         dvadmin: 'DVAdminプラグイン',
         greaterwms: 'GreaterWMSプラグイン',
+        top: 'トップ',
         myorder: {
             index: '私の注文',
             //new
