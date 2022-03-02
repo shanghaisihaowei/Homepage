@@ -33,7 +33,7 @@
       <div @click.stop="
                 this.$router.push({
                   path: `/community/mobile/GreaterWMSDetail/${item.id}`
-                });setid(item.id)
+                })
               ">
         <q-card-section>
           <div class=" card_tol Wrap_two">
@@ -170,6 +170,9 @@ export default defineComponent({
           .then((res) => {
             _this.pathname = res.result.next
             res.result.results.forEach(item => {
+              if (item.top) {
+                item.isTop = true
+              }
               _this.allArtInfos.push(item)
             })
           })
@@ -202,10 +205,6 @@ export default defineComponent({
             });
           });
       }
-    },
-    setid(id) {
-      var _this = this
-      _this.$q.cookies.set('articleId', id)
     },
     // 跳转到修改信息页面
     tochangMsg() {
