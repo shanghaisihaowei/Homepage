@@ -30,19 +30,32 @@
     <!--                文章列表-->
     <q-card v-for="(item, index) in allArtInfos" :key="index" square class="col-12 my-card shadow-0"
             style="border-bottom: 1px #dcdcdc solid;padding: 0">
+      <div v-if="!item.top || item.isTop">
       <div @click.stop="
                 this.$router.push({
                   path: `/community/mobile/DVadminDetail/${item.id}`
-                });setid(item.id)
+                })
               ">
       <q-card-section>
         <div class="card_tol Wrap_two">
-          <a
+          <span
+            v-if="item.isTop"
+            class="col-2"
+            style=" font-size: 14px;
+                  background-color: #116fec;
+                  color: white;
+                  padding: 1px 7px 0 7px;
+                  border-radius: 4px;
+                "
+          >
+              {{ $t("community.top") }}
+            </span>
+          <span
             style="cursor: pointer"
             class="card_tol Wrap_two"
           >
             {{ item.title }}
-          </a>
+          </span>
         </div>
       </q-card-section>
 
@@ -90,6 +103,7 @@
             </span>
         </div>
       </q-card-actions>
+      </div>
     </q-card>
     <div class="flex flex-center" v-show="pathname !== null">
       <q-spinner-dots
@@ -172,6 +186,7 @@ export default defineComponent({
             res.result.results.forEach(item => {
               _this.allArtInfos.push(item)
             })
+            _this.getTopArticle()
           })
           .catch((err) => {
             _this.$q.notify({
@@ -191,6 +206,9 @@ export default defineComponent({
             _this.allArtInfos = []
             _this.pathname = res.result.next
             res.result.results.forEach(item => {
+              if (item.top) {
+                item.isTop = true
+              }
               _this.allArtInfos.push(item)
             })
           })
@@ -203,9 +221,13 @@ export default defineComponent({
           });
       }
     },
-    setid(id) {
-      var _this = this
-      _this.$q.cookies.set('articleId', id)
+    getTopArticle() {
+      get("article/api/v1/topwms/").then((res) => {
+        res.result.forEach((item) => {
+          item.isTop = true;
+          this.allArtInfos.unshift(item);
+        });
+      });
     },
     // 跳转到修改信息页面
     tochangMsg() {
@@ -283,7 +305,6 @@ export default defineComponent({
   word-wrap: break-word
 
 .card_tol
-  width: 100%
   font-size: 15px !important
   font-weight: 600
   color: #333333
