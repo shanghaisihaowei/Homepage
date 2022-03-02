@@ -345,7 +345,7 @@
                       </div>
                     </td>
                   </tr>
-                  <tr>
+                  <tr v-show="this.$q.cookies.get('area') ==='China'">
                     <td height="30px">
                       <div style="cursor: pointer" @click="goTo('https://www.bilibili.com/video/BV15r4y1i7Ph?spm_id_from=333.999.0.0')">
 <!--                        软件教程-->
@@ -353,7 +353,7 @@
                       </div>
                     </td>
                   </tr>
-                  <tr>
+                  <tr v-show="this.$q.cookies.get('area') ==='China'">
                     <td height="30px">
                       <div style="cursor: pointer" @click="goTo('https://www.bilibili.com/video/BV1vm4y1f7uo?spm_id_from=333.999.0.0')">
 <!--                        扫描枪教程-->
