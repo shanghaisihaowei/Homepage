@@ -38,6 +38,19 @@
       <q-btn flat>{{ $t("notice.nomoredata") }}</q-btn>
     </div>
   </div>
+  <q-page-sticky
+    position="bottom-right"
+    :offset="[25, 200]"
+  >
+    <img @click="cantpush()" style="width: 50px" src="statics/phone/push_plugins.svg" alt="">
+  </q-page-sticky>
+  <q-dialog seamless v-model="cant_push">
+    <q-card class="shadow-0 flex flex-center" style="background-color: black;opacity: 0.5;color: white;width: 220px;height:50px;font-size: 15px">
+      <div>
+        {{ $t('community.mobile.cantpush') }}
+      </div>
+    </q-card>
+  </q-dialog>
 </template>
 
 <script>
@@ -51,6 +64,7 @@ export default{
   },
   data() {
     return {
+      cant_push: false,
       head_title: "",
       meta: "",
       pluginList: [],
@@ -86,10 +100,10 @@ export default{
       handler(val) {
         this.affiliation = val.params.belong === "GreaterWMS" ? 0 : 1;
         if (val.params.belong === "GreaterWMS") {
-          this.$store.dispatch("bbsChange/logo", "img:statics/logo_black.svg");
+          this.$store.dispatch("bbsChange/mobileLogo", "statics/logo.svg");
           this.$store.dispatch("bbsChange/titletype", "GreaterWMS");
         } else {
-          this.$store.dispatch("bbsChange/logo", "img:statics/DV_logo.svg");
+          this.$store.dispatch("bbsChange/mobileLogo", "statics/DV_logo_w.svg");
           this.$store.dispatch("bbsChange/titletype", "DVAdmin");
         }
         this.getPlginsList();
@@ -249,6 +263,13 @@ export default{
         };
       }
     },
+    cantpush() {
+      var _this = this
+      _this.cant_push = !_this.cant_push
+      setTimeout(function(){
+       _this.cant_push = false
+      },2000)
+    }
   },
   created() {
     this.getAdvertisingImg();
