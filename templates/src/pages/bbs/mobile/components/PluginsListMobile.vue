@@ -14,14 +14,14 @@
       :style="{ cursor: showBtn ? 'default' : 'pointer' }"
     >
       <q-card-section class="col-10">
-        <div class="flex" style="align-items: center">
-          <div style="font-size: 20px; font-weight: 600">
+        <div class="flex row" style="align-items: center">
+          <div :class="{'plugin_des_detail col-12':showBtn,'plugin_des col-9':!showBtn,'plugin_des col-12':item.soft_label !== 2}" style="font-size: 16px; font-weight: 600">
             {{ item.name }}
           </div>
           <div
-            class="q-ml-sm"
+            class="q-ml-sm col-2"
             style="
-              font-size: 14px;
+              font-size: 12px;
               background-color: #116fec;
               color: white;
               padding: 0 7px;
@@ -33,19 +33,21 @@
           </div>
         </div>
         <div
-          style="font-size: 16px; color: #666666"
+          style="font-size: 14px; color: #666666"
           :class="showBtn ? 'q-my-md plugin_des_detail' : 'q-my-md plugin_des'"
         >
           {{ item.brief }}
         </div>
-        <div class="flex q-mb-md">
+        <div style="margin-left: -10px;margin-top: -10px" class="flex q-mb-md">
           <q-btn
             v-for="(tab, index) in item.tab"
             :key="index"
-            class="text-blue q-mr-sm"
+            padding="xs"
+            class="text-blue"
             unelevated
             color="cyan-1"
-            >{{ tab.tab_name }}</q-btn
+            style="max-width: 140px;margin-left: 10px;padding: 5px 10px;margin-top: 10px"
+            ><span style="font-size: 13px;" class="plugin_des">{{ tab.tab_name }}</span></q-btn
           >
         </div>
         <div class="flex" style="align-items: center">
@@ -61,7 +63,7 @@
           </div>
         </div>
       </q-card-section>
-      <q-card-section class="col-2">
+      <q-card-section class="col-2" style="padding-left: 0">
         <div
           v-if="item.check == '未审核' || item.check == '审核未通过'"
           :style="
@@ -90,10 +92,7 @@
           }}
         </div>
         <div style="clear: both"></div>
-        <div
-          v-if="pluginList[0].id"
-          style="font-size: 20px; margin-top: 43px; float: right"
-        >
+        <div style="font-size: 18px; margin-top: 43px">
           <div
             style="color: #116fec; font-weight: 600"
             v-if="item.release_form == 0"
@@ -101,7 +100,7 @@
             {{ $t("community.e_shop_view.sort_free") }}
           </div>
           <div
-            style="font-size: 22px; color: #d51717; font-weight: 600"
+            style="font-size: 16px; color: #d51717; font-weight: 600"
             v-if="item.release_form != 0"
           >
             {{ item.dollar ? "$" : "￥"
@@ -169,16 +168,10 @@
         </div>
       </q-card-section>
     </q-card>
-    <pay-dialog
-      @closeDialog="closeDialog"
-      :showPay="showPay"
-      :pluginInfo="pluginInfo"
-    ></pay-dialog>
   </div>
 </template>
 <script>
 import { defineComponent } from "vue";
-import PayDialog from "./PayDialog";
 import { postauth } from "boot/axios";
 export default defineComponent({
   props: {
@@ -187,9 +180,7 @@ export default defineComponent({
     alreadyBought: "",
     isMyPlugins: "",
   },
-  components: {
-    PayDialog,
-  },
+
   data() {
     return {
       showBtn: false,
@@ -205,7 +196,7 @@ export default defineComponent({
     //跳转插件详情页
     goPluginDetail(id) {
       this.$router.push({
-        path: `/market/pluginDetail/${id}`,
+        path: `/community/mobile/pluginsDetail/${id}`,
       });
     },
     //关闭dialog
@@ -234,7 +225,6 @@ export default defineComponent({
       }
     },
   },
-  created() {},
 });
 </script>
 <style scoped lang="sass">

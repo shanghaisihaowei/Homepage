@@ -32,6 +32,7 @@ export default {
         title2: '倉庫管理AIの提供',
         code_warehouse: 'コード',
         features: '私たちの特徴',
+        partner: '相棒',
         400: 'Bad request (400)',
         401: 'Authorization not obtained (401)',
         403: 'Access denied (403)',
@@ -171,6 +172,7 @@ export default {
         content: 'コンテンツ',
         dvadmin: 'DVAdminプラグイン',
         greaterwms: 'GreaterWMSプラグイン',
+        top: 'トップ',
         myorder: {
             index: '私の注文',
             //new

@@ -52,6 +52,7 @@ export default {
         title2: '为仓库管理赋予AI智能',
         code_warehouse: '源 代 码',
         features: '我们的特点',
+        partner: '合作伙伴'
     },
     contact: {
         tip: '上海四号位信息科技有限公司，优秀的系统集成方案服务商。其自主研发的 GreaterWMS（开源仓库管理系统）已被广泛应用于时尚、零售、快消品、医 药、电商、母婴等行业，且为国内外众多企业指定为官方物流软件服务商。',
@@ -193,6 +194,7 @@ export default {
         confirm_avatar: '请点击保存按钮即可生效！',
         community_chose: '请选择需要发布的社区',
         password_err: '账号或密码错误，请检查后再试！',
+        top: '置顶',
         withdraw: {
             withdrawal_application: '提现申请',
             submit_amount: '提交金额',
@@ -407,12 +409,12 @@ export default {
             my_plugins: '您暂时没有发布插件，快去发布吧～',
         },
         mobile: {
-          cantbuy: '目前手机端暂不支持下载和购买,请前往电脑端进行购买即下载.',
-          cantpush: '发布插件请到电脑端进行操作'
+            cantbuy: '目前手机端暂不支持下载和购买,请前往电脑端进行购买即下载.',
+            cantpush: '发布插件请到电脑端进行操作'
         }
     },
     shop: {
-      index: '商城',
-      hardwareShop: '硬件商城'
+        index: '商城',
+        hardwareShop: '硬件商城'
     }
 }

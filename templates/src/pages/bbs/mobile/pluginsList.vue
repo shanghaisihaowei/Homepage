@@ -17,7 +17,7 @@
             :name="item"
             v-for="item in sortordOptions"
             :key="item"
-            style="font-weight: 600"
+            style="font-weight: 600;font-size: 16px"
           >
             {{ item }}
           </q-tab>
@@ -40,9 +40,9 @@
   </div>
   <q-page-sticky
     position="bottom-right"
-    :offset="[25, 200]"
+    :offset="[25, 165]"
   >
-    <img @click="cantpush()" style="width: 50px" src="statics/phone/push_plugins.svg" alt="">
+    <img @click="cantpush()" style="width: 56px" src="statics/phone/push_plugins.svg" alt="">
   </q-page-sticky>
   <q-dialog seamless v-model="cant_push">
     <q-card class="shadow-0 flex flex-center" style="background-color: black;opacity: 0.5;color: white;width: 220px;height:50px;font-size: 15px">
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import PluginsList from "../home_components/market/components/PluginsList";
+import PluginsList from "./components/PluginsListMobile";
 import { get } from "boot/axios";
 import { createMetaMixin } from "quasar";
 
