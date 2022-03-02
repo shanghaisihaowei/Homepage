@@ -13,16 +13,14 @@
       "
       :style="{ cursor: showBtn ? 'default' : 'pointer' }"
     >
-      <q-card-section :class="{'col-9':this.$q.platform.is.mobile,'col-10':!this.$q.platform.is.mobile}">
-        <div :class="{'flex row':!this.$q.platform.is.mobile,'row':this.$q.platform.is.mobile}" style="align-items: center">
-          <div class="plugin_des" :class="{'col-9':this.$q.platform.is.mobile,'col-10':!this.$q.platform.is.mobile}" style="font-size: 20px; font-weight: 600">
+      <q-card-section class="col-10">
+        <div class="flex" style="align-items: center">
+          <div style="font-size: 20px; font-weight: 600">
             {{ item.name }}
           </div>
           <div
             class="q-ml-sm"
-            :class="{'col-2':this.$q.platform.is.mobile,'col-1':!this.$q.platform.is.mobile,}"
             style="
-              width: 45px!important;
               font-size: 14px;
               background-color: #116fec;
               color: white;
@@ -31,7 +29,7 @@
             "
             v-if="item.soft_label === 2"
           >
-            官方
+            {{ $t("community.e_shop_view.official") }}
           </div>
         </div>
         <div
@@ -63,7 +61,7 @@
           </div>
         </div>
       </q-card-section>
-      <q-card-section :class="{'col-3':this.$q.platform.is.mobile,'col-2':!this.$q.platform.is.mobile}">
+      <q-card-section class="col-2">
         <div
           v-if="item.check == '未审核' || item.check == '审核未通过'"
           :style="
@@ -133,7 +131,7 @@
           <q-btn
             flat
             v-if="item.release_form"
-            v-show="showBtn && !this.$q.platform.is.mobile"
+            v-show="showBtn"
             :color="alreadyBought ? 'grey' : 'primary'"
             class="q-ml-md"
             :disabled="alreadyBought"
@@ -203,15 +201,9 @@ export default defineComponent({
 
     //跳转插件详情页
     goPluginDetail(id) {
-      if (this.$q.platform.is.mobile) {
-        this.$router.push({
-          path: `/community/mobile/pluginsDetail/${id}`,
-        });
-      } else  {
-        this.$router.push({
-          path: `/market/pluginDetail/${id}`,
-        });
-      }
+      this.$router.push({
+        path: `/market/pluginDetail/${id}`,
+      });
     },
     //关闭dialog
     closeDialog(val) {
