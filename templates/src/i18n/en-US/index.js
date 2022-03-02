@@ -38,6 +38,7 @@ export default {
     title2: 'Warehouse AI Genius',
     code_warehouse: 'Source Code',
     features: 'Our Features',
+    partner: 'Partner',
     400: 'Bad request (400)',
     401: 'Authorization not obtained (401)',
     403: 'Access denied (403)',

@@ -196,11 +196,6 @@ export default defineComponent({
   },
   mounted() {
     var _this = this
-    if (_this.$q.platform.is.mobile) {
-      this.$router.push({name: 'community_mobile'})
-    } else {
-      this.$router.push({name: 'community'})
-    }
     if (_this.$q.cookies.has('lang')) {
       if (_this.$q.cookies.get('lang') === 'ja') {
         _this.$q.cookies.set('lang', 'en-US')

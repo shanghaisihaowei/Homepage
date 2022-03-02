@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="art_msg_mobile">
   <q-card class="col-12 shadow-0">
     <!--                  返回按钮-->
     <q-card-actions>

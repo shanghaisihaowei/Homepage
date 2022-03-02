@@ -38,7 +38,7 @@
   }
 .art_msg{
     max-width: calc(50vw);
-}  
+}
 pre code{
     display:block;
     overflow-x: auto;
@@ -70,4 +70,7 @@ blockquote{
     p{
         margin:0;
     }
+}
+.art_msg_mobile img {
+  max-width: 100%;
 }

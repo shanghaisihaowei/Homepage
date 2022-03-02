@@ -32,6 +32,7 @@ export default {
         title2: '為倉庫管理賦予AI智能',
         code_warehouse: '源代碼',
         features: '我們的特點',
+        partner: '合作夥伴',
         400: '錯誤請求(400)',
         401: '未取得授權(401)',
         403: '拒絕訪問(403)',

@@ -514,7 +514,7 @@
     </div>
 <!--    合作伙伴-->
     <div>
-      <div class="text-center" style="font-size: 32px;font-weight: 500;color: #333333">合作伙伴</div>
+      <div class="text-center" style="font-size: 32px;font-weight: 500;color: #333333">{{ $t('index.partner') }}</div>
       <q-separator
         inset
         style="
