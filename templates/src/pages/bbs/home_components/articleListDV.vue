@@ -432,6 +432,8 @@ export default defineComponent({
     _this.getList();
     _this.$store.dispatch("bbsChange/logo", "img:statics/DV_logo.svg");
     _this.$store.dispatch("bbsChange/titletype", "DVAdmin");
+    this.$store.dispatch("bbsChange/giteeUrl", 'https://gitee.com/liqianglog/django-vue-admin');
+    this.$store.dispatch("bbsChange/githubUrl", 'https://github.com/liqianglog/django-vue-admin');
   },
 });
 </script>

@@ -34,3 +34,9 @@ export function titletype(context, val) {
 export function mobileLogo(context, val) {
   context.commit("MOBILELOGO", val);
 }
+export function giteeUrl(context, val) {
+  context.commit("GITEEURL", val);
+}
+export function githubUrl(context, val) {
+  context.commit("GITHUBURL", val);
+}

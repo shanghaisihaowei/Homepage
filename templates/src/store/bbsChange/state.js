@@ -19,6 +19,8 @@ export default function () {
         link: 'GreaterWMS',
         logo: 'img:statics/logo_black.svg',
         mobileLogo: 'statics/logo.svg',
-        titletype: 'GreaterWMS'
+        titletype: 'GreaterWMS',
+        giteeUrl: 'https://gitee.com/Singosgu/GreaterWMS',
+        githubUrl: 'https://github.com/Singosgu/GreaterWMS'
     }
 }

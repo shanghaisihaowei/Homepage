@@ -437,6 +437,8 @@ export default defineComponent({
     _this.getList();
     this.$store.dispatch("bbsChange/logo", "img:statics/logo_black.svg");
     this.$store.dispatch("bbsChange/titletype", "GreaterWMS");
+    this.$store.dispatch("bbsChange/giteeUrl", 'https://gitee.com/Singosgu/GreaterWMS');
+    this.$store.dispatch("bbsChange/githubUrl", 'https://github.com/Singosgu/GreaterWMS');
   },
 });
 </script>

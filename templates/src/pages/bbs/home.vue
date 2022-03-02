@@ -41,14 +41,14 @@
             round
             flat
             icon="img:statics/github.png"
-            @click="goTo('https://github.com/Singosgu/GreaterWMS')"
+            @click="goTo(this.githubUrl)"
           />
           <q-btn
             v-show="langlable === '简体中文'"
             round
             flat
             icon="img:statics/gitee.ico"
-            @click="goTo('https://gitee.com/Singosgu/GreaterWMS')"
+            @click="goTo(this.giteeUrl)"
           />
           <q-btn
             class=""
@@ -1258,6 +1258,12 @@ export default defineComponent({
     titletype() {
       return this.$store.state.bbsChange.titletype;
     },
+    giteeUrl() {
+      return this.$store.state.bbsChange.giteeUrl;
+    },
+    githubUrl() {
+      return this.$store.state.bbsChange.githubUrl;
+    },
   },
   mixins: [
     createMetaMixin(function () {
@@ -1762,6 +1768,8 @@ export default defineComponent({
       this.$store.dispatch("bbsChange/titletype", "DVAdmin");
       this.homeurl = "https://django-vue-admin.com/";
       this.homename = "DVadmin";
+      this.$store.dispatch("bbsChange/giteeUrl", 'https://gitee.com/liqianglog/django-vue-admin');
+      this.$store.dispatch("bbsChange/githubUrl", 'https://github.com/liqianglog/django-vue-admin');
     },
     click_gwms() {
       this.$store.dispatch("bbsChange/link", "gwms");
@@ -1769,6 +1777,8 @@ export default defineComponent({
       this.$store.dispatch("bbsChange/titletype", "GreaterWMS");
       this.homeurl = "Homepage";
       this.homename = "GreaterWMS";
+      this.$store.dispatch("bbsChange/giteeUrl", 'https://gitee.com/Singosgu/GreaterWMS');
+      this.$store.dispatch("bbsChange/githubUrl", 'https://github.com/Singosgu/GreaterWMS');
     },
     click_DVadmin_market() {
       this.$store.dispatch("bbsChange/link", "plugindv");
@@ -1776,6 +1786,8 @@ export default defineComponent({
       this.$store.dispatch("bbsChange/titletype", "DVAdmin");
       this.homeurl = "https://django-vue-admin.com/";
       this.homename = "DVadmin";
+      this.$store.dispatch("bbsChange/giteeUrl", 'https://gitee.com/liqianglog/django-vue-admin');
+      this.$store.dispatch("bbsChange/githubUrl", 'https://github.com/liqianglog/django-vue-admin');
     },
     click_gwms_market() {
       this.$store.dispatch("bbsChange/link", "plugingwms");
@@ -1783,6 +1795,8 @@ export default defineComponent({
       this.$store.dispatch("bbsChange/titletype", "GreaterWMS");
       this.homeurl = "Homepage";
       this.homename = "GreaterWMS";
+      this.$store.dispatch("bbsChange/giteeUrl", 'https://gitee.com/liqianglog/django-vue-admin');
+      this.$store.dispatch("bbsChange/githubUrl", 'https://github.com/liqianglog/django-vue-admin');
     },
     chose_gwms_type() {
       var _this = this;

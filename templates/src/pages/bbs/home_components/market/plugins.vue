@@ -102,9 +102,13 @@ export default {
         if (val.params.belong === "GreaterWMS") {
           this.$store.dispatch("bbsChange/logo", "img:statics/logo_black.svg");
           this.$store.dispatch("bbsChange/titletype", "GreaterWMS");
+          this.$store.dispatch("bbsChange/giteeUrl", 'https://gitee.com/Singosgu/GreaterWMS');
+          this.$store.dispatch("bbsChange/githubUrl", 'https://github.com/Singosgu/GreaterWMS');
         } else {
           this.$store.dispatch("bbsChange/logo", "img:statics/DV_logo.svg");
           this.$store.dispatch("bbsChange/titletype", "DVAdmin");
+          this.$store.dispatch("bbsChange/giteeUrl", 'https://gitee.com/liqianglog/django-vue-admin');
+          this.$store.dispatch("bbsChange/githubUrl", 'https://github.com/liqianglog/django-vue-admin');
         }
         this.getPlginsList();
         this.$nextTick(() => {

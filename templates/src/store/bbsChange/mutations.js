@@ -34,3 +34,9 @@ export function TITLETYPE(state, opened) {
 export function MOBILELOGO(state, opened) {
   state.mobileLogo = opened;
 }
+export function GITEEURL(state, opened) {
+  state.giteeUrl = opened;
+}
+export function GITHUBURL(state, opened) {
+  state.githubUrl = opened;
+}
