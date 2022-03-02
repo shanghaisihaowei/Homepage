@@ -558,7 +558,7 @@ class TopArticleViewModelSerializer(serializers.ModelSerializer):
     updata_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
     class Meta:
         model = models.Article
-        fields = ['id','title','intro','author_icon','language','changed_time','create_time','updata_time','top']
+        fields = ['id','title','intro','author_icon','language','changed_time','create_time','updata_time']
     def get_author_icon(self, obj):
         request = self.context.get('request')
         # icon_url = "%s://%s%s%s" % (request.scheme, request.META['HTTP_HOST'], settings.MEDIA_URL, obj.author.icon)
