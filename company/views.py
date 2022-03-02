@@ -130,14 +130,27 @@ class ArticleBannerView(ModelViewSet):
     def get_community_type(self):
         community=self.request.query_params.get('community')
         return community
+    def get_lang(self):
+        lang = self.request.META.get('HTTP_LANGUAGE')
+        return lang
 
     def get_queryset(self):
         community=self.get_community_type()
+        lang=self.get_lang()
+
         if community:
-            queryset = models.ArticleBanner.objects.filter(community=community,is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+            if lang == 'zh-hans':
+                queryset = models.ArticleBanner.objects.filter(language=0,community=community,is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+            else:
+                queryset = models.ArticleBanner.objects.filter(language=1,community=community,is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
         else:
-            queryset = models.ArticleBanner.objects.filter(community=0, is_delete=False, is_show=True).order_by(
-                'orders')[:settings.BANNER_COUNT]
+            if lang == 'zh-hans':
+                queryset = models.ArticleBanner.objects.filter(language=0,community=0, is_delete=False, is_show=True).order_by(
+                    'orders')[:settings.BANNER_COUNT]
+            else:
+                queryset = models.ArticleBanner.objects.filter(language=1, community=0, is_delete=False,
+                                                               is_show=True).order_by(
+                    'orders')[:settings.BANNER_COUNT]
         return queryset
 
     def get_serializer_class(self):
@@ -171,14 +184,29 @@ class MobileArticleBannerView(ModelViewSet):
         community = self.request.query_params.get('community')
         return community
 
+    def get_lang(self):
+        lang = self.request.META.get('HTTP_LANGUAGE')
+        return lang
+
     def get_queryset(self):
         community=self.get_community_type()
+        lang=self.get_lang()
         if community:
-            queryset = models.MobileArticleBanner.objects.filter(community=community,is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+            if lang == 'zh-hans':
+                queryset = models.MobileArticleBanner.objects.filter(language=0,community=community,is_delete=False,is_show=True).order_by('orders')[:settings.BANNER_COUNT]
+            else:
+                queryset = models.MobileArticleBanner.objects.filter(language=1, community=community, is_delete=False,
+                                                                     is_show=True).order_by('orders')[
+                           :settings.BANNER_COUNT]
         else:
-            queryset = models.MobileArticleBanner.objects.filter(community=0, is_delete=False,
-                                                                 is_show=True).order_by('orders')[
-                       :settings.BANNER_COUNT]
+            if lang == 'zh-hans':
+                queryset = models.MobileArticleBanner.objects.filter(language=0,community=0, is_delete=False,
+                                                                     is_show=True).order_by('orders')[
+                           :settings.BANNER_COUNT]
+            else:
+                queryset = models.MobileArticleBanner.objects.filter(language=1,community=0, is_delete=False,
+                                                                     is_show=True).order_by('orders')[
+                           :settings.BANNER_COUNT]
         return queryset
 
 
