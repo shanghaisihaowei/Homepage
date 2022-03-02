@@ -1,4 +1,7 @@
 <template>
+  <div>
+    <img @click="goTo(bannerUrl[0])" :src="bannerImgUrl[0]" alt="" style="max-width: 400px">
+  </div>
   <div style="padding-bottom: 50px">
     <q-input v-model="pagelocation" style="display:none"/>
     <!--    搜索框-->
@@ -32,27 +35,27 @@
                   path: `/community/mobile/GreaterWMSDetail/${item.id}`
                 });setid(item.id)
               ">
-      <q-card-section>
-        <div class=" card_tol Wrap_two">
-          <a
-            style="cursor: pointer"
-            class="card_tol Wrap_two"
-          >
-            {{ item.title }}
-          </a>
-        </div>
-      </q-card-section>
-
-      <q-card-section style="margin-top: -28px" horizontal>
-        <q-card-section v-show="item.cover != null">
-          <q-img
-            :src=item.cover
-            style="width: 180px;
-              height: 110px;border-radius: 4px;"/>
+        <q-card-section>
+          <div class=" card_tol Wrap_two">
+            <a
+              style="cursor: pointer"
+              class="card_tol Wrap_two"
+            >
+              {{ item.title }}
+            </a>
+          </div>
         </q-card-section>
 
-        <q-card-section v-html="item.intro" class="article_text "></q-card-section>
-      </q-card-section>
+        <q-card-section style="margin-top: -28px" horizontal>
+          <q-card-section v-show="item.cover != null">
+            <q-img
+              :src=item.cover
+              style="width: 180px;
+              height: 110px;border-radius: 4px;"/>
+          </q-card-section>
+
+          <q-card-section v-html="item.intro" class="article_text "></q-card-section>
+        </q-card-section>
       </div>
 
       <q-card-actions style="margin-top: -10px">
@@ -103,7 +106,7 @@
 <script>
 import {defineComponent} from 'vue';
 import {get, getauth} from "boot/axios";
-import {throttle, createMetaMixin} from 'quasar'
+import {throttle, createMetaMixin, openURL} from 'quasar'
 
 export default defineComponent({
   data() {
@@ -121,6 +124,8 @@ export default defineComponent({
         this.$t("community.hottest"),
       ],
       sortordVal: this.$t("community.newest"),
+      bannerImgUrl: [],
+      bannerUrl: []
     }
   },
   mixins: [
@@ -155,6 +160,9 @@ export default defineComponent({
     }
   },
   methods: {
+    goTo(e) {
+      openURL(e)
+    },
     getList() {
       var _this = this
       if (_this.pathname !== null) {
@@ -204,6 +212,22 @@ export default defineComponent({
       var _this = this
       _this.$store.dispatch('bbsChange/isIndexMenu', false)
       _this.$router.push({name: 'changePsd'})
+    },
+    // 获取广告位信息
+    getbanner() {
+      var _this = this
+      get('resp/api/v1/mobile_banner/?community=0').then(res => {
+        res.forEach((item,index) =>{
+          _this.bannerImgUrl[index] = item.image
+          _this.bannerUrl[index] = item.link
+        })
+      }).catch(err => {
+        _this.$q.notify({
+          message: err.detail,
+          icon: 'close',
+          color: 'negative'
+        })
+      })
     }
   },
   created() {
@@ -243,6 +267,7 @@ export default defineComponent({
     var _this = this;
     _this.getList = throttle(this.getList, 1000)
     _this.getList()
+    _this.getbanner()
     this.$store.dispatch("bbsChange/mobileLogo", 'statics/logo.svg');
     this.$store.dispatch("bbsChange/titletype", 'GreaterWMS');
   }
