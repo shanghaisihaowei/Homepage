@@ -1,9 +1,7 @@
 <template>
   <div style="max-width: 400px">
     <q-card v-if="imgSrc[0]" flat class="q-mb-lg">
-      <a :title="imgTitle[0]" :href="imgHref[0]">
-        <img :src="imgSrc[0]" style="width: 100%" />
-      </a>
+        <img @click="goTo(imgHref[0])" :src="imgSrc[0]" style="width: 100%" />
     </q-card>
     <q-card flat class="header_container flex">
       <q-card-section style="padding: 0">
@@ -56,7 +54,7 @@
 <script>
 import PluginsList from "./components/PluginsListMobile";
 import { get } from "boot/axios";
-import { createMetaMixin } from "quasar";
+import {createMetaMixin, openURL} from "quasar";
 
 export default{
   components: {
@@ -124,6 +122,9 @@ export default{
     }),
   ],
   methods: {
+    goTo(e) {
+      openURL(e)
+    },
     //设置插件列表和分页
     setPluginsList(res) {
       this.pluginList = res.results;
