@@ -2,7 +2,11 @@
   <div>
     <q-input v-model="pagelocation" style="display: none" />
     <q-card v-if="imgSrc[0]" flat class="q-mb-lg">
-      <a :title="imgTitle[0]" :href="imgHref[0]">
+      <a
+        style="display: block; line-height: 0"
+        :title="imgTitle[0]"
+        :href="imgHref[0]"
+      >
         <img :src="imgSrc[0]" style="width: 100%" />
       </a>
     </q-card>
@@ -437,8 +441,14 @@ export default defineComponent({
     _this.getList();
     this.$store.dispatch("bbsChange/logo", "img:statics/logo_black.svg");
     this.$store.dispatch("bbsChange/titletype", "GreaterWMS");
-    this.$store.dispatch("bbsChange/giteeUrl", 'https://gitee.com/Singosgu/GreaterWMS');
-    this.$store.dispatch("bbsChange/githubUrl", 'https://github.com/Singosgu/GreaterWMS');
+    this.$store.dispatch(
+      "bbsChange/giteeUrl",
+      "https://gitee.com/Singosgu/GreaterWMS"
+    );
+    this.$store.dispatch(
+      "bbsChange/githubUrl",
+      "https://github.com/Singosgu/GreaterWMS"
+    );
   },
 });
 </script>
