@@ -2,7 +2,11 @@
   <div>
     <q-input v-model="pagelocation" style="display: none" />
     <q-card v-if="imgSrc[0]" flat class="q-mb-lg">
-      <a :title="imgTitle[0]" :href="imgHref[0]">
+      <a
+        style="display: block; line-height: 0"
+        :title="imgTitle[0]"
+        :href="imgHref[0]"
+      >
         <img :src="imgSrc[0]" style="width: 100%" />
       </a>
     </q-card>
@@ -432,8 +436,14 @@ export default defineComponent({
     _this.getList();
     _this.$store.dispatch("bbsChange/logo", "img:statics/DV_logo.svg");
     _this.$store.dispatch("bbsChange/titletype", "DVAdmin");
-    this.$store.dispatch("bbsChange/giteeUrl", 'https://gitee.com/liqianglog/django-vue-admin');
-    this.$store.dispatch("bbsChange/githubUrl", 'https://github.com/liqianglog/django-vue-admin');
+    this.$store.dispatch(
+      "bbsChange/giteeUrl",
+      "https://gitee.com/liqianglog/django-vue-admin"
+    );
+    this.$store.dispatch(
+      "bbsChange/githubUrl",
+      "https://github.com/liqianglog/django-vue-admin"
+    );
   },
 });
 </script>
