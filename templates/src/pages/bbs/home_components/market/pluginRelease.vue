@@ -1,7 +1,12 @@
 <template>
   <div class="release_container">
     <q-card square flat style="color: #999999" class="bottom_border q-py-md"
-      ><q-btn class="text-body1" @click="this.$router.go(-1)" flat>
+      ><q-btn
+        padding="5px 9px"
+        class="text-body1 q-ml-sm"
+        @click="this.$router.go(-1)"
+        flat
+      >
         &lt;{{ $t("community.e_shop_view.back") }}
       </q-btn></q-card
     >

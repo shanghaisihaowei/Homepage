@@ -57,9 +57,11 @@
                   float: right;
                 "
               >
-                <span class="my-font" style="margin-left: 10px">{{
-                  $t("community.push_note")
-                }}</span>
+                <span
+                  class="my-font"
+                  style="margin-left: 10px; font-size: 16px"
+                  >{{ $t("community.push_article") }}</span
+                >
               </q-btn>
             </div>
           </q-card-section>
