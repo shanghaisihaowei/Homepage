@@ -72,7 +72,7 @@
                 :label=navbar.contact
                 :to="{ name: 'contact_us' }"
                 style="font-size: 16px;font-weight: 400"
-                @click="contact_us = true"
+                @click="contact_us = true;ScrollToTop()"
               />
               <!--          选择语言下拉框-->
               <q-btn-dropdown :label=langlable style="font-size: 16px;font-weight: 400">
@@ -814,13 +814,10 @@ export default defineComponent({
     }
   },
   mounted() {
-    var _this = this
-    if (_this.$q.platform.is.mobile) {
+    if (this.$q.platform.is.mobile) {
       this.ismobile = true
-      this.$router.push({name: 'phone'})
     } else {
       this.ismobile = false
-      this.$router.push({name: 'Homepage'})
     }
   },
   created() {

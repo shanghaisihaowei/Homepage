@@ -597,6 +597,10 @@ export default defineComponent({
     }
   },
   mounted() {
+    if (this.$q.platform.is.mobile) {
+      this.ismobile = true
+      this.$router.push({name: 'phone'})
+    }
     if (this.$q.cookies.get("lang") === "zh-hans") {
       this.videourl = window.g.BaseUrl + "media/video/GreaterWMSCN.mp4";
       this.posterurl = window.g.BaseUrl + "media/poster/postercn.jpg";
