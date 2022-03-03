@@ -562,7 +562,7 @@ textarea:focus {
   //box-shadow: 0 12px 20px -11px #5b86e5;
   background: #ffffff;
   border-radius: 26px;
-  box-shadow: 0px 10px 30px 9px rgba(192, 192, 192, 0.10);
+  box-shadow: 0 10px 30px 9px rgba(192, 192, 192, 0.10);
   transition: all 0.3s ease-in-out;
 }
 
@@ -669,7 +669,7 @@ tr td a:hover, tr td a:active {
 <script>
 import {defineComponent, ref} from 'vue'
 import {openURL, createMetaMixin} from 'quasar'
-import {get, getauth, post} from "boot/axios";
+import { getauth } from "boot/axios";
 
 export default defineComponent({
   name: 'Index',
