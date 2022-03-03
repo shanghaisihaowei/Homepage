@@ -272,6 +272,7 @@ export default defineComponent({
       imgSrc: [],
       imgHref: [],
       imgTitle: [],
+      hasGetTop: false,
     };
   },
   mixins: [
@@ -319,7 +320,9 @@ export default defineComponent({
             res.result.results.forEach((item) => {
               _this.allArtInfos.push(item);
             });
-            _this.getTopArticle();
+            if (!_this.hasGetTop) {
+              _this.getTopArticle();
+            }
           })
           .catch((err) => {
             _this.$q.notify({
@@ -375,6 +378,7 @@ export default defineComponent({
           item.isTop = true;
           this.allArtInfos.unshift(item);
         });
+        this.hasGetTop = true;
       });
     },
   },
