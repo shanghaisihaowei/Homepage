@@ -196,7 +196,9 @@ export default {
             this.affiliation;
           break;
         case 1:
-          requsetUrl = "software/api/v1/softwareget/?soft_label=2";
+          requsetUrl =
+            "software/api/v1/softwareget/?soft_label=2&affiliation=" +
+            this.affiliation;
           break;
         case 2:
           requsetUrl =
