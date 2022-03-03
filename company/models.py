@@ -63,7 +63,7 @@ class ArticleBanner(models.Model):
     is_show = models.BooleanField(default=True, verbose_name='是否上架')
     orders = models.IntegerField(verbose_name='优先级')
     community = models.SmallIntegerField(choices = community_choices,default=0,verbose_name='归属社区')
-    language = models.BooleanField(choices=language_select,verbose_name='语言')
+    language = models.SmallIntegerField(choices=language_select,default=0,verbose_name='语言')
 
     class Meta:
         db_table = 'homepage_article_banner'
@@ -85,7 +85,7 @@ class MobileArticleBanner(models.Model):
     is_show = models.BooleanField(default=True, verbose_name='是否上架')
     orders = models.IntegerField(verbose_name='优先级')
     community = models.SmallIntegerField(choices=community_choices, default=0, verbose_name='归属社区')
-    language = models.BooleanField(choices=language_select, verbose_name='语言')
+    language = models.SmallIntegerField(choices=language_select,default=0, verbose_name='语言')
 
 
     class Meta:
