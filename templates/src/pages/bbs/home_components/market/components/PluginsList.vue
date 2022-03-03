@@ -132,7 +132,6 @@
             }}</span
           >
           <q-btn
-            flat
             v-if="item.release_form"
             v-show="showBtn"
             :color="alreadyBought ? 'grey' : 'primary'"
