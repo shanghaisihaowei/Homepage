@@ -4,6 +4,7 @@ const routes = [{
     children: [{
         path: '',
         name: 'index',
+        redirect: 'Homepage',
         component: () => import('pages/Index.vue'),
         children: [{
             path: 'Homepage',
