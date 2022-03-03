@@ -598,7 +598,6 @@ export default defineComponent({
   },
   mounted() {
     if (this.$q.platform.is.mobile) {
-      this.ismobile = true
       this.$router.push({name: 'phone'})
     }
     if (this.$q.cookies.get("lang") === "zh-hans") {
