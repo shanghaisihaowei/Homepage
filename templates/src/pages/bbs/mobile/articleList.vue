@@ -138,7 +138,8 @@ export default defineComponent({
       ],
       sortordVal: this.$t("community.newest"),
       bannerImgUrl: [],
-      bannerUrl: []
+      bannerUrl: [],
+      hasGetTop: false
     }
   },
   mixins: [
@@ -185,7 +186,9 @@ export default defineComponent({
             res.result.results.forEach(item => {
               _this.allArtInfos.push(item)
             })
-            _this.getTopArticle()
+            if (_this.hasGetTop === false) {
+              _this.getTopArticle()
+            }
           })
           .catch((err) => {
             _this.$q.notify({
@@ -226,6 +229,7 @@ export default defineComponent({
           item.isTop = true;
           this.allArtInfos.unshift(item);
         });
+        this.hasGetTop = true
       });
     },
     // 跳转到修改信息页面
