@@ -520,6 +520,9 @@ export default defineComponent({
     }
   },
   mounted() {
+    if (!this.$q.platform.is.mobile) {
+      this.$router.push({name: 'Homepage'})
+    }
     this.getadvertiseUrl()
     if (this.$q.cookies.has('area')) {
       if (this.$q.cookies.get('area') !== 'China') {
