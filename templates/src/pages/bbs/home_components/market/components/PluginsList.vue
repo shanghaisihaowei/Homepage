@@ -132,9 +132,14 @@
             }}</span
           >
           <q-btn
+            flat
             v-if="item.release_form"
             v-show="showBtn"
-            :color="alreadyBought ? 'grey' : 'primary'"
+            :style="
+              alreadyBought
+                ? { background: 'grey', color: 'white' }
+                : { background: '#116fec', color: 'white' }
+            "
             class="q-ml-md"
             :disabled="alreadyBought"
             @click="buyPlugin"
