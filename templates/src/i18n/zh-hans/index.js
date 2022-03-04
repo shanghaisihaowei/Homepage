@@ -192,6 +192,7 @@ export default {
         default_page: '您暂时没有发布内容，快去发布吧～',
         default_pageComment: '暂时没有发布评论～',
         default_account: '您暂时还没有账户，快去添加吧～',
+        default_income: '暂时没有详情～',
         confirm_avatar: '请点击保存按钮即可生效！',
         community_chose: '请选择需要发布的社区',
         password_err: '账号或密码错误，请检查后再试！',

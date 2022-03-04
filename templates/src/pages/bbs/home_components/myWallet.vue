@@ -193,6 +193,20 @@
               {{ getWithdrawStatus(item.verify_status) }}
             </span>
           </div>
+          <div
+            class="flex flex-center text-center"
+            style="padding-top: 200px;padding-bottom: 30px"
+            v-show="detailsList2.length === 0"
+          >
+            <img src="statics/community/default_page.svg" alt="">
+          </div>
+          <div
+            v-show="detailsList2.length === 0"
+            class="flex flex-center text-center"
+            style="padding-bottom: 200px"
+          >
+            {{ $t('community.default_income') }}
+          </div>
         </q-tab-panel>
 
         <q-tab-panel class="no-padding" name="two">
@@ -225,6 +239,20 @@
               {{ item.total }}
             </span>
             <span class="text-center col-4 void"> {{ item.title }} </span>
+          </div>
+          <div
+            class="flex flex-center text-center"
+            style="padding-top: 200px;padding-bottom: 30px"
+            v-show="detailsList.length === 0"
+          >
+            <img src="statics/community/default_page.svg" alt="">
+          </div>
+          <div
+            v-show="detailsList.length === 0"
+            class="flex flex-center text-center"
+            style="padding-bottom: 200px"
+          >
+            {{ $t('community.default_income') }}
           </div>
         </q-tab-panel>
       </q-tab-panels>
