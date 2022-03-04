@@ -105,6 +105,19 @@
           >
         </div>
       </q-card-section>
+      <q-card-section
+        class="flex flex-center text-center"
+        style="margin-top: 30%"
+        v-show="accountList.length === 0"
+      >
+        <img src="statics/community/default_page.svg" alt="">
+      </q-card-section>
+      <q-card-section
+        v-show="accountList.length === 0"
+        class="flex flex-center text-center"
+      >
+        {{ $t('community.default_account') }}
+      </q-card-section>
     </q-card>
     <q-card flat class="q-mt-xl" v-show="showAddForm">
       <q-card-section
@@ -293,6 +306,7 @@ export default {
     getAccounts() {
       getauth(this.getAccountUrl).then((res) => {
         this.accountList = res;
+        console.log(111,this.accountList)
       });
     },
     getCode() {
@@ -358,4 +372,3 @@ export default {
     background-color: #116FEC
     color: white
 </style>
-    
